@@ -1,6 +1,6 @@
 # Project Name
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)]([your_buy_me_coffee_link_here](https://buymeacoffee.com/rickywai77c))
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/rickywai77c)
 
 ## Introduction
 Brief description of your project - what it does, why it's useful, and its main features.
