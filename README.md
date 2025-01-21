@@ -37,6 +37,7 @@ pip install -r requirements.txt
 ```
 
 ## Project Structure
+```
 project_name/
 ├── .git/
 ├── .gitignore
@@ -93,6 +94,7 @@ project_name/
 └── logs/                     # Logging files
     ├── training_logs/
     └── prediction_logs/
+```
 
 ## Usage
 [Basic examples of how to use your project]
