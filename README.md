@@ -1,106 +1,61 @@
-# Project Name
-If you find it helpful, feel free to fork this project. 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/rickywai77c)
+# KaCard — "Use the right card, every time."
 
-## Introduction
-Brief description of your project - what it does, why it's useful, and its main features.
+KaCard is an AI agent that helps consumers pick the optimal credit card for every purchase. The agent keeps track of issuer benefits, caps, and promotions so users never miss rewards. It runs inside OpenAI's Agent Builder experience as well as a lightweight web widget, and it can ingest issuer benefit pages that users paste to expand the shared knowledge base automatically.
 
-This project [does something amazing] by [explain how]. It helps users to [main benefit].
+## Why KaCard
 
-Key features:
-- Feature 1
-- Feature 2
-- Feature 3
+People routinely leave money on the table because credit card perks are fragmented, confusing, and constantly changing. Merchant Category Codes (MCCs) are opaque, issuer pages are dense, and the "best" card depends on merchant, channel, spend amount, reward caps, and time-sensitive promotions. KaCard eliminates the guesswork by surfacing plain-language recommendations that are grounded in issuer sources and backed by transparent math.
 
-## Quick Setup
+## Key Features
 
-### Prerequisites
-- Python 3.8+
-- Conda
+- **Smart card recommendations** – Ask questions like "Which card for PARKnSHOP HK$280?" and KaCard will respond with a ranked list, estimated value back, and any caps or exclusions that apply.
+- **Issuer benefits ingestion** – Paste a benefits link and the agent produces an instant TL;DR with structured rules. Users can approve the results to enrich the shared rule library for everyone.
+- **Grounded explanations** – Every answer is accompanied by the underlying math, categories, multipliers, caps, and source URLs, making it easy to verify.
+- **Receipt tracking & exports** – Users can log receipts and compare savings against a 0.4% baseline, then export monthly summaries to CSV or Notion.
+- **Cross-platform availability** – Runs inside ChatGPT (zero install) and on KaCard's web/mobile surfaces.
 
-### Installation
+## Product Tiers
 
-1. Clone the repository
-```
-bash
-git clone https://github.com/username/project-name.git
-cd project-name
-```
-2. Create and activate conda environment
-```
-conda env create -f environment.yml
-conda activate project-name
-```
-3. Install dependencies
-```
-pip install -r requirements.txt
-```
+| Plan | Price | Checks | Receipt Limit | Alerts |
+| --- | --- | --- | --- | --- |
+| Free | $0 | 40/month | 8 | Weekly |
+| Pro Lite | $0.99/month | Unlimited | 60 | Daily |
+| Pro Plus | $1.99/month | 120 | 120 + auto e-receipts | Near real-time |
+| Add-ons | $3/100 receipts | — | +100 receipts | — |
+| Family | Add-on | Shared | Shared | Shared |
 
-## Project Structure
-```
-project_name/
-├── .git/
-├── .gitignore
-├── README.md
-├── requirements.txt
-├── setup.py
-├── config/
-│   ├── config.yaml
-│   └── params.yaml
-│
-├── data/
-│   ├── raw/                    # Original, immutable data
-│   ├── processed/              # Cleaned, transformed data
-│   ├── interim/               # Intermediate transformations
-│   └── external/              # External source data
-│
-├── models/
-│   ├── trained/               # Saved model artifacts
-│   └── checkpoints/           # Model checkpoints during training
-│
-├── notebooks/
-│   ├── exploratory/           # Jupyter notebooks for EDA
-│   └── experiments/           # Experiment notebooks
-│
-├── src/
-│   ├── __init__.py
-│   ├── data/
-│   │   ├── __init__.py
-│   │   ├── make_dataset.py    # Scripts to process data
-│   │   └── preprocessing.py
-│   │
-│   ├── features/
-│   │   ├── __init__.py
-│   │   └── build_features.py  # Feature engineering
-│   │
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── train.py
-│   │   ├── predict.py
-│   │   └── evaluate.py
-│   │
-│   └── utils/
-│       ├── __init__.py
-│       └── helpers.py
-│
-├── tests/                     # Unit tests
-│   └── __init__.py
-│
-├── docs/                      # Documentation
-│   ├── data_dictionaries/
-│   ├── references/
-│   └── reports/              # Generated analysis reports
-│
-└── logs/                     # Logging files
-    ├── training_logs/
-    └── prediction_logs/
-```
+## Roadmap Snapshot
 
-## Usage
-[Basic examples of how to use your project]
+- **Week 1** – Launch the no-code agent (Parse → Score → Answer), URL analyzer, CSV export, and seed rules.
+- **Weeks 2–3** – Add the shared Rules KV and watcher for top HK/US cards, merchant detection that learns from receipts, and pricing toggles.
+- **Month 2** – Ship Pro Plus features (auto e-receipts), merchant "Add to Wallet" loop, and the first B2B pilots under the "Wallet Loyal" offering.
+
+## Architecture Overview
+
+KaCard combines OpenAI's Agent Builder with a Cloudflare-based backend.
+
+- **Agent Layer** – A drag-and-drop workflow in Agent Builder orchestrates user prompts, branching logic, and calls to registered Actions defined via an OpenAPI 3.1 specification.
+- **Backend Services** – Cloudflare Workers handle fetching issuer pages/PDFs, extracting and validating structured perks, and persisting artifacts in R2 (blobs), KV (hot pointers), and D1 (indexes & diffs). Lightweight queues coordinate re-parsing when source pages change.
+- **Rule Management** – Each card/region/tier has a canonical JSON ruleset that includes base rates, category overrides, caps, FX/annual fees, welcome offers, provenance, and confidence scores. Rulesets are versioned, content-addressed, and re-published when a page hash changes.
+- **User Vault** – Private storage for saved cards, receipts, regions, and exports. Community-contributed rules live in the shared Rules KV, while personal overrides remain private.
+
+## Monetization
+
+KaCard monetizes through consumer subscriptions and, later, merchant tooling.
+
+- **B2C** – Free, Pro Lite ($0.99/mo), and Pro Plus ($1.99/mo) tiers with upsells for additional receipts or family sharing.
+- **B2B (Wallet Loyal)** – Merchant marketing packages that bundle pass templates, Sora-produced promos, and GPT copywriting ($9–$79/mo). KaCard recommendations drive merchant leads into Wallet Loyal.
+
+## Metrics We Track
+
+- **Consumer** – DAU/WAU, first-week activation, paywall hit rate, Pro conversion, verified savings per user, refund rate.
+- **Quality** – Recommendation acceptance, category correction rate, rules diff accuracy.
+- **Cost** – Tokens per action, cache hit rate, percentage of escalations.
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Pull requests are welcome. Please open an issue first to discuss significant changes.
 
 ## License
-[Choose your license, e.g., MIT]
+
+Specify your project license here (e.g., MIT License).
