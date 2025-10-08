@@ -52,14 +52,6 @@ KaCard monetizes through consumer subscriptions and, later, merchant tooling.
 - **Quality** – Recommendation acceptance, category correction rate, rules diff accuracy.
 - **Cost** – Tokens per action, cache hit rate, percentage of escalations.
 
-## Contributing
-
-Pull requests are welcome. Please open an issue first to discuss significant changes.
-
 ## Development
 
 - Cloudflare Worker actions for issuer-link ingestion live under [`cloudflare/src`](cloudflare/src). Run `npm install` followed by `npm test` inside the `cloudflare/` folder to execute the Vitest suite that exercises the ingestion pipeline end-to-end.
-
-## License
-
-Specify your project license here (e.g., MIT License).
