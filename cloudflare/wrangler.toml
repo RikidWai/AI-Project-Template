@@ -1,0 +1,15 @@
+name = "kacard-worker"
+main = "src/index.ts"
+compatibility_date = "2023-10-01"
+
+[[kv_namespaces]]
+binding = "RULESET_KV"
+id = "00000000000000000000000000000000"
+
+[[r2_buckets]]
+binding = "SNAPSHOT_BUCKET"
+bucket_name = "kacard-snapshots"
+
+[[r2_buckets]]
+binding = "RULESET_BUCKET"
+bucket_name = "kacard-rulesets"

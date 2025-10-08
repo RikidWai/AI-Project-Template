@@ -1,0 +1,17 @@
+{
+  "name": "kacard-cloudflare",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20231002.0",
+    "@types/node": "^20.8.10",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6",
+    "wrangler": "^3.13.0"
+  }
+}
