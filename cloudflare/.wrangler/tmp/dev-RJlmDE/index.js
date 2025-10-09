@@ -78,7 +78,7 @@ function extractCardName(content, url) {
   if (titleMatch) {
     const hint = CARD_NAME_HINT_RE.exec(titleMatch[1]);
     if (hint) {
-      return hint[1];
+      return hint[0];
     }
   }
   const headingMatch = content.match(/<h[12][^>]*>(.*?)<\/h[12]>/i);
@@ -86,7 +86,7 @@ function extractCardName(content, url) {
     const text = headingMatch[1].replace(/<[^>]+>/g, " ").trim();
     const hint = CARD_NAME_HINT_RE.exec(text);
     if (hint) {
-      return hint[1];
+      return hint[0];
     }
     if (/card/i.test(text)) {
       return text;
