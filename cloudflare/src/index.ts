@@ -211,7 +211,8 @@ function renderLandingPage(): string {
 
           if (!response.ok) {
             const errorPayload = await response.json().catch(() => ({}));
-            throw new Error(errorPayload.error || `Request failed with status ${response.status}`);
+            const errorMessage = errorPayload.error || "Request failed with status " + response.status;
+            throw new Error(errorMessage);
           }
 
           const payload = await response.json();

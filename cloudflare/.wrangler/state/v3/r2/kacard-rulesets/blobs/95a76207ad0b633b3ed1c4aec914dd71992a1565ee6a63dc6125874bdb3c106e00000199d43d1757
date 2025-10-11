@@ -1,0 +1,13 @@
+{
+  "cardName": "mox.com",
+  "region": "hk",
+  "currency": "USD",
+  "baseRate": 0,
+  "rules": [],
+  "annualFee": null,
+  "fxFee": null,
+  "promotions": [],
+  "sourceUrl": "https://mox.com/zh/features/mox-credit/",
+  "contentHash": "050b4a50792a01b83fbfb5b6e42242410405e5d736b78a1f906b2a66079eb9dc",
+  "fetchedAt": "2025-10-11T17:06:37.517Z"
+}
