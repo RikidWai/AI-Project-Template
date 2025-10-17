@@ -1,4 +1,8 @@
 import { processCardLink } from "./lib/processCardLink";
+import { enrichDesignatedMerchantsFromHtml } from "./lib/enrichMerchants";
+import { publishRules } from "./lib/publishRules";
+import { fetchWithBrowser } from "./lib/fetchWithBrowser";
+import type { CardRuleSet } from "./lib/types";
 import type { ProcessCardLinkDependencies } from "./lib/processCardLink";
 import type { SnapshotPutOptions } from "./lib/types";
 
@@ -199,6 +203,7 @@ function renderLandingPage(): string {
       const bento = document.getElementById("bento");
       const submitButton = document.getElementById("submit-button");
       const resetButton = document.getElementById("reset-button");
+      let lastPayload = null;
 
       function setLoading(isLoading) {
         submitButton.disabled = isLoading;
@@ -253,6 +258,33 @@ function renderLandingPage(): string {
         });
         rtWrap.appendChild(rtLabel);
         rtWrap.appendChild(select);
+
+        // Actions
+        const actions = document.createElement("div");
+        actions.style.display = "flex";
+        actions.style.gap = ".5rem";
+        const saveBtn = document.createElement("button");
+        saveBtn.type = "button";
+        saveBtn.textContent = "Save";
+        saveBtn.style.background = "#10b981";
+        saveBtn.style.color = "white";
+        saveBtn.style.border = "none";
+        saveBtn.style.borderRadius = "0.5rem";
+        saveBtn.style.padding = ".5rem .75rem";
+        saveBtn.addEventListener("click", async () => {
+          try {
+            const cardKey = (lastPayload && lastPayload.publishResult && lastPayload.publishResult.cardKey) || null;
+            if (!cardKey) throw new Error("Missing card key");
+            const selection = { rewardType: select.value };
+            const res = await fetch('/save-card', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ cardKey, selection }) });
+            if (!res.ok) throw new Error('Save failed');
+            saveBtn.textContent = 'Saved';
+            setTimeout(() => saveBtn.textContent = 'Save', 1500);
+          } catch (e) {
+            alert('Save failed');
+          }
+        });
+        actions.appendChild(saveBtn);
 
         // Fees
         const feeDiv = document.createElement("div");
@@ -323,7 +355,9 @@ function renderLandingPage(): string {
         // Allow inline edit (local only)
         af.contentEditable = "true";
 
-        bento.appendChild(tile("Reward Type", rtWrap));
+        const rtTile = tile("Reward Type", rtWrap);
+        rtTile.appendChild(actions);
+        bento.appendChild(rtTile);
         bento.appendChild(tile("Fees", feeDiv, 2));
         bento.appendChild(tile("Promotions", promos));
         bento.appendChild(tile("Categories", list, 2));
@@ -352,6 +386,7 @@ function renderLandingPage(): string {
           }
 
           const payload = await response.json();
+          lastPayload = payload;
           displayResult(JSON.stringify(payload, null, 2));
           renderBento(payload);
         } catch (error) {
@@ -372,8 +407,20 @@ function renderLandingPage(): string {
 }
 
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+    const deps = buildDependencies(env);
+
+    if (request.method === "POST" && url.pathname === "/save-card") {
+      const body = await request.json().catch(() => ({}));
+      const { cardKey, selection } = body as { cardKey?: string; selection?: any };
+      if (!cardKey) {
+        return new Response(JSON.stringify({ error: "cardKey is required" }), { status: 400, headers: { "content-type": "application/json" } });
+      }
+      const saved = { cardKey, selection: selection ?? null, savedAt: new Date().toISOString() };
+      await deps.publish.rulesetKV.put(`user_cards:${cardKey}`, JSON.stringify(saved));
+      return new Response(JSON.stringify({ ok: true }), { headers: { "content-type": "application/json" } });
+    }
     if (request.method === "POST" && url.pathname === "/process-card-link") {
       const payload = await request.json();
       const { url: targetUrl, region } = payload as { url?: string; region?: string };
@@ -384,7 +431,6 @@ export default {
         });
       }
 
-      const deps = buildDependencies(env);
       
       // Debug logging
       console.log("[DEBUG] OPENAI_API_KEY present:", !!env.OPENAI_API_KEY);
@@ -392,6 +438,26 @@ export default {
       console.log("[DEBUG] deps.openaiApiKey present:", !!deps.openaiApiKey);
       
       const result = await processCardLink(targetUrl, region, deps);
+      // Background enrichment for designated merchants
+      try {
+        ctx.waitUntil((async () => {
+          let html: string = "";
+          if (env.BROWSER) {
+            const br = await fetchWithBrowser(targetUrl, env.BROWSER as any);
+            html = br.renderedHtml || br.content || "";
+          }
+          if (!html) {
+            const res = await fetch(targetUrl);
+            html = await res.text();
+          }
+          await enrichDesignatedMerchantsFromHtml(targetUrl, html, result.ruleset as CardRuleSet, {
+            fetch: (u: string) => fetch(u) as any,
+            publish: deps.publish as any,
+          });
+        })());
+      } catch (e) {
+        console.warn("[ENRICH] Failed to enqueue merchant enrichment", e);
+      }
       return new Response(JSON.stringify(result), {
         headers: { "content-type": "application/json" },
       });

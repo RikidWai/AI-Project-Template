@@ -36,10 +36,17 @@ function extractCardName(content: string, url: string): string {
   return url.replace(/^https?:\/\//, "").split("/")[0];
 }
 
-function sanitizeText(html: string): string[] {
-  return Array.from(html.matchAll(/<(?:p|li|h\d)[^>]*>(.*?)<\/\s*(?:p|li|h\d)>/gis)).map((match) =>
+function sanitizeText(content: string): string[] {
+  const fromHtml = Array.from(content.matchAll(/<(?:p|li|h\d)[^>]*>(.*?)<\/\s*(?:p|li|h\d)>/gis)).map((match) =>
     match[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(),
   ).filter((text) => text.length > 0);
+  if (fromHtml.length >= 5) return fromHtml;
+  // Fallback for plain text (e.g., PDF extracted text)
+  const byLine = content
+    .split(/\r?\n|\u3002|\uff1a|\uff0c|\.|\;|\:/)
+    .map((t) => t.replace(/\s+/g, " ").trim())
+    .filter((t) => t.length > 0);
+  return byLine;
 }
 
 function categorize(line: string): string {
@@ -66,14 +73,40 @@ function extractAnnualFee(lines: string[]): number | null {
 }
 
 function extractFxFee(lines: string[]): number | null {
+  let issuer: number | null = null;
+  let network: number | null = null;
   for (const line of lines) {
     const lower = line.toLowerCase();
-    if (/(foreign transaction|fx fee|overseas transaction)/.test(lower)) {
-      const percent = PERCENT_RE.exec(line);
-      if (percent) return Number.parseFloat(percent[1]);
+    const hasFxKeyword = /foreign\s+transaction|fx fee|overseas\s+transaction|currency\s+conversion|mastercard|visa/.test(lower)
+      || /外幣|海外|交易費|手續費|匯率|國際組織|萬事達|維薩/.test(line);
+    if (!hasFxKeyword) continue;
+
+    // Detect explicit "no fee"
+    if (/no\s+foreign|no\s+fx|不收取|免收/.test(lower + line)) {
+      issuer = issuer ?? 0;
+      network = network ?? 0;
+    }
+
+    const percents = Array.from(line.matchAll(/(\d+(?:\.\d+)?)\s*%/g)).map((m) => parseFloat(m[1]));
+    if (percents.length === 1) {
+      // Heuristic: if line mentions Mastercard/Visa/network, treat as network
+      if (/mastercard|visa|network|國際組織|卡組織/.test(lower + line)) {
+        network = network ?? percents[0];
+      } else {
+        issuer = issuer ?? percents[0];
+      }
+    }
+    if (percents.length >= 2) {
+      // Take min as network, max as issuer (common phrasing issuer+network)
+      const min = Math.min(...percents);
+      const max = Math.max(...percents);
+      network = network ?? min;
+      issuer = issuer ?? (max !== min ? max : null);
     }
   }
-  return null;
+  if (issuer == null && network == null) return null;
+  const effective = (issuer ?? 0) + (network ?? 0);
+  return Number.isFinite(effective) ? effective : null;
 }
 
 function extractPromotions(lines: string[]): string[] {
