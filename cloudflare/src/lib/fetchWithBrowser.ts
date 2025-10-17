@@ -49,20 +49,32 @@ async function autoScroll(page: any): Promise<void> {
  */
 export async function fetchWithBrowser(
   url: string,
-  browserBinding: any // Cloudflare Browser binding (supports Puppeteer API)
+  browserBinding: any // Cloudflare Browser binding (supports Playwright-like RPC)
 ): Promise<BrowserFetchResult> {
   try {
     console.log(`[BROWSER] Launching browser for: ${url}`);
-    
-    // Launch browser with HK-specific configuration
-    const browser = await browserBinding.launch({
+    const launchOpts = {
       locale: 'zh-HK',
       timezoneId: 'Asia/Hong_Kong',
       userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
-    });
+    } as any;
 
-    console.log(`[BROWSER] Browser launched, creating page`);
-    const page = await browser.newPage();
+    // Support both API shapes: newContext() (recommended) or launch().
+    let page: any = null;
+    let context: any = null;
+    let browser: any = null;
+    if (browserBinding && typeof browserBinding.newContext === 'function') {
+      console.log('[BROWSER] Using newContext API');
+      context = await browserBinding.newContext(launchOpts);
+      page = await context.newPage();
+    } else if (browserBinding && typeof browserBinding.launch === 'function') {
+      console.log('[BROWSER] Using launch API');
+      browser = await browserBinding.launch(launchOpts);
+      page = await browser.newPage();
+    } else {
+      console.warn('[BROWSER] Binding does not expose newContext/launch. Is Browser Rendering enabled?');
+      return { content: '', renderedHtml: '', success: false, error: 'Browser binding unsupported in this env' };
+    }
     
     // Navigate with networkidle wait (ensures AJAX/dynamic content loads)
     console.log(`[BROWSER] Navigating to: ${url}`);
@@ -71,8 +83,29 @@ export async function fetchWithBrowser(
       timeout: 30000 
     });
     
-    console.log(`[BROWSER] Page loaded, scrolling to trigger lazy content`);
-    // Auto-scroll to trigger lazy-loaded elements
+    console.log(`[BROWSER] Page loaded, interacting to reveal hidden sections`);
+    // Try clicking common reveal buttons/links for designated merchants
+    try {
+      await page.evaluate(() => {
+        const terms = [
+          'designated', 'eligible', 'merchant', 'merchants', '商戶', '指定', '合資格',
+          'terms', '細則', '條款'
+        ];
+        const clickIfMatch = (el: Element) => {
+          const txt = (el.textContent || '').toLowerCase();
+          if (terms.some(t => txt.includes(t))) {
+            (el as HTMLElement).click();
+            return true;
+          }
+          return false;
+        };
+        document.querySelectorAll('button, a, summary, div[role="button"]').forEach(el => {
+          try { clickIfMatch(el); } catch {}
+        });
+      });
+    } catch {}
+
+    // Auto-scroll to trigger lazy-loaded elements after interaction
     await autoScroll(page);
     
     console.log(`[BROWSER] Extracting content`);
@@ -80,7 +113,9 @@ export async function fetchWithBrowser(
     const renderedHtml = await page.content();
     const visibleText = await page.evaluate(() => document.body.innerText);
     
-    await browser.close();
+    try { await page.close?.(); } catch {}
+    try { await context?.close?.(); } catch {}
+    try { await browser?.close?.(); } catch {}
     console.log(`[BROWSER] Success: HTML ${renderedHtml.length} chars, Visible Text ${visibleText.length} chars`);
 
     return {
