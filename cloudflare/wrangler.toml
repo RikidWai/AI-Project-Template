@@ -1,7 +1,6 @@
 name = "kacard-worker"
 main = "src/index.ts"
 compatibility_date = "2024-10-01"
-compatibility_flags = ["rpc"]
 workers_dev = true
 preview_urls = true
 

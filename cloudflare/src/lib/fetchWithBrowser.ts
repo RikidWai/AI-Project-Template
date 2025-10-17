@@ -19,21 +19,19 @@ export interface BrowserFetchResult {
  * Executes in browser context to scroll page gradually
  */
 async function autoScroll(page: any): Promise<void> {
-  await page.evaluate(async () => {
-    await new Promise<void>((resolve) => {
-      let totalHeight = 0;
-      const distance = 800;
-      const timer = setInterval(() => {
-        window.scrollBy(0, distance);
-        totalHeight += distance;
-        
-        if (totalHeight >= document.body.scrollHeight) {
-          clearInterval(timer);
-          resolve();
-        }
-      }, 200);
-    });
-  });
+  const script = `(() => new Promise((resolve) => {
+    let totalHeight = 0;
+    const distance = 800;
+    const timer = setInterval(() => {
+      window.scrollBy(0, distance);
+      totalHeight += distance;
+      if (totalHeight >= document.body.scrollHeight) {
+        clearInterval(timer);
+        resolve();
+      }
+    }, 200);
+  }))()`;
+  await page.evaluate(script);
 }
 
 /**
@@ -86,23 +84,16 @@ export async function fetchWithBrowser(
     console.log(`[BROWSER] Page loaded, interacting to reveal hidden sections`);
     // Try clicking common reveal buttons/links for designated merchants
     try {
-      await page.evaluate(() => {
-        const terms = [
-          'designated', 'eligible', 'merchant', 'merchants', '商戶', '指定', '合資格',
-          'terms', '細則', '條款'
-        ];
-        const clickIfMatch = (el: Element) => {
+      const clickScript = `(() => {
+        const terms = ['designated','eligible','merchant','merchants','商戶','指定','合資格','terms','細則','條款'];
+        const clickIfMatch = (el) => {
           const txt = (el.textContent || '').toLowerCase();
-          if (terms.some(t => txt.includes(t))) {
-            (el as HTMLElement).click();
-            return true;
-          }
+          if (terms.some(t => txt.includes(t))) { el.click?.(); return true; }
           return false;
         };
-        document.querySelectorAll('button, a, summary, div[role="button"]').forEach(el => {
-          try { clickIfMatch(el); } catch {}
-        });
-      });
+        document.querySelectorAll('button, a, summary, div[role="button"]').forEach((el) => { try { clickIfMatch(el); } catch(e) {} });
+      })()`;
+      await page.evaluate(clickScript);
     } catch {}
 
     // Auto-scroll to trigger lazy-loaded elements after interaction
@@ -111,7 +102,7 @@ export async function fetchWithBrowser(
     console.log(`[BROWSER] Extracting content`);
     // Get both HTML and visible text
     const renderedHtml = await page.content();
-    const visibleText = await page.evaluate(() => document.body.innerText);
+    const visibleText = await page.evaluate('document.body.innerText');
     
     try { await page.close?.(); } catch {}
     try { await context?.close?.(); } catch {}
