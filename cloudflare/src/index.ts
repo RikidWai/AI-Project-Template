@@ -60,13 +60,34 @@ function buildDependencies(env: Env): ProcessCardLinkDependencies {
 }
 
 function isOfficialDomain(hostname: string): boolean {
-  const OFFICIAL_ROOTS = [
-    "hsbc.com", "hsbc.com.hk", "citi.com", "citibank.com", "sc.com", "hangseng.com",
-    "americanexpress.com", "amex.com", "mox.com", "za.group", "za.bank",
-    "visa.com", "mastercard.com", "hkma.gov.hk", "mas.gov.sg", "fsc.gov.tw", "sec.gov.ph", "gov.hk"
-  ];
   const h = hostname.toLowerCase();
-  return OFFICIAL_ROOTS.some(root => h === root || h.endsWith(`.${root}`));
+  // Networks
+  const NETWORKS = ["visa.com", "mastercard.com", "americanexpress.com", "discover.com", "dinersclub.com", "jcb.co.jp"]; 
+  // Global issuers (incomplete but broad)
+  const ISSUERS = [
+    // US
+    "chase.com", "bankofamerica.com", "capitalone.com", "wellsfargo.com", "usbank.com", "citibank.com", "citi.com",
+    // UK/EU
+    "barclays.co.uk", "lloydsbank.com", "natwest.com", "hsbc.co.uk", "santander.co.uk", "monzo.com", "revolut.com",
+    "ing.com", "unicredit.eu", "societegenerale.com", "bnpparibas.com", "db.com", "bbva.com", "santander.com",
+    // CA/AU/NZ
+    "rbc.com", "td.com", "scotiabank.com", "bmo.com", "cibc.com", "anz.com", "nab.com.au", "westpac.com.au",
+    // APAC broad
+    "hsbc.com", "hsbc.com.hk", "sc.com", "hangseng.com", "ocbc.com", "uob.com.sg", "dbs.com", "maybank.com",
+    "hdfcbank.com", "sbi.co.in", "icicibank.com", "axisbank.com", "kotak.com", "mox.com", "za.group", "za.bank"
+  ];
+  // Regulators/government (generic heuristic)
+  const isGov = h.endsWith(".gov") || h.includes(".gov.") || h.endsWith(".gouv.fr") || h.endsWith(".gov.uk") || h.endsWith(".gc.ca");
+  const REGULATORS = [
+    "ecb.europa.eu", "bankofengland.co.uk", "fdic.gov", "occ.treas.gov", "sec.gov", "fca.org.uk",
+    "hkma.gov.hk", "mas.gov.sg", "fsc.gov.tw", "sec.gov.ph"
+  ];
+  const OFFICIAL = new Set([...NETWORKS, ...ISSUERS, ...REGULATORS]);
+  if (isGov) return true;
+  for (const root of OFFICIAL) {
+    if (h === root || h.endsWith(`.${root}`)) return true;
+  }
+  return false;
 }
 
 function renderLandingPage(): string {
@@ -560,7 +581,8 @@ export default {
       const body = await request.json().catch(() => ({}));
       const { cardName, region } = body as { cardName?: string; region?: string };
       if (!cardName) return new Response(JSON.stringify({ error: "cardName is required" }), { status: 400, headers: { "content-type": "application/json" } });
-      const query = `${cardName} site:hsbc.com OR site:citi.com OR site:sc.com OR site:visa.com OR site:mastercard.com OR site:americanexpress.com ${region ? `(${region})` : ""}`;
+      // Broad query; we will filter to official domains after search
+      const query = `${cardName} credit card official site ${region ? `(${region})` : ""}`;
       const res = await braveSearch(query, env.BRAVE_API_KEY);
       const urls = res.results.filter((r: any) => {
         try { return isOfficialDomain(new URL(r.url).hostname); } catch { return false; }
