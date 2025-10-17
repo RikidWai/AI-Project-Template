@@ -1,6 +1,8 @@
 import type { CardRule, CardRuleSet, FetchedPage } from "./types";
 
 const PERCENT_RE = /(\d+(?:\.\d+)?)\s*%/;
+// Examples: "HKD 4 = 1 Asia Mile", "HK$4=1里", "HK$ 8 = 1 亞萬里數"
+const HKD_PER_MILE_RE = /(?:HK\$|HKD)\s*(\d+(?:\.\d+)?)\s*=\s*1\s*(?:asia\s*miles?|miles?|里|亞萬里數)/i;
 const CURRENCY_RE = /(?:HK|US|SG|CA|AU)?\$\s*(\d+(?:\.\d+)?)/i;
 const CARD_NAME_HINT_RE = /([A-Z][A-Za-z0-9]+(?:\s+[A-Z][A-Za-z0-9]+){1,5})\s+(?:Card|Visa|Mastercard|American Express)/;
 
@@ -43,7 +45,7 @@ function sanitizeText(html: string): string[] {
 function categorize(line: string): string {
   const lower = line.toLowerCase();
   if (/(dining|restaurant|food)/.test(lower)) return "dining";
-  if (/(groc|supermarket)/.test(lower)) return "groceries";
+  if (/(groc|supermarket|超市)/.test(lower)) return "supermarket";
   if (/(online|e-commerce|internet)/.test(lower)) return "online";
   if (/(travel|airline|hotel|flight)/.test(lower)) return "travel";
   if (/(gas|fuel|petrol)/.test(lower)) return "fuel";
@@ -85,42 +87,65 @@ export function extractPerkSchema(page: FetchedPage, region: string): CardRuleSe
   const currency = detectCurrency(page.content);
   const cardName = extractCardName(page.content, page.url);
   const annualFee = extractAnnualFee(lines);
-  const fxFee = extractFxFee(lines);
+  const fxIssuer = extractFxFee(lines);
   const promotions = extractPromotions(lines);
 
-  const rulesByCategory = new Map<string, CardRule>();
+  const rules: CardRule[] = [];
   for (const line of lines) {
+    // Miles pattern
+    const milesMatch = HKD_PER_MILE_RE.exec(line);
+    if (milesMatch) {
+      const hkdPerMile = Number.parseFloat(milesMatch[1]);
+      rules.push({
+        category: categorize(line),
+        rate: 0, // legacy percent field; not applicable for miles
+        description: line,
+        rewardType: "miles",
+        unit: "hkd_per_mile",
+        rateValue: hkdPerMile,
+        stacking: "choose_one",
+        source: page.url,
+      });
+      continue;
+    }
+
+    // Percent cashback
     const percent = PERCENT_RE.exec(line);
-    if (!percent) continue;
-    const rate = Number.parseFloat(percent[1]);
-    const category = categorize(line);
-    const existing = rulesByCategory.get(category);
-    if (!existing || rate > existing.rate) {
-      rulesByCategory.set(category, {
-        category,
+    if (percent) {
+      const rate = Number.parseFloat(percent[1]);
+      rules.push({
+        category: categorize(line),
         rate,
         description: line,
+        rewardType: "cashback",
         unit: "%",
+        rateValue: rate,
+        stacking: "choose_one",
         source: page.url,
       });
     }
   }
 
-  const generalRule = rulesByCategory.get("general");
-  const baseRate = generalRule
-    ? generalRule.rate
-    : rulesByCategory.size > 0
-      ? Math.min(...Array.from(rulesByCategory.values()).map((rule) => rule.rate))
-      : 0;
+  // Base rates: prefer general cashback percent if present
+  const generalCashback = rules
+    .filter((r) => r.category === "general" && r.unit === "%")
+    .map((r) => r.rateValue || r.rate);
+  const baseRate = generalCashback.length > 0 ? Math.max(...generalCashback.map(Number)) : 0;
 
   return {
     cardName,
     region,
     currency,
     baseRate,
-    rules: Array.from(rulesByCategory.values()),
+    rules,
     annualFee,
-    fxFee,
+    fxFee: fxIssuer, // legacy
+    fx: {
+      issuerFeePct: fxIssuer ?? null,
+      networkMarkupPct: null,
+      effectivePct: fxIssuer ?? null,
+      notes: null,
+    },
     promotions,
     sourceUrl: page.url,
     contentHash: page.contentHash,

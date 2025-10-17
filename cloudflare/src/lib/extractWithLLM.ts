@@ -16,14 +16,21 @@ interface LLMExtractionResult {
   baseRate: ExtractedWithProvenance;
   rules: Array<{
     category: string;
-    rate: number;
     description: string;
+    rewardType: "cashback" | "miles" | "points";
+    unit: string; // "%" | "hkd_per_mile" | ...
+    rateValue: number; // numeric value in the given unit
     sourceText: string;
     confidence: number;
-    conditions?: string; // e.g., "requires HKD 250k balance"
+    stacking?: "choose_one" | "stackable";
+    conditions?: string; // free-form text summary
+    merchants?: string[];
   }>;
   annualFee: ExtractedWithProvenance;
-  fxFee: ExtractedWithProvenance;
+  fx: {
+    issuerFeePct?: ExtractedWithProvenance;
+    networkMarkupPct?: ExtractedWithProvenance;
+  };
   promotions: Array<{
     text: string;
     sourceText: string;
@@ -40,7 +47,7 @@ CRITICAL RULES:
 2. DO NOT use external knowledge about this card
 3. For each field, quote the EXACT text snippet that supports your extraction
 4. If information is conditional (e.g., "2% if balance > 250k, else 1%"), extract ALL conditions as separate rules
-5. Convert cashback rates to percentages (e.g., "HKD 4 = 1 mile" = 25% value if 1 mile = HKD 1)
+5. Do NOT convert miles/points into cashback by default. Identify rewardType and unit precisely (e.g., "%" for cashback, "hkd_per_mile" for miles)
 6. Identify supermarket/dining/travel categories even if written in Chinese (超市/餐飲/旅遊)
 
 Return JSON in this EXACT format:
@@ -58,11 +65,15 @@ Return JSON in this EXACT format:
   "rules": [
     {
       "category": "dining|supermarket|travel|online|general",
-      "rate": 3.0,
       "description": "3% cashback on dining",
+      "rewardType": "cashback|miles|points",
+      "unit": "%|hkd_per_mile|miles_per_hkd|points_per_hkd",
+      "rateValue": 3,
       "sourceText": "exact quote",
       "confidence": 0.92,
-      "conditions": "requires balance ≥ HKD 250,000" // optional
+      "stacking": "choose_one|stackable",
+      "conditions": "requires balance ≥ HKD 250,000",
+      "merchants": ["CitySuper", "ParknShop"]
     }
   ],
   "annualFee": {
@@ -70,10 +81,9 @@ Return JSON in this EXACT format:
     "sourceText": "免年費 or Free",
     "confidence": 0.98
   },
-  "fxFee": {
-    "value": 0,
-    "sourceText": "0% foreign transaction fee",
-    "confidence": 0.95
+  "fx": {
+    "issuerFeePct": { "value": 0, "sourceText": "0% foreign transaction fee", "confidence": 0.95 },
+    "networkMarkupPct": { "value": 1.95, "sourceText": "Visa/Mastercard network markup 1.95%", "confidence": 0.6 }
   },
   "promotions": [
     {
@@ -200,13 +210,25 @@ export async function extractWithLLM(
     baseRate: extracted.baseRate?.value || 0,
     rules: (extracted.rules || []).map((r) => ({
       category: r.category,
-      rate: r.rate,
+      // legacy rate: only set for % cashback
+      rate: r.unit === "%" ? r.rateValue : 0,
       description: r.description + (r.conditions ? ` (Conditions: ${r.conditions})` : ""),
-      unit: "%",
-      source: page.url
+      rewardType: r.rewardType,
+      unit: r.unit,
+      rateValue: r.rateValue,
+      stacking: r.stacking || "choose_one",
+      merchants: r.merchants,
+      source: page.url,
+      sources: [page.url],
     })),
     annualFee: extracted.annualFee?.value ?? null,
-    fxFee: extracted.fxFee?.value ?? null,
+    fxFee: (extracted.fx?.issuerFeePct?.value ?? 0) + (extracted.fx?.networkMarkupPct?.value ?? 0) || null,
+    fx: {
+      issuerFeePct: extracted.fx?.issuerFeePct?.value ?? null,
+      networkMarkupPct: extracted.fx?.networkMarkupPct?.value ?? null,
+      effectivePct: ((extracted.fx?.issuerFeePct?.value ?? 0) + (extracted.fx?.networkMarkupPct?.value ?? 0)) || null,
+      notes: null,
+    },
     promotions: (extracted.promotions || []).map((p) => p.text),
     sourceUrl: page.url,
     contentHash: page.contentHash,
@@ -236,16 +258,21 @@ export async function extractWithLLM(
             text: extracted.annualFee?.sourceText || ""
           }
         },
-        fxFee: {
-          value: extracted.fxFee?.value,
-          confidence: extracted.fxFee?.confidence || 0,
-          sourceSpan: {
-            text: extracted.fxFee?.sourceText || ""
+        fx: {
+          issuerFeePct: {
+            value: extracted.fx?.issuerFeePct?.value,
+            confidence: extracted.fx?.issuerFeePct?.confidence || 0,
+            sourceSpan: { text: extracted.fx?.issuerFeePct?.sourceText || "" }
+          },
+          networkMarkupPct: {
+            value: extracted.fx?.networkMarkupPct?.value,
+            confidence: extracted.fx?.networkMarkupPct?.confidence || 0,
+            sourceSpan: { text: extracted.fx?.networkMarkupPct?.sourceText || "" }
           }
         },
         rules: (extracted.rules || []).map((r) => ({
           category: r.category,
-          rate: r.rate,
+          rate: r.rateValue,
           confidence: r.confidence,
           sourceSpan: {
             text: r.sourceText
