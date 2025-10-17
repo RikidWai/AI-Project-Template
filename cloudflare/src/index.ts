@@ -2,7 +2,7 @@ import { processCardLink } from "./lib/processCardLink";
 import { enrichDesignatedMerchantsFromHtml } from "./lib/enrichMerchants";
 import { publishRules } from "./lib/publishRules";
 import { fetchWithBrowser } from "./lib/fetchWithBrowser";
-import type { CardRuleSet } from "./lib/types";
+import type { CardRuleSet, RulesetKV, RulesetStore } from "./lib/types";
 import type { ProcessCardLinkDependencies } from "./lib/processCardLink";
 import type { SnapshotPutOptions } from "./lib/types";
 
@@ -11,6 +11,8 @@ export interface Env {
   RULESET_BUCKET: R2Bucket;
   RULESET_KV: KVNamespace;
   OPENAI_API_KEY?: string; // Optional: OpenAI or OpenRouter API key (set via wrangler secret put OPENAI_API_KEY)
+  OPENROUTER_API_KEY?: string; // Optional: OpenRouter API key (alias)
+  BRAVE_API_KEY?: string; // Brave Search API key
   BROWSER?: Fetcher; // Optional: Cloudflare Browser Rendering for JavaScript-heavy sites
   SCRAPER_API_KEY?: string; // Optional: ScraperAPI key for stubborn sites (with underscore)
   SCRAPERAPI_KEY?: string; // Optional: ScraperAPI key for stubborn sites (without underscore, legacy)
@@ -52,9 +54,19 @@ function buildDependencies(env: Env): ProcessCardLinkDependencies {
         get: (key: string) => env.RULESET_KV.get(key),
       },
     },
-    openaiApiKey: env.OPENAI_API_KEY, // Pass OpenAI API key if available
+    openaiApiKey: env.OPENAI_API_KEY || env.OPENROUTER_API_KEY, // Support either key name
     hashIndexKV: env.HASH_TO_RULESET_KV,
   };
+}
+
+function isOfficialDomain(hostname: string): boolean {
+  const OFFICIAL_ROOTS = [
+    "hsbc.com", "hsbc.com.hk", "citi.com", "citibank.com", "sc.com", "hangseng.com",
+    "americanexpress.com", "amex.com", "mox.com", "za.group", "za.bank",
+    "visa.com", "mastercard.com", "hkma.gov.hk", "mas.gov.sg", "fsc.gov.tw", "sec.gov.ph", "gov.hk"
+  ];
+  const h = hostname.toLowerCase();
+  return OFFICIAL_ROOTS.some(root => h === root || h.endsWith(`.${root}`));
 }
 
 function renderLandingPage(): string {
@@ -410,6 +422,64 @@ export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     const deps = buildDependencies(env);
+    const llmApiKey = env.OPENAI_API_KEY || env.OPENROUTER_API_KEY || "";
+
+    async function braveSearch(query: string, apiKey: string) {
+      const endpoint = "https://api.search.brave.com/res/v1/web/search";
+      const u = `${endpoint}?q=${encodeURIComponent(query)}&country=HK&count=10&offset=0&freshness=365d`;
+      const res = await fetch(u, { headers: { "Accept": "application/json", "X-Subscription-Token": apiKey, "User-Agent": "KaCard/1.0" } });
+      if (!res.ok) throw new Error(`Brave search failed: ${res.status}`);
+      const json: any = await res.json();
+      const web: any[] = json?.web?.results || [];
+      return { results: web.map((r: any) => ({ url: r.url, title: r.title, description: r.description })) };
+    }
+
+    async function extractFeesFromDocInline(docUrl: string, region: string) {
+      const FEES_PROMPT = `You extract FX fee information from OFFICIAL issuer/network/regulator documents. Return ONLY JSON {"issuerFeePct":{"value":number|null,"sourceText":string,"confidence":number},"networkMarkupPct":{"value":number|null,"sourceText":string,"confidence":number}}. Do not invent.`;
+      const res = await fetch(docUrl); const text = await res.text();
+      const messages = [ { role: "system", content: FEES_PROMPT }, { role: "user", content: `Region: ${region}\nURL: ${docUrl}\nDocument:\n${text.substring(0,45000)}` } ];
+      const llm = await fetch("https://openrouter.ai/api/v1/chat/completions", { method: "POST", headers: { "Content-Type": "application/json", "Authorization": `Bearer ${llmApiKey}`, "HTTP-Referer": "https://kacard.app", "X-Title": "KaCard Fees Extraction" }, body: JSON.stringify({ model: "google/gemini-2.5-pro", messages, temperature: 0.1, response_format: { type: "json_object" } }) });
+      if (!llm.ok) throw new Error(await llm.text());
+      const out: any = await llm.json(); const content = out.choices[0].message.content as string; const parsed = JSON.parse(content);
+      const issuer = parsed.issuerFeePct || { value: null, sourceText: "Not found in document", confidence: 0 };
+      const network = parsed.networkMarkupPct || { value: null, sourceText: "Not found in document", confidence: 0 };
+      const effective = (issuer.value ?? 0) + (network.value ?? 0);
+      return { issuerFeePct: issuer, networkMarkupPct: network, effectivePct: (issuer.value==null && network.value==null)? null : effective, sources: [docUrl] };
+    }
+
+    async function extractMerchantsInline(docUrl: string, region: string) {
+      const PROMPT = `From the document, extract designated merchant brand names and MCCs related to card rewards. Return ONLY JSON {"merchants":string[],"mccs":string[],"exclusions":string[]}.`;
+      const res = await fetch(docUrl); const text = await res.text();
+      const messages = [ { role: "system", content: PROMPT }, { role: "user", content: `Region: ${region}\nURL: ${docUrl}\nDocument:\n${text.substring(0,45000)}` } ];
+      const llm = await fetch("https://openrouter.ai/api/v1/chat/completions", { method: "POST", headers: { "Content-Type": "application/json", "Authorization": `Bearer ${llmApiKey}`, "HTTP-Referer": "https://kacard.app", "X-Title": "KaCard Merchant Extraction" }, body: JSON.stringify({ model: "google/gemini-2.5-pro", messages, temperature: 0.1, response_format: { type: "json_object" } }) });
+      if (!llm.ok) throw new Error(await llm.text());
+      const out: any = await llm.json(); const content = out.choices[0].message.content as string; const parsed = JSON.parse(content);
+      return { merchants: parsed.merchants || [], mccs: parsed.mccs || [], exclusions: parsed.exclusions || [], sources: [docUrl] };
+    }
+
+    async function scorePurchaseInline(input: { amount: number; currency: string; merchantName?: string; channel?: string; city?: string; userCardIds: string[]; }, publish: { rulesetKV: RulesetKV; rulesetStore: RulesetStore; }) {
+      const baseline = 0.4;
+      const cards: any[] = [];
+      for (const id of input.userCardIds) {
+        const kvRaw = await publish.rulesetKV.get(id);
+        if (!kvRaw) { cards.push({ id, ruleset: null }); continue; }
+        const kv = JSON.parse(kvRaw);
+        const raw = await publish.rulesetStore.get?.(kv.r2Key);
+        if (!raw) { cards.push({ id, ruleset: null }); continue; }
+        cards.push({ id, ruleset: JSON.parse(raw) });
+      }
+      const candidates = cards.filter(c => !!c.ruleset);
+      const evals = candidates.map((c) => {
+        const pr = c.ruleset.rules.filter((r: any) => (r.rewardType ?? (r.unit === "%" ? "cashback" : undefined)) === "cashback").map((r: any) => r.rateValue ?? r.rate).filter((v: any) => typeof v === "number");
+        const best = pr.length ? Math.max(...pr) : (c.ruleset.baseRate || 0);
+        const fxPenalty = (input.currency && input.currency !== c.ruleset.currency && c.ruleset.fx?.effectivePct) ? c.ruleset.fx.effectivePct : 0;
+        const effective = Math.max(0, best - (fxPenalty || 0));
+        return { cardId: c.id, cardName: c.ruleset.cardName, ratePct: effective, fxPenalty: fxPenalty || 0 };
+      }).sort((a: any, b: any) => b.ratePct - a.ratePct);
+      const top = evals[0];
+      const recommendation = top ? `Use ${top.cardName} → ~${top.ratePct}%` : `Fallback baseline → ~${baseline}%`;
+      return { recommendation, baseline, evaluated: evals };
+    }
 
     if (request.method === "POST" && url.pathname === "/save-card") {
       const body = await request.json().catch(() => ({}));
@@ -421,6 +491,15 @@ export default {
       await deps.publish.rulesetKV.put(`user_cards:${cardKey}`, JSON.stringify(saved));
       return new Response(JSON.stringify({ ok: true }), { headers: { "content-type": "application/json" } });
     }
+    if (request.method === "POST" && url.pathname === "/save-card-profile") {
+      const body = await request.json().catch(() => ({}));
+      const { ruleset } = body as { ruleset?: CardRuleSet };
+      if (!ruleset) {
+        return new Response(JSON.stringify({ error: "ruleset is required" }), { status: 400, headers: { "content-type": "application/json" } });
+      }
+      const result = await publishRules(ruleset, deps.publish);
+      return new Response(JSON.stringify({ ok: true, publishResult: result }), { headers: { "content-type": "application/json" } });
+    }
     if (request.method === "POST" && url.pathname === "/process-card-link") {
       const payload = await request.json();
       const { url: targetUrl, region } = payload as { url?: string; region?: string };
@@ -431,10 +510,20 @@ export default {
         });
       }
 
+      // Enforce official source policy
+      try {
+        const u = new URL(targetUrl);
+        if (!isOfficialDomain(u.hostname)) {
+          return new Response(JSON.stringify({ error: "Only official issuer/network/regulator/government domains are allowed" }), { status: 400, headers: { "content-type": "application/json" } });
+        }
+      } catch {
+        return new Response(JSON.stringify({ error: "Invalid URL" }), { status: 400, headers: { "content-type": "application/json" } });
+      }
+
       
       // Debug logging
-      console.log("[DEBUG] OPENAI_API_KEY present:", !!env.OPENAI_API_KEY);
-      console.log("[DEBUG] OPENAI_API_KEY length:", env.OPENAI_API_KEY?.length || 0);
+      console.log("[DEBUG] LLM key present:", !!llmApiKey);
+      console.log("[DEBUG] LLM key length:", llmApiKey?.length || 0);
       console.log("[DEBUG] deps.openaiApiKey present:", !!deps.openaiApiKey);
       
       const result = await processCardLink(targetUrl, region, deps);
@@ -461,6 +550,78 @@ export default {
       return new Response(JSON.stringify(result), {
         headers: { "content-type": "application/json" },
       });
+    }
+
+    // Discover official pages by name
+    if (request.method === "POST" && url.pathname === "/discover-official-pages") {
+      if (!env.BRAVE_API_KEY) {
+        return new Response(JSON.stringify({ error: "BRAVE_API_KEY not configured" }), { status: 500, headers: { "content-type": "application/json" } });
+      }
+      const body = await request.json().catch(() => ({}));
+      const { cardName, region } = body as { cardName?: string; region?: string };
+      if (!cardName) return new Response(JSON.stringify({ error: "cardName is required" }), { status: 400, headers: { "content-type": "application/json" } });
+      const query = `${cardName} site:hsbc.com OR site:citi.com OR site:sc.com OR site:visa.com OR site:mastercard.com OR site:americanexpress.com ${region ? `(${region})` : ""}`;
+      const res = await braveSearch(query, env.BRAVE_API_KEY);
+      const urls = res.results.filter((r: any) => {
+        try { return isOfficialDomain(new URL(r.url).hostname); } catch { return false; }
+      }).map(r => r.url);
+      return new Response(JSON.stringify({ urls }), { headers: { "content-type": "application/json" } });
+    }
+
+    // Find related docs (KFS/T&Cs/fees/promos)
+    if (request.method === "POST" && url.pathname === "/find-related-docs") {
+      if (!env.BRAVE_API_KEY) {
+        return new Response(JSON.stringify({ error: "BRAVE_API_KEY not configured" }), { status: 500, headers: { "content-type": "application/json" } });
+      }
+      const body = await request.json().catch(() => ({}));
+      const { url: baseUrl, bank, cardName } = body as { url?: string; bank?: string; cardName?: string };
+      let host = "";
+      if (baseUrl) {
+        try { host = new URL(baseUrl).hostname; } catch { /* ignore */ }
+      }
+      const bankQuery = bank ? `${bank}` : "";
+      const nameQuery = cardName ? `${cardName}` : "";
+      const sitePart = host ? `site:${host}` : (bankQuery ? `site:${bankQuery}.com` : "");
+      const terms = ["Key Facts Statement", "KFS", "Terms and Conditions", "Fees", "Foreign transaction fee", "merchant list", "designated merchants", "MCC"];
+      const query = `${sitePart} ${bankQuery} ${nameQuery} (${terms.join(" OR ")})`;
+      const res = await braveSearch(query, env.BRAVE_API_KEY);
+      const related = res.results.filter((r: any) => {
+        try { return isOfficialDomain(new URL(r.url).hostname); } catch { return false; }
+      }).map((r: any) => ({ url: r.url, title: r.title }));
+      return new Response(JSON.stringify({ related }), { headers: { "content-type": "application/json" } });
+    }
+
+    // Extract FX/fees from a doc URL
+    if (request.method === "POST" && url.pathname === "/extract-fees") {
+      if (!llmApiKey) return new Response(JSON.stringify({ error: "LLM key not configured" }), { status: 500, headers: { "content-type": "application/json" } });
+      const body = await request.json().catch(() => ({}));
+      const { docUrl, region } = body as { docUrl?: string; region?: string };
+      if (!docUrl || !region) return new Response(JSON.stringify({ error: "docUrl and region are required" }), { status: 400, headers: { "content-type": "application/json" } });
+      try { const h = new URL(docUrl).hostname; if (!isOfficialDomain(h)) throw new Error("not official"); } catch { return new Response(JSON.stringify({ error: "Only official domains allowed" }), { status: 400, headers: { "content-type": "application/json" } }); }
+      const fees = await extractFeesFromDocInline(docUrl, region);
+      return new Response(JSON.stringify(fees), { headers: { "content-type": "application/json" } });
+    }
+
+    // Extract designated merchants/MCCs
+    if (request.method === "POST" && url.pathname === "/extract-merchants") {
+      if (!llmApiKey) return new Response(JSON.stringify({ error: "LLM key not configured" }), { status: 500, headers: { "content-type": "application/json" } });
+      const body = await request.json().catch(() => ({}));
+      const { docUrl, region } = body as { docUrl?: string; region?: string };
+      if (!docUrl || !region) return new Response(JSON.stringify({ error: "docUrl and region are required" }), { status: 400, headers: { "content-type": "application/json" } });
+      try { const h = new URL(docUrl).hostname; if (!isOfficialDomain(h)) throw new Error("not official"); } catch { return new Response(JSON.stringify({ error: "Only official domains allowed" }), { status: 400, headers: { "content-type": "application/json" } }); }
+      const merchants = await extractMerchantsInline(docUrl, region);
+      return new Response(JSON.stringify(merchants), { headers: { "content-type": "application/json" } });
+    }
+
+    // Score a purchase
+    if (request.method === "POST" && url.pathname === "/score-purchase") {
+      const body = await request.json().catch(() => ({}));
+      const { amount, currency, merchantName, channel, city, userCardIds } = body as any;
+      if (typeof amount !== "number" || !currency || !Array.isArray(userCardIds)) {
+        return new Response(JSON.stringify({ error: "amount(number), currency, userCardIds(array) are required" }), { status: 400, headers: { "content-type": "application/json" } });
+      }
+      const result = await scorePurchaseInline({ amount, currency, merchantName, channel, city, userCardIds }, deps.publish);
+      return new Response(JSON.stringify(result), { headers: { "content-type": "application/json" } });
     }
 
     if (request.method === "GET" && (url.pathname === "/" || url.pathname === "")) {

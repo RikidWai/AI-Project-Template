@@ -293,5 +293,5 @@ function detectCurrency(region: string): string {
     tw: "TWD",
     ph: "PHP"
   };
-  return map[region.toLowerCase()] || "USD";
+  return map[region?.toLowerCase?.()] || "USD";
 }
