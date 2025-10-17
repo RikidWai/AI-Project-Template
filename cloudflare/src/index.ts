@@ -190,11 +190,13 @@ function renderLandingPage(): string {
       </div>
     </form>
     <section id="result-section" class="result hidden" aria-live="polite"></section>
+    <section id="bento" class="hidden"></section>
     <script>
       const form = document.getElementById("card-form");
       const urlInput = document.getElementById("card-url");
       const regionSelect = document.getElementById("card-region");
       const resultSection = document.getElementById("result-section");
+      const bento = document.getElementById("bento");
       const submitButton = document.getElementById("submit-button");
       const resetButton = document.getElementById("reset-button");
 
@@ -207,6 +209,124 @@ function renderLandingPage(): string {
         resultSection.textContent = content;
         resultSection.classList.toggle("hidden", false);
         resultSection.style.background = isError ? "#b91c1c" : "rgba(15, 23, 42, 0.9)";
+      }
+
+      function renderBento(payload) {
+        const { ruleset } = payload;
+        if (!ruleset) return;
+        bento.classList.remove("hidden");
+        bento.innerHTML = "";
+        bento.style.width = "min(960px, 95vw)";
+        bento.style.display = "grid";
+        bento.style.gridTemplateColumns = "repeat(auto-fit, minmax(240px, 1fr))";
+        bento.style.gap = "1rem";
+
+        const tile = (title, content, span = 1) => {
+          const d = document.createElement("div");
+          d.style.background = "white";
+          d.style.color = "#111827";
+          d.style.padding = "1rem";
+          d.style.borderRadius = "0.75rem";
+          d.style.boxShadow = "0 10px 24px rgba(15,23,42,.12)";
+          d.style.gridColumn = 'span ' + span;
+          const h = document.createElement("div");
+          h.style.fontWeight = "700";
+          h.style.marginBottom = ".5rem";
+          h.textContent = title;
+          const c = document.createElement("div");
+          c.appendChild(content);
+          d.appendChild(h);
+          d.appendChild(c);
+          return d;
+        };
+
+        // Reward type toggle
+        const rtWrap = document.createElement("div");
+        const rtLabel = document.createElement("span");
+        rtLabel.textContent = "Reward type:";
+        rtLabel.style.marginRight = ".5rem";
+        const select = document.createElement("select");
+        ["all","cashback","miles","points"].forEach(v => {
+          const o = document.createElement("option");
+          o.value = v; o.textContent = v;
+          select.appendChild(o);
+        });
+        rtWrap.appendChild(rtLabel);
+        rtWrap.appendChild(select);
+
+        // Fees
+        const feeDiv = document.createElement("div");
+        const af = document.createElement("div");
+        af.textContent = 'Annual Fee: ' + (ruleset.annualFee ?? 0);
+        const fxDetails = document.createElement("details");
+        const effective = (ruleset.fx?.effectivePct ?? ruleset.fxFee ?? null);
+        const summary = document.createElement("summary");
+        summary.textContent = 'Foreign Transaction: ' + (effective ?? '–') + '%';
+        const fxBody = document.createElement("div");
+        fxBody.style.marginTop = ".5rem";
+        fxBody.innerHTML = 'Issuer: ' + (ruleset.fx?.issuerFeePct ?? '–') + '%<br/>Network: ' + (ruleset.fx?.networkMarkupPct ?? '–') + '%';
+        fxDetails.appendChild(summary);
+        fxDetails.appendChild(fxBody);
+        feeDiv.appendChild(af);
+        feeDiv.appendChild(fxDetails);
+
+        // Promotions
+        const promos = document.createElement("ul");
+        (ruleset.promotions || []).forEach(p => { const li = document.createElement("li"); li.textContent = p; promos.appendChild(li); });
+
+        // Categories
+        const list = document.createElement("div");
+        list.style.display = "grid";
+        list.style.gap = ".75rem";
+
+        function renderRules(filter) {
+          list.innerHTML = "";
+          const grouped = {};
+          for (const r of ruleset.rules) {
+            if (filter !== "all" && r.rewardType !== filter) continue;
+            (grouped[r.category] ||= []).push(r);
+          }
+          Object.entries(grouped).forEach(([cat, arr]) => {
+            const card = document.createElement("div");
+            card.style.border = "1px solid rgba(99,102,241,.25)";
+            card.style.borderRadius = "0.75rem";
+            card.style.padding = "0.75rem";
+            const head = document.createElement("div");
+            head.style.fontWeight = "600";
+            head.style.marginBottom = ".5rem";
+            head.textContent = cat + (arr.some(r => r.stacking === 'stackable') ? " (Stackable)" : " (Choose one)");
+            const chips = document.createElement("div");
+            chips.style.display = "flex";
+            chips.style.flexWrap = "wrap";
+            chips.style.gap = ".5rem";
+            arr.forEach(r => {
+              const chip = document.createElement("button");
+              chip.type = "button";
+              chip.style.padding = ".4rem .6rem";
+              chip.style.borderRadius = "9999px";
+              chip.style.border = "1px solid #e5e7eb";
+              chip.style.background = "#f3f4f6";
+              const unit = r.unit || (r.rewardType === 'cashback' ? '%' : '');
+              const val = (r.rateValue ?? r.rate);
+              chip.textContent = String(val) + String(unit) + ' • ' + (r.rewardType || 'cashback');
+              chip.title = r.description;
+              chips.appendChild(chip);
+            });
+            card.appendChild(head);
+            card.appendChild(chips);
+            list.appendChild(card);
+          });
+        }
+        renderRules("all");
+        select.addEventListener("change", () => renderRules(select.value));
+
+        // Allow inline edit (local only)
+        af.contentEditable = "true";
+
+        bento.appendChild(tile("Reward Type", rtWrap));
+        bento.appendChild(tile("Fees", feeDiv, 2));
+        bento.appendChild(tile("Promotions", promos));
+        bento.appendChild(tile("Categories", list, 2));
       }
 
       form.addEventListener("submit", async (event) => {
@@ -233,6 +353,7 @@ function renderLandingPage(): string {
 
           const payload = await response.json();
           displayResult(JSON.stringify(payload, null, 2));
+          renderBento(payload);
         } catch (error) {
           displayResult(error instanceof Error ? error.message : "Unexpected error", true);
         } finally {
@@ -243,6 +364,7 @@ function renderLandingPage(): string {
       resetButton.addEventListener("click", () => {
         form.reset();
         resultSection.classList.add("hidden");
+        bento.classList.add("hidden");
       });
     </script>
   </body>
