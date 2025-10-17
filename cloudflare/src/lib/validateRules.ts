@@ -15,6 +15,7 @@ const ALLOWED_CATEGORIES = new Set([
   "general",
   "dining",
   "groceries",
+  "supermarket",  // Common in HK (超市)
   "online",
   "travel",
   "fuel",
@@ -23,14 +24,30 @@ const ALLOWED_CATEGORIES = new Set([
 
 export function validateRuleset(ruleset: CardRuleSet): ValidationResult {
   const issues: ValidationIssue[] = [];
-  if (!ruleset.cardName || ruleset.cardName.length < 3) {
-    issues.push({ field: "cardName", message: "Card name appears invalid" });
+  
+  // CRITICAL: Reject "Unknown Card" or very short names
+  if (!ruleset.cardName || ruleset.cardName.length < 3 || 
+      ruleset.cardName.toLowerCase().includes("unknown")) {
+    issues.push({ 
+      field: "cardName", 
+      message: "Card name missing or invalid (found: " + ruleset.cardName + ")" 
+    });
   }
+  
   if (!ruleset.region) {
     issues.push({ field: "region", message: "Region is required" });
   }
+  
   if (Number.isNaN(ruleset.baseRate) || ruleset.baseRate < 0) {
     issues.push({ field: "baseRate", message: "Base rate must be non-negative" });
+  }
+  
+  // CRITICAL: Ensure minimum signal - must have EITHER a base rate or category rules
+  if (ruleset.baseRate === 0 && ruleset.rules.length === 0) {
+    issues.push({ 
+      field: "rules", 
+      message: "No reward information found. Must have baseRate > 0 or at least one category rule." 
+    });
   }
 
   const mappedCategories: string[] = [];

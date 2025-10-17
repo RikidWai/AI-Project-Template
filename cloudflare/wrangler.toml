@@ -4,7 +4,7 @@ compatibility_date = "2023-10-01"
 
 [[kv_namespaces]]
 binding = "RULESET_KV"
-id = "00000000000000000000000000000000"
+id = "41214e747cd147458aa2e81b442a94dd"
 
 [[r2_buckets]]
 binding = "SNAPSHOT_BUCKET"
@@ -13,3 +13,13 @@ bucket_name = "kacard-snapshots"
 [[r2_buckets]]
 binding = "RULESET_BUCKET"
 bucket_name = "kacard-rulesets"
+
+[browser]
+binding = "BROWSER"
+
+# Optional: KV mapping from content hash -> cardKey for dedupe
+# Create via: wrangler kv:namespace create HASH_TO_RULESET_KV
+# Then set the id below
+#[[kv_namespaces]]
+#binding = "HASH_TO_RULESET_KV"
+#id = "<your-kv-id>"

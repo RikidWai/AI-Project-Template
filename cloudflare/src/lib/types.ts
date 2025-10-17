@@ -58,9 +58,16 @@ export interface SnapshotStore {
 
 export interface RulesetStore {
   put(key: string, value: string, options?: { contentType?: string }): Promise<void>;
+
+  get?(key: string): Promise<string | null>;
+}
+export interface RulesetKV {
+  put(key: string, value: string): Promise<void>;
+  get(key: string): Promise<string | null>;
 }
 
-export interface RulesetKV {
+// Optional hash index to dedupe extractions by immutable content hash
+export interface HashIndexKV {
   put(key: string, value: string): Promise<void>;
   get(key: string): Promise<string | null>;
 }

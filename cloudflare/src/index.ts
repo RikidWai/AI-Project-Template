@@ -6,12 +6,21 @@ export interface Env {
   SNAPSHOT_BUCKET: R2Bucket;
   RULESET_BUCKET: R2Bucket;
   RULESET_KV: KVNamespace;
+  OPENAI_API_KEY?: string; // Optional: OpenAI or OpenRouter API key (set via wrangler secret put OPENAI_API_KEY)
+  BROWSER?: Fetcher; // Optional: Cloudflare Browser Rendering for JavaScript-heavy sites
+  SCRAPER_API_KEY?: string; // Optional: ScraperAPI key for stubborn sites (with underscore)
+  SCRAPERAPI_KEY?: string; // Optional: ScraperAPI key for stubborn sites (without underscore, legacy)
+  PDFCO_API_KEY?: string; // Optional: pdf.co API key for PDF text extraction
+  HASH_TO_RULESET_KV?: KVNamespace; // Optional: Hash index to dedupe repeated content
 }
 
 function buildDependencies(env: Env): ProcessCardLinkDependencies {
   return {
     fetch: {
       fetch: (url: string) => fetch(url),
+      browserBinding: env.BROWSER, // Pass browser binding for JavaScript-heavy sites
+      scraperApiKey: env.SCRAPER_API_KEY || env.SCRAPERAPI_KEY, // Pass ScraperAPI key (accept both names)
+      pdfcoApiKey: env.PDFCO_API_KEY, // Pass pdf.co API key for PDF parsing
       snapshotStore: {
         async put(key: string, value: string | ArrayBuffer, options?: SnapshotPutOptions) {
           await env.SNAPSHOT_BUCKET.put(key, value, {
@@ -28,12 +37,19 @@ function buildDependencies(env: Env): ProcessCardLinkDependencies {
             httpMetadata: options?.contentType ? { contentType: options.contentType } : undefined,
           });
         },
+        async get(key: string) {
+          const obj = await env.RULESET_BUCKET.get(key);
+          if (!obj) return null;
+          return await obj.text();
+        },
       },
       rulesetKV: {
         put: (key: string, value: string) => env.RULESET_KV.put(key, value),
         get: (key: string) => env.RULESET_KV.get(key),
       },
     },
+    openaiApiKey: env.OPENAI_API_KEY, // Pass OpenAI API key if available
+    hashIndexKV: env.HASH_TO_RULESET_KV,
   };
 }
 
@@ -247,6 +263,12 @@ export default {
       }
 
       const deps = buildDependencies(env);
+      
+      // Debug logging
+      console.log("[DEBUG] OPENAI_API_KEY present:", !!env.OPENAI_API_KEY);
+      console.log("[DEBUG] OPENAI_API_KEY length:", env.OPENAI_API_KEY?.length || 0);
+      console.log("[DEBUG] deps.openaiApiKey present:", !!deps.openaiApiKey);
+      
       const result = await processCardLink(targetUrl, region, deps);
       return new Response(JSON.stringify(result), {
         headers: { "content-type": "application/json" },
