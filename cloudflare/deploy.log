@@ -1,0 +1,15 @@
+
+ ⛅️ wrangler 4.42.2
+───────────────────
+Total Upload: 38.62 KiB / gzip: 11.23 KiB
+Your Worker has access to the following bindings:
+Binding                                                     Resource          
+env.RULESET_KV (41214e747cd147458aa2e81b442a94dd)           KV Namespace      
+env.SNAPSHOT_BUCKET (kacard-snapshots)                      R2 Bucket         
+env.RULESET_BUCKET (kacard-rulesets)                        R2 Bucket         
+env.BROWSER                                                 Browser           
+
+Uploaded kacard-worker (5.08 sec)
+Deployed kacard-worker triggers (0.94 sec)
+  https://kacard-worker.paws-labu.workers.dev
+Current Version ID: d069f74d-15af-4b1d-b669-c19d647675fe
