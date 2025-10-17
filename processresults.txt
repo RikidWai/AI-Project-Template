@@ -1,18 +1,239 @@
-Mox Credit:
+{
+  "status": "published",
+  "ruleset": {
+    "cardName": "HSBC Red Credit Card",
+    "region": "hk",
+    "currency": "HKD",
+    "baseRate": 0,
+    "rules": [
+      {
+        "category": "supermarket",
+        "rate": 2,
+        "description": "2% cashback on supermarket spending",
+        "rewardType": "cashback",
+        "unit": "%",
+        "rateValue": 2,
+        "stacking": "choose_one",
+        "merchants": null,
+        "source": "https://www.hsbc.com.hk/credit-cards/products/red/",
+        "sources": [
+          "https://www.hsbc.com.hk/credit-cards/products/red/"
+        ]
+      },
+      {
+        "category": "dining",
+        "rate": 2,
+        "description": "2% cashback on dining spending",
+        "rewardType": "cashback",
+        "unit": "%",
+        "rateValue": 2,
+        "stacking": "choose_one",
+        "merchants": null,
+        "source": "https://www.hsbc.com.hk/credit-cards/products/red/",
+        "sources": [
+          "https://www.hsbc.com.hk/credit-cards/products/red/"
+        ]
+      },
+      {
+        "category": "online",
+        "rate": 2,
+        "description": "2% cashback on online spending",
+        "rewardType": "cashback",
+        "unit": "%",
+        "rateValue": 2,
+        "stacking": "choose_one",
+        "merchants": null,
+        "source": "https://www.hsbc.com.hk/credit-cards/products/red/",
+        "sources": [
+          "https://www.hsbc.com.hk/credit-cards/products/red/"
+        ]
+      },
+      {
+        "category": "general",
+        "rate": 1,
+        "description": "1% cashback on all other spending",
+        "rewardType": "cashback",
+        "unit": "%",
+        "rateValue": 1,
+        "stacking": "choose_one",
+        "merchants": null,
+        "source": "https://www.hsbc.com.hk/credit-cards/products/red/",
+        "sources": [
+          "https://www.hsbc.com.hk/credit-cards/products/red/"
+        ]
+      }
+    ],
+    "annualFee": 0,
+    "fxFee": null,
+    "fx": {
+      "issuerFeePct": null,
+      "networkMarkupPct": null,
+      "effectivePct": null,
+      "notes": null
+    },
+    "promotions": [],
+    "sourceUrl": "https://www.hsbc.com.hk/credit-cards/products/red/",
+    "contentHash": "08b1bd495d811b8ca737dd79c5536015dfada41772913bbf12699eab0b0ce048",
+    "fetchedAt": "2025-10-17T13:07:09.423Z",
+    "provenance": {
+      "snapshot_id": "08b1bd495d811b8ca737dd79c5536015dfada41772913bbf12699eab0b0ce048",
+      "model": "google/gemini-2.5-flash-lite-preview-06-17",
+      "fields": {
+        "cardName": {
+          "value": "HSBC Red Credit Card",
+          "confidence": 0.95,
+          "sourceSpan": {
+            "text": "HSBC Red Credit Card"
+          }
+        },
+        "baseRate": {
+          "confidence": 0,
+          "sourceSpan": {
+            "text": ""
+          }
+        },
+        "annualFee": {
+          "value": 0,
+          "confidence": 0.98,
+          "sourceSpan": {
+            "text": "Annual fee"
+          }
+        },
+        "fx": {
+          "issuerFeePct": {
+            "confidence": 0,
+            "sourceSpan": {
+              "text": ""
+            }
+          },
+          "networkMarkupPct": {
+            "confidence": 0,
+            "sourceSpan": {
+              "text": ""
+            }
+          }
+        },
+        "rules": [
+          {
+            "category": "supermarket",
+            "rate": 2,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "2% cashback on supermarket spending"
+            }
+          },
+          {
+            "category": "dining",
+            "rate": 2,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "2% cashback on dining spending"
+            }
+          },
+          {
+            "category": "online",
+            "rate": 2,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "2% cashback on online spending"
+            }
+          },
+          {
+            "category": "general",
+            "rate": 1,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "1% cashback on all other spending"
+            }
+          }
+        ],
+        "promotions": []
+      }
+    }
+  },
+  "validation": {
+    "valid": true,
+    "issues": [],
+    "mappedCategories": [
+      "supermarket",
+      "dining",
+      "online",
+      "general"
+    ]
+  },
+  "publishResult": {
+    "cardKey": "hsbc-red-credit-card-hk",
+    "version": "5",
+    "r2Key": "rulesets/hsbc-red-credit-card-hk/v5.json",
+    "contentHash": "08b1bd495d811b8ca737dd79c5536015dfada41772913bbf12699eab0b0ce048"
+  }
+}
+
 {
   "status": "needs_review",
   "ruleset": {
-    "cardName": "mox.com",
+    "cardName": "Red",
     "region": "hk",
-    "currency": "USD",
+    "currency": "HKD",
     "baseRate": 0,
     "rules": [],
     "annualFee": null,
     "fxFee": null,
+    "fx": {
+      "issuerFeePct": null,
+      "networkMarkupPct": null,
+      "effectivePct": null,
+      "notes": null
+    },
     "promotions": [],
-    "sourceUrl": "https://mox.com/zh/features/mox-credit/",
-    "contentHash": "c686f686f550d5d276858698855e63d92cff8a359c9d7bf72845b7000269775a",
-    "fetchedAt": "2025-10-12T11:45:41.272Z"
+    "sourceUrl": "https://www.hsbc.com.hk/credit-cards/products/red/",
+    "contentHash": "08b1bd495d811b8ca737dd79c5536015dfada41772913bbf12699eab0b0ce048",
+    "fetchedAt": "2025-10-17T13:14:34.604Z",
+    "provenance": {
+      "snapshot_id": "08b1bd495d811b8ca737dd79c5536015dfada41772913bbf12699eab0b0ce048",
+      "model": "openai/gpt-5-mini",
+      "fields": {
+        "cardName": {
+          "value": "Red",
+          "confidence": 0.7,
+          "sourceSpan": {
+            "text": "URL: https://www.hsbc.com.hk/credit-cards/products/red/"
+          }
+        },
+        "baseRate": {
+          "value": null,
+          "confidence": 0,
+          "sourceSpan": {
+            "text": "Not mentioned in content"
+          }
+        },
+        "annualFee": {
+          "value": null,
+          "confidence": 0,
+          "sourceSpan": {
+            "text": "Not mentioned in content"
+          }
+        },
+        "fx": {
+          "issuerFeePct": {
+            "value": null,
+            "confidence": 0,
+            "sourceSpan": {
+              "text": "Not mentioned in content"
+            }
+          },
+          "networkMarkupPct": {
+            "value": null,
+            "confidence": 0,
+            "sourceSpan": {
+              "text": "Not mentioned in content"
+            }
+          }
+        },
+        "rules": [],
+        "promotions": []
+      }
+    }
   },
   "validation": {
     "valid": false,
@@ -26,168 +247,664 @@ Mox Credit:
   }
 }
 
-HSBC Red:
 {
-  "status": "published",
+  "status": "needs_review",
   "ruleset": {
-    "cardName": "HSBC Red Credit Card",
+    "cardName": "Unknown Card",
     "region": "hk",
-    "currency": "USD",
-    "baseRate": 8,
-    "rules": [
-      {
-        "category": "online",
-        "rate": 8,
-        "description": "Get up to 8% RewardCash rebate when your apply for HSBC Red Credit Card online now. T&amp;Cs apply.",
-        "unit": "%",
-        "source": "https://www.hsbc.com.hk/credit-cards/products/red/?cid=AMH:me:P0:CC:05:2401:070:2024AlwaysOnCardACQ&gclid=Cj0KCQjwo63HBhCKARIsAHOHV_VWEw1j-uj7RUbl7kJ1xfaIMuW1Uk01HudgMs_6jTIAUFobzckGhJYaAu5cEALw_wcB&gclsrc=aw.ds&&ev_sid=3&ev_ln=hsbc%20red%20card&ev_lx=kwd-820082154689&ev_crx=771483140104&ev_mt=e&ev_n=g&ev_ltx=&ev_pl=&ev_pos=&ev_dvc=c&ev_dvm=&ev_phy=9198161&ev_loc=9199121&ev_cx=14979088246&ev_ax=158547719899&ev_efid=Cj0KCQjwo63HBhCKARIsAHOHV_VWEw1j-uj7RUbl7kJ1xfaIMuW1Uk01HudgMs_6jTIAUFobzckGhJYaAu5cEALw_wcB:G:s&url=!https://clickserve.dartsearch.net/link/click?lid=43700079388736784&ds_s_kwgid=58700008662516663&gad_source=1&gad_campaignid=14979088246&gbraid=0AAAAADkDCG4xGzSxLGzLy7AORDtGTOGIr"
-      },
-      {
-        "category": "general",
-        "rate": 8,
-        "description": "Earn 8% RewardCash at designated merchants",
-        "unit": "%",
-        "source": "https://www.hsbc.com.hk/credit-cards/products/red/?cid=AMH:me:P0:CC:05:2401:070:2024AlwaysOnCardACQ&gclid=Cj0KCQjwo63HBhCKARIsAHOHV_VWEw1j-uj7RUbl7kJ1xfaIMuW1Uk01HudgMs_6jTIAUFobzckGhJYaAu5cEALw_wcB&gclsrc=aw.ds&&ev_sid=3&ev_ln=hsbc%20red%20card&ev_lx=kwd-820082154689&ev_crx=771483140104&ev_mt=e&ev_n=g&ev_ltx=&ev_pl=&ev_pos=&ev_dvc=c&ev_dvm=&ev_phy=9198161&ev_loc=9199121&ev_cx=14979088246&ev_ax=158547719899&ev_efid=Cj0KCQjwo63HBhCKARIsAHOHV_VWEw1j-uj7RUbl7kJ1xfaIMuW1Uk01HudgMs_6jTIAUFobzckGhJYaAu5cEALw_wcB:G:s&url=!https://clickserve.dartsearch.net/link/click?lid=43700079388736784&ds_s_kwgid=58700008662516663&gad_source=1&gad_campaignid=14979088246&gbraid=0AAAAADkDCG4xGzSxLGzLy7AORDtGTOGIr"
-      }
-    ],
+    "currency": "HKD",
+    "baseRate": 0,
+    "rules": [],
     "annualFee": null,
     "fxFee": null,
+    "fx": {
+      "issuerFeePct": null,
+      "networkMarkupPct": null,
+      "effectivePct": null,
+      "notes": null
+    },
     "promotions": [
-      "var utag_data={\"page_type\":\"product\",\"page_url\":\"/credit-cards/products/red/\",\"page_name\":\"pws:credit cards : products : red\",\"page_language\":\"en_hk\",\"page_security_level\":\"0\",\"page_customer_group\":\"general\",\"page_category\":\"credit cards\",\"page_subcategory\":\"products\"}; (function(a,b,c,d){ a='//tags.tiqcdn.com/utag/hsbc/hk-rbwm/prod/utag.js'; b=document;c='script';d=b.createElement(c);d.src=a; d.type='text/java'+c;d.async=true; a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a) })(); window[\"adrum-app-key\"] = \"AD-AAB-AAF-XXV\"; window['adrum-start-time'] = new Date().getTime(); window.modalsConfiguration = {\"globalWhitelist\":[\"https://play.google.com/store/apps/details?id\\u003dhk.com.hsbc.hsbchkmobilebanking\\u0026referrer\\u003dutm_source%3DM_SB_PWS_HPS_E\",\"https://itunes.apple.com/app/apple-store/id1164066737?pt\\u003d118152957\\u0026ct\\u003dM_SB_PWS_HPS_E\\u0026mt\\u003d8\"],\"modals\":{\"/content/hsbc/hk/en_hk/configuration/modals/you-are-leaving-our-website\":{\"modalUrl\":\"/configuration/modals/you-are-leaving-our-website.modal/\",\"whitelist\":[\"*hsbc.com.hk*\",\"*www.hsbc.com.hk*\",\"*www.commercial.hsbc.com.hk*\",\"*www.services.online-banking.hsbc.com.hk*\",\"*www.ebanking.hsbc.com.hk*\",\"*www.personal.hsbc.com.hk*\",\"*payme.hsbc.com.hk*\",\"*www.redhotoffers.hsbc.com.hk*\",\"*www.warrants.hsbc.com.hk*\",\"*insights.hsbc.com.hk*\",\"*www.personal.ebanking.hsbc.com.hk*\",\"*retailbank.hsbc.com.hk*\",\"*www.business.hsbc.com.hk*\",\"*www.broking.hsbc.com.hk*\",\"*www.about.hsbc.com.hk*\",\"*www.gbm.hsbc.com*\",\"*www.hsbcprivatebank.com*\",\"*www.hsbcnet.com*\",\"*www.expatexplorer.hsbc.com*\",\"*www.payme.hsbc.com.hk*\",\"*www1.member-hsbc-group.com*\",\"*www.digitalcounterservices.hsbc.com.hk*\",\"*www.hsbc.com*\",\"*www.homeandaway.hsbc.com*\",\"*www.iccmap.hsbc.com.hk*\",\"*www.etf.hsbc.com*\",\"*hsss.hsbc.co.uk*\",\"*www.hsbcadvance.com*\",\"*financialplanningpublic.hk.personal-banking.hsbc.com*\",\"*mi.hsbc.com.hk*\",\"*www.stock.express.hsbc.com.hk*\",\"*www.hsbc.gr*\",\"*www.fatca.hsbc.com*\",\"*www.crs.hsbc.com*\",\"*www1.ebanking.hsbc.com.hk*\",\"*fatca.hsbc.com*\",\"*www.hsbcpremier.com*\",\"*www.assetmanagement.hsbc.com*\",\"*hsbc.mobi*\",\"*www.hsbcpremierlocator.com*\",\"*www.hkinfo.assetmanagement.hsbc.com*\",\"*www.ebroking.hsbc.com.hk*\",\"*www.hsbc.com.au*\",\"*www.hsbc.com.tw*\",\"*www.banking.hsbc.com.hk*\",\"*insurance.hsbc.com.hk*\",\"*www.hsbc.ae*\",\"*www.offshore.hsbc.com*\",\"*www.hsbc.com.sg*\",\"*www.video.hsbc.com.hk*\",\"*hsbc.com*\",\"*www2.ebanking.hsbc.com.hk*\",\"*www.hsbc.com.cn*\",\"*www.thechinfamily.hk*\",\"*www.axa.com.hk*\",\"*inet.axa.com.hk*\",\"*https://inet.axa.com.hk/B/H/Motor/MotorInsurance?Source\\u003dPWS\\u0026LangTag\\u003dzh\\u0026CountryTag\\u003dHK\\u0026EntityTag\\u003dHK *\",\"*https://inet.axa.com.hk/B/H/Motor/MotorInsurance?Source\\u003dPWS\\u0026LangTag\\u003den\\u0026CountryTag\\u003dHK\\u0026EntityTag\\u003dHK *\",\"*www.hsbc.ca*\",\"*www.us.hsbc.com*\",\"*internationalservices.hsbc.com*\",\"*www.expat.hsbc.com*\",\"*ebank.pingan.com.cn*\",\"*https://zh.surveymonkey.com/r/VBFYF6W*\",\"*https://bit.ly/3XdvXpF*\",\"*https://bit.ly/MPFRPeoplesChoice24*\",\"*https://zh.surveymonkey.com/r/FLZ9GZJ*\",\"*https://mpfratings.com.hk/2025-peoples-choice/*\"],\"blacklist\":[\"http\",\"https://cyberdefender.hk/scameterplus\"],\"triggerOn\":\"click\",\"logoutOnAction\":false,\"authorizedOnly\":false,\"anonymousOnly\":false,\"enableOnLogonLinks\":false,\"enabled\":true,\"showOnce\":false,\"modalType\":\"genericModal\"},\"/content/hsbc/hk/en_hk/configuration/modals/you-are-leaving-our-website-hsbc\":{\"modalUrl\":\"/configuration/modals/you-are-leaving-our-website-hsbc.modal/\",\"whitelist\":[],\"blacklist\":[\"www.expat.hsbc.com\",\"www.us.hsbc.com\",\"www.hsbc.ca\",\"internationalservices.hsbc.com\"],\"triggerOn\":\"click\",\"logoutOnAction\":false,\"authorizedOnly\":false,\"anonymousOnly\":false,\"enableOnLogonLinks\":false,\"enabled\":true,\"showOnce\":false,\"modalType\":\"genericModal\"},\"/content/hsbc/hk/en_hk/configuration/modals/mpf-survey-modal\":{\"modalUrl\":\"/configuration/modals/mpf-survey-modal.modal/\",\"whitelist\":[],\"blacklist\":[],\"triggerOn\":\"load\",\"logoutOnAction\":false,\"authorizedOnly\":false,\"anonymousOnly\":false,\"enableOnLogonLinks\":false,\"enabled\":true,\"showOnce\":true,\"modalType\":\"genericModal\"},\"/content/hsbc/hk/en_hk/configuration/modals/mpf-scheme-vote\":{\"modalUrl\":\"/configuration/modals/mpf-scheme-vote.modal/\",\"whitelist\":[],\"blacklist\":[\"https://bit.ly/3XdvXpF\"],\"triggerOn\":\"click\",\"logoutOnAction\":false,\"authorizedOnly\":false,\"anonymousOnly\":false,\"enableOnLogonLinks\":false,\"enabled\":true,\"showOnce\":false,\"modalType\":\"genericModal\"},\"/content/hsbc/hk/en_hk/configuration/modals/you-are-leaving-our-website-cn\":{\"modalUrl\":\"/configuration/modals/you-are-leaving-our-website-cn.modal/\",\"whitelist\":[],\"blacklist\":[\"hsbc.com.cn\",\"www.hsbc.com.cn\"],\"triggerOn\":\"click\",\"logoutOnAction\":false,\"authorizedOnly\":false,\"anonymousOnly\":false,\"enableOnLogonLinks\":false,\"enabled\":true,\"showOnce\":false,\"modalType\":\"genericModal\"},\"/content/hsbc/hk/en_hk/configuration/modals/axa-modal\":{\"modalUrl\":\"/configuration/modals/axa-modal.modal/\",\"whitelist\":[],\"blacklist\":[\"https://inet.axa.com.hk/B/H/Motor/MotorInsurance?Source\\u003dPWS\\u0026LangTag\\u003den\\u0026CountryTag\\u003dHK\\u0026EntityTag\\u003dHK \",\"https://inet.axa.com.hk/B/H/Motor/MotorInsurance?Source\\u003dPWS\\u0026LangTag\\u003dzh\\u0026CountryTag\\u003dHK\\u0026EntityTag\\u003dHK\",\"inet.axa.com.hk\",\"www.axa.com.hk\"],\"triggerOn\":\"click\",\"logoutOnAction\":false,\"authorizedOnly\":false,\"anonymousOnly\":false,\"enableOnLogonLinks\":false,\"enabled\":true,\"showOnce\":false,\"modalType\":\"genericModal\"},\"/content/hsbc/hk/en_hk/configuration/modals/mpf-surveymonkey\":{\"modalUrl\":\"/configuration/modals/mpf-surveymonkey.modal/\",\"whitelist\":[],\"blacklist\":[\"https://zh.surveymonkey.com/r/VBFYF6W\"],\"triggerOn\":\"click\",\"logoutOnAction\":false,\"authorizedOnly\":false,\"anonymousOnly\":false,\"enableOnLogonLinks\":false,\"enabled\":true,\"showOnce\":false,\"modalType\":\"genericModal\"},\"/content/hsbc/hk/en_hk/configuration/modals/mpf-scheme-vote-2024\":{\"modalUrl\":\"/configuration/modals/mpf-scheme-vote-2024.modal/\",\"whitelist\":[],\"blacklist\":[\"https://bit.ly/MPFRPeoplesChoice24\"],\"triggerOn\":\"click\",\"logoutOnAction\":false,\"authorizedOnly\":false,\"anonymousOnly\":false,\"enableOnLogonLinks\":false,\"enabled\":true,\"showOnce\":false,\"modalType\":\"genericModal\"},\"/content/hsbc/hk/en_hk/configuration/modals/mpf-scheme-vote-2025\":{\"modalUrl\":\"/configuration/modals/mpf-scheme-vote-2025.modal/\",\"whitelist\":[],\"blacklist\":[\"https://mpfratings.com.hk/2025-peoples-choice/\"],\"triggerOn\":\"click\",\"logoutOnAction\":false,\"authorizedOnly\":false,\"anonymousOnly\":false,\"enableOnLogonLinks\":false,\"enabled\":true,\"showOnce\":false,\"modalType\":\"genericModal\"},\"/content/hsbc/hk/en_hk/configuration/modals/thechinfamily-modal\":{\"modalUrl\":\"/configuration/modals/thechinfamily-modal.modal/\",\"whitelist\":[],\"blacklist\":[\"www.thechinfamily.hk\"],\"triggerOn\":\"click\",\"logoutOnAction\":false,\"authorizedOnly\":false,\"anonymousOnly\":false,\"enableOnLogonLinks\":false,\"enabled\":true,\"showOnce\":false,\"modalType\":\"genericModal\"},\"/content/hsbc/hk/en_hk/configuration/modals/mpf-surveymonkey-2025\":{\"modalUrl\":\"/configuration/modals/mpf-surveymonkey-2025.modal/\",\"whitelist\":[],\"blacklist\":[\"https://zh.surveymonkey.com/r/FLZ9GZJ\"],\"triggerOn\":\"click\",\"logoutOnAction\":false,\"authorizedOnly\":false,\"anonymousOnly\":false,\"enableOnLogonLinks\":false,\"enabled\":true,\"showOnce\":false,\"modalType\":\"genericModal\"},\"/content/hsbc/hk/en_hk/configuration/modals/dep-mode-modal\":{\"modalUrl\":\"/configuration/modals/dep-mode-modal.modal/\",\"whitelist\":[],\"blacklist\":[\"dep-default-page.dep\"],\"triggerOn\":\"click\",\"logoutOnAction\":false,\"authorizedOnly\":false,\"anonymousOnly\":false,\"enableOnLogonLinks\":false,\"enabled\":true,\"showOnce\":false,\"modalType\":\"pwsModal\"}}}; Beware of phishing SMS messages",
-      "Cards Promotions",
-      "Spending Instalment Plan",
-      "Offers Latest Rewards HSBC Latest Offers",
-      "See more offers",
-      "Credit Cards Offers",
-      "Spending Instalment Plan",
-      "Investment Offers",
-      "Loans Offers",
-      "Accounts Offers",
-      "Mortgages Offers",
-      "Debit Card Offers",
-      "See more offers",
-      "Cards Promotions",
-      "Spending Instalment Plan",
-      "Offers Latest Rewards HSBC Latest Offers",
-      "See more offers",
-      "Credit Cards Offers",
-      "Spending Instalment Plan",
-      "Investment Offers",
-      "Loans Offers",
-      "Accounts Offers",
-      "Mortgages Offers",
-      "Debit Card Offers",
-      "See more offers",
-      "Red Alert! Red Credit Card has selected the hottest offers for you in town. Get up to 8% RewardCash rebate at designated merchants and up to 4% RewardCash rebate when you spend online.",
-      "Welcome offer",
-      "Limited-time welcome offer of up to $300 RewardCash[@cards-welcomeoffer-red-2025]",
-      "Extra $200 RewardCash for new credit card customers who successfully apply for a Cash Instalment Plan[@cards-cash-instalment-200rc-offer]",
-      "Earn extra RewardCash by spending in these categories",
-      "Red Alert! Additional offers for foodies",
-      "Exclusive benefits and offers",
-      "Earn up to 8% RewardCash while indulging yourself. Simply spend with your Red Credit Card at designated merchants:",
-      "Receive HSBC Reward+ stamps and get RewardCash when you spend the designated amount in a single transaction.",
-      "Get up to $40 in RewardCash when you spend at McDonald's Earn HSBC Reward+ stamps and receive up to $40 in RewardCash each month when you spend HKD30 or above in a single transaction at McDonald's. T&amp;Cs apply .",
-      "Get up to $90 in RewardCash when you spend at MCL Cinemas Earn HSBC Reward+ stamps and receive up to $90 in RewardCash during each phase when you spend HKD50 or above in a single transaction at MCL Cinemas. T&amp;Cs apply .",
-      "Limited-time offer - price down on subscription fee for 'All-you-can-Split'",
-      "Gain access to home&amp;Away A world of offers. On the other end of a 5-minute walk or 7-hour flight. Whether you're in your neighbourhood or travelling abroad, explore a range of offers – unlocked with your HSBC card. Start exploring home&amp;Away .",
-      "Perpetual annual fee waiver Enjoy a perpetual waiver on your annual fees with your card—no spending limits required!",
-      "Red Hot Offers &nbsp; Red Hot Offers This link will open in a new window",
-      "Year-round offers &nbsp; Year-round offers This link will open in a new window"
+      "DOCUMENT 1: REWARDS URL: https://www.dbs.com.hk/iwov-resources/pdf/creditcards/DBS-rewards-master-tnc-201709.pdf"
     ],
-    "sourceUrl": "https://www.hsbc.com.hk/credit-cards/products/red/?cid=AMH:me:P0:CC:05:2401:070:2024AlwaysOnCardACQ&gclid=Cj0KCQjwo63HBhCKARIsAHOHV_VWEw1j-uj7RUbl7kJ1xfaIMuW1Uk01HudgMs_6jTIAUFobzckGhJYaAu5cEALw_wcB&gclsrc=aw.ds&&ev_sid=3&ev_ln=hsbc%20red%20card&ev_lx=kwd-820082154689&ev_crx=771483140104&ev_mt=e&ev_n=g&ev_ltx=&ev_pl=&ev_pos=&ev_dvc=c&ev_dvm=&ev_phy=9198161&ev_loc=9199121&ev_cx=14979088246&ev_ax=158547719899&ev_efid=Cj0KCQjwo63HBhCKARIsAHOHV_VWEw1j-uj7RUbl7kJ1xfaIMuW1Uk01HudgMs_6jTIAUFobzckGhJYaAu5cEALw_wcB:G:s&url=!https://clickserve.dartsearch.net/link/click?lid=43700079388736784&ds_s_kwgid=58700008662516663&gad_source=1&gad_campaignid=14979088246&gbraid=0AAAAADkDCG4xGzSxLGzLy7AORDtGTOGIr",
-    "contentHash": "8eca5ea5da397cad1fd9f65ccfc6b7642da2941ef16cadbe4cb7d75277a840b0",
-    "fetchedAt": "2025-10-12T11:44:50.469Z"
+    "sourceUrl": "https://www.dbs.com.hk/personal/credit-cards/credit-cards/black-mc?pid=hk-personal-en-card-comparator-blackMC",
+    "contentHash": "06ceb7309332af4af7c21148fb04ad3ced5eefe38b5a70e07897910b7cd44e54",
+    "fetchedAt": "2025-10-17T13:17:42.861Z",
+    "provenance": {
+      "snapshot_id": "06ceb7309332af4af7c21148fb04ad3ced5eefe38b5a70e07897910b7cd44e54",
+      "model": "openai/gpt-5-mini",
+      "fields": {
+        "cardName": {
+          "value": null,
+          "confidence": 0,
+          "sourceSpan": {
+            "text": "Not mentioned in content"
+          }
+        },
+        "baseRate": {
+          "value": null,
+          "confidence": 0,
+          "sourceSpan": {
+            "text": "Not mentioned in content"
+          }
+        },
+        "annualFee": {
+          "value": null,
+          "confidence": 0,
+          "sourceSpan": {
+            "text": "Not mentioned in content"
+          }
+        },
+        "fx": {
+          "issuerFeePct": {
+            "value": null,
+            "confidence": 0,
+            "sourceSpan": {
+              "text": "Not mentioned in content"
+            }
+          },
+          "networkMarkupPct": {
+            "value": null,
+            "confidence": 0,
+            "sourceSpan": {
+              "text": "Not mentioned in content"
+            }
+          }
+        },
+        "rules": [],
+        "promotions": [
+          {
+            "text": "DOCUMENT 1: REWARDS URL: https://www.dbs.com.hk/iwov-resources/pdf/creditcards/DBS-rewards-master-tnc-201709.pdf",
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "══════════════════════════════════════════════════════════════ DOCUMENT 1: REWARDS URL: https://www.dbs.com.hk/iwov-resources/pdf/creditcards/DBS-rewards-master-tnc-201709.pdf ═══════════════════════════════════════════════════════════════"
+            }
+          }
+        ]
+      }
+    }
   },
   "validation": {
-    "valid": true,
-    "issues": [],
-    "mappedCategories": [
-      "online",
-      "general"
-    ]
-  },
-  "publishResult": {
-    "cardKey": "hsbc-red-credit-card-hk",
-    "version": "1",
-    "r2Key": "rulesets/hsbc-red-credit-card-hk/v1.json",
-    "contentHash": "8eca5ea5da397cad1fd9f65ccfc6b7642da2941ef16cadbe4cb7d75277a840b0"
+    "valid": false,
+    "issues": [
+      {
+        "field": "cardName",
+        "message": "Card name missing or invalid (found: Unknown Card)"
+      },
+      {
+        "field": "rules",
+        "message": "No reward information found. Must have baseRate > 0 or at least one category rule."
+      }
+    ],
+    "mappedCategories": []
   }
 }
 
-DBS:
 {
   "status": "published",
   "ruleset": {
-    "cardName": "DBS Black World Mastercard",
+    "cardName": "Mox Credit",
     "region": "hk",
     "currency": "HKD",
-    "baseRate": 100,
+    "baseRate": 0,
     "rules": [
       {
         "category": "general",
-        "rate": 100,
-        "description": "window[&#x27;adrum-start-time&#x27;] = new Date().getTime(); window[&#x27;adrum-app-key&#x27;] = &#x27;SI-AAB-CDP&#x27;; (function(config){ config.appKey = &#x27;SI-AAB-CDP&#x27;; config.adrumExtUrlHttp = &#x27;http://cdn.appdynamics.com&#x27;; config.adrumExtUrlHttps = &#x27;https://cdn.appdynamics.com&#x27;; config.beaconUrlHttp = &#x27;http://sin-col.eum-appdynamics.com&#x27;; config.beaconUrlHttps = &#x27;https://sin-col.eum-appdynamics.com&#x27;; config.resTiming = {&quot;bufSize&quot;:200,&quot;clearResTimingOnBeaconSend&quot;:true}; config.maxUrlLength = 512; config.xd = {enable : false}; config.spa = { &quot;spa2&quot;: true }; const myScript = window.document.createElement(&quot;script&quot;); myScript.src = &quot;https://cdn.appdynamics.com/adrum/adrum-latest.js&quot;; myScript.type = &quot;text/javascript&quot;; myScript.charSet = &quot;UTF-8&quot;; window.document.head.appendChild(myScript); })(window[&#x27;adrum-config&#x27;] || (window[&#x27;adrum-config&#x27;] = {})); DBS Black World Mastercard® - Mileage Credit Card | DBS Hong Kong .iiNIOc{margin-bottom:32px;}/*!sc*/ data-styled.g1[id=\"sc-1wgeuk6\"]{content:\"iiNIOc,\"}/*!sc*/ .bqJdKK{margin:40px 0;border-top:1px solid #c0c0c0;height:1px;}/*!sc*/ data-styled.g2[id=\"sc-1hdx9or\"]{content:\"bqJdKK,\"}/*!sc*/ .iWmgqv{box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin:0 -8px;}/*!sc*/ @media{.iWmgqv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/ @media (min-width:768px){.iWmgqv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/ @media (min-width:992px){.iWmgqv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/ @media (min-width:1200px){.iWmgqv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/ data-styled.g3[id=\"sc-1ks0jbu\"]{content:\"iWmgqv,\"}/*!sc*/ .gLfcvN{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.gLfcvN{display:block;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.gLfcvN{display:none;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:992px){.gLfcvN{display:none;}}/*!sc*/ @media (min-width:1200px){.gLfcvN{display:none;}}/*!sc*/ .fbnTeR{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.fbnTeR{display:none;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.fbnTeR{display:block;-webkit-flex-basis:33.3333%;-ms-flex-preferred-size:33.3333%;flex-basis:33.3333%;max-width:33.3333%;}}/*!sc*/ @media (min-width:992px){.fbnTeR{display:block;}}/*!sc*/ @media (min-width:1200px){.fbnTeR{display:block;}}/*!sc*/ .hzpGfK{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.hzpGfK{display:block;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.hzpGfK{display:block;-webkit-flex-basis:66.6667%;-ms-flex-preferred-size:66.6667%;flex-basis:66.6667%;max-width:66.6667%;}}/*!sc*/ @media (min-width:992px){.hzpGfK{display:block;}}/*!sc*/ @media (min-width:1200px){.hzpGfK{display:block;}}/*!sc*/ .bUqHoL{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.bUqHoL{display:block;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.bUqHoL{display:block;-webkit-flex-basis:50.0000%;-ms-flex-preferred-size:50.0000%;flex-basis:50.0000%;max-width:50.0000%;}}/*!sc*/ @media (min-width:992px){.bUqHoL{display:block;-webkit-flex-basis:50.0000%;-ms-flex-preferred-size:50.0000%;flex-basis:50.0000%;max-width:50.0000%;}}/*!sc*/ @media (min-width:1200px){.bUqHoL{display:block;}}/*!sc*/ .hkXcVH{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.hkXcVH{display:block;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.hkXcVH{display:block;-webkit-flex-basis:25.0000%;-ms-flex-preferred-size:25.0000%;flex-basis:25.0000%;max-width:25.0000%;}}/*!sc*/ @media (min-width:992px){.hkXcVH{display:block;-webkit-flex-basis:25.0000%;-ms-flex-preferred-size:25.0000%;flex-basis:25.0000%;max-width:25.0000%;}}/*!sc*/ @media (min-width:1200px){.hkXcVH{display:block;}}/*!sc*/ .YAmMq{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.YAmMq{display:block;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.YAmMq{display:block;}}/*!sc*/ @media (min-width:992px){.YAmMq{display:block;-webkit-flex-basis:75.0000%;-ms-flex-preferred-size:75.0000%;flex-basis:75.0000%;max-width:75.0000%;}}/*!sc*/ @media (min-width:1200px){.YAmMq{display:block;}}/*!sc*/ .hUTslm{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.hUTslm{display:block;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.hUTslm{display:block;}}/*!sc*/ @media (min-width:992px){.hUTslm{display:block;-webkit-flex-basis:25.0000%;-ms-flex-preferred-size:25.0000%;flex-basis:25.0000%;max-width:25.0000%;}}/*!sc*/ @media (min-width:1200px){.hUTslm{display:block;}}/*!sc*/ data-styled.g4[id=\"sc-1t15o9h\"]{content:\"gLfcvN,fbnTeR,hzpGfK,bUqHoL,hkXcVH,YAmMq,hUTslm,\"}/*!sc*/ .bhDKtA{width:100%;max-width:1024px;margin:0 auto;box-sizing:border-box;}/*!sc*/ .tFzcl{width:100%;max-width:992px;margin:0 auto;box-sizing:border-box;}/*!sc*/ data-styled.g5[id=\"sc-1lyge5e\"]{content:\"bhDKtA,tFzcl,\"}/*!sc*/ .bMfwPv{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:24px;width:24px;position:relative;}/*!sc*/ .bMfwPv .webstudio-badge{position:absolute;bottom:10px;left:10px;}/*!sc*/ data-styled.g11[id=\"sc-15a9qdt\"]{content:\"bMfwPv,\"}/*!sc*/ .hvBOBA{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;}/*!sc*/ data-styled.g16[id=\"sc-kqv7e4\"]{content:\"hvBOBA,\"}/*!sc*/ .jcDZLW{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:24px;}/*!sc*/ data-styled.g17[id=\"sc-1ojmomv\"]{content:\"jcDZLW,\"}/*!sc*/ .eHDfQv{font-size:14px;font-size:1.4rem;line-height:20px;color:#172633;text-transform:capitalize;-webkit-text-decoration:none;text-decoration:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;}/*!sc*/ .eHDfQv:hover{-webkit-text-decoration:underline;text-decoration:underline;color:#172633;}/*!sc*/ data-styled.g18[id=\"sc-kdd2d5\"]{content:\"eHDfQv,\"}/*!sc*/ .dBsRLE{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/ data-styled.g19[id=\"sc-ewj0ws\"]{content:\"dBsRLE,\"}/*!sc*/ .gwoIUZ{margin-bottom:37px;}/*!sc*/ .gwoIUZ > .breadcrumb{margin-bottom:16px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;}/*!sc*/ .gwoIUZ > .breadcrumb > div a{color:#909090;font-size:14px;font-size:1.4rem;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ .gwoIUZ > .breadcrumb > div a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/ .gwoIUZ > .breadcrumb > div svg path{fill:#909090;}/*!sc*/ data-styled.g20[id=\"sc-1akz50f\"]{content:\"gwoIUZ,\"}/*!sc*/ .fQNetR{font-size:24px;font-size:2.4rem;margin-bottom:24px;color:#2e2e2e;word-break:break-word;-webkit-hyphens:auto;-moz-hyphens:auto;-ms-hyphens:auto;hyphens:auto;font-weight:bold;}/*!sc*/ @media (min-width:767px){.fQNetR{font-size:36px;font-size:3.6rem;}}/*!sc*/ data-styled.g21[id=\"sc-1exq9yr\"]{content:\"fQNetR,\"}/*!sc*/ .lkNSCY{padding:0;list-style-type:none;margin:0;overflow-y:auto;-webkit-scrollbar-width:none;-moz-scrollbar-width:none;-ms-scrollbar-width:none;scrollbar-width:none;-webkit-scrollbar-color:transparent transparent;-moz-scrollbar-color:transparent transparent;-ms-scrollbar-color:transparent transparent;scrollbar-color:transparent transparent;}/*!sc*/ data-styled.g33[id=\"sc-8w97kh\"]{content:\"lkNSCY,\"}/*!sc*/ .hRzlUN a{font-size:16px;font-size:1.6rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;max-width:247px;width:85%;cursor:pointer;font-weight:500;-webkit-text-decoration:none;text-decoration:none;padding-bottom:16px;padding-right:15px;}/*!sc*/ .hRzlUN a.default{color:#2e2e2e;}/*!sc*/ .hRzlUN a.activeLink{color:#f33;}/*!sc*/ .hRzlUN .sc-145vw7g{margin-right:10px;}/*!sc*/ .hRzlUN .sc-145vw7g g{fill:#f33;stroke:#f33;}/*!sc*/ data-styled.g35[id=\"sc-wu74y4\"]{content:\"hRzlUN,\"}/*!sc*/ .dkeiSP{padding:5px 0;font-size:16px;font-size:1.6rem;background:#ffffff;color:#2e2e2e;font-weight:normal;position:relative;overflow-anchor:none;}/*!sc*/ data-styled.g36[id=\"sc-1jmhkv1\"]{content:\"dkeiSP,\"}/*!sc*/ .leCraq{display:none;}/*!sc*/ @media (min-width:768px){.leCraq{display:none;}}/*!sc*/ data-styled.g37[id=\"sc-di6dis\"]{content:\"leCraq,\"}/*!sc*/ .lhYwnN{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;max-height:90vh;}/*!sc*/ data-styled.g38[id=\"sc-cu9qze\"]{content:\"lhYwnN,\"}/*!sc*/ .eqTto{top:0;position:relative;}/*!sc*/ data-styled.g39[id=\"sc-1bhzxmf\"]{content:\"eqTto,\"}/*!sc*/ .koTWCI{max-width:287px;width:100%;position:absolute;top:0;}/*!sc*/ data-styled.g40[id=\"sc-11h8ysa\"]{content:\"koTWCI,\"}/*!sc*/ .gKNveX{color:#f33;padding:8px 12px;height:40px;font-size:16px;font-size:1.6rem;font-family:inherit;font-weight:500;line-height:1.42857143;min-width:144px;text-shadow:none;border-radius:4px;padding:8px 12px;touch-action:manipulation;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;color:#f33;border:1px solid #ee1818;background:#f33;color:#fff;}/*!sc*/ .gKNveX:hover{border:1px solid #ee1818;}/*!sc*/ .gKNveX[disabled]{opacity:0.3;cursor:not-allowed;}/*!sc*/ .gKNveX:active{background:#ee1818;border-color:#ee1818;}/*!sc*/ .gKNveX:hover{background:#ee1818;border-color:#ee1818;}/*!sc*/ .gKNveX:disabled{background-color:#f33;}/*!sc*/ data-styled.g195[id=\"sc-1ejct6\"]{content:\"gKNveX,\"}/*!sc*/ @media (max-width:767px){.iNvkba{overflow:hidden;}}/*!sc*/ data-styled.g200[id=\"sc-1rczepw-0\"]{content:\"iNvkba,\"}/*!sc*/ .dPvPIU{position:relative;ms-touch-action:\"none\";}/*!sc*/ data-styled.g303[id=\"sc-wnqpjh\"]{content:\"dPvPIU,\"}/*!sc*/ .wVuNa{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;overflow:hidden;}/*!sc*/ data-styled.g304[id=\"sc-dhlmav\"]{content:\"wVuNa,\"}/*!sc*/ .dqDoRO{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;left:0%;position:relative;-webkit-transition:-webkit-transform 1s ease-in-out;-webkit-transition:transform 1s ease-in-out;transition:transform 1s ease-in-out;-webkit-transform:translateX(0%);-ms-transform:translateX(0%);transform:translateX(0%);}/*!sc*/ data-styled.g305[id=\"sc-2vst7s\"]{content:\"dqDoRO,\"}/*!sc*/ .lgdULp{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:absolute;bottom:32px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);}/*!sc*/ data-styled.g306[id=\"sc-xckzzm\"]{content:\"lgdULp,\"}/*!sc*/ .ceyqQC{-webkit-flex:1 0 100%;-ms-flex:1 0 100%;flex:1 0 100%;-webkit-order:0;-ms-flex-order:0;order:0;}/*!sc*/ data-styled.g312[id=\"sc-1touizw\"]{content:\"ceyqQC,\"}/*!sc*/ .cMsYjU{width:100%;min-height:71px;}/*!sc*/ data-styled.g370[id=\"sc-1qpavyf\"]{content:\"cMsYjU,\"}/*!sc*/ .gZUABD{margin-top:20px;}/*!sc*/ data-styled.g371[id=\"sc-v79fs9\"]{content:\"gZUABD,\"}/*!sc*/ .jJCAFt{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;cursor:pointer;padding:20px 16px 20px;width:100%;background-color:#F3F3F3;-webkit-transition:background-color 0.2s linear;transition:background-color 0.2s linear;font-size:24px;font-size:2.4rem;font-weight:500;color:#2e2e2e;margin-bottom:12px;}/*!sc*/ .jJCAFt icon{fill:#f33;}/*!sc*/ .jJCAFt span{line-height:1;padding-top:4px;}/*!sc*/ .jJCAFt:hover{background:#ECECEC;}/*!sc*/ data-styled.g372[id=\"sc-1csjihi\"]{content:\"jJCAFt,\"}/*!sc*/ .juQDcz{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-right:16px;}/*!sc*/ @media (max-width:768px){.juQDcz{margin-right:16px;}}/*!sc*/ .juQDcz path,.juQDcz rect,.juQDcz polygon{fill:#f33;}/*!sc*/ data-styled.g373[id=\"sc-wl3epi\"]{content:\"juQDcz,\"}/*!sc*/ .llZIKY{overflow:hidden;word-break:break-word;max-height:0;-webkit-transition:max-height 400ms ease-out;transition:max-height 400ms ease-out;}/*!sc*/ data-styled.g374[id=\"sc-14hgmz4\"]{content:\"llZIKY,\"}/*!sc*/ .DUhpx{overflow:hidden;}/*!sc*/ data-styled.g390[id=\"sc-1rkchvo\"]{content:\"DUhpx,\"}/*!sc*/ .fafeLu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-top:16px;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.fafeLu{margin-top:32px;}}/*!sc*/ @media (max-width:360px){.fafeLu{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}}/*!sc*/ @media (min-width:360px)and (max-width:767px){.fafeLu{-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}}/*!sc*/ @media (min-width:768px){.fafeLu{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}}/*!sc*/ @media (min-width:990px){.fafeLu{-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}}/*!sc*/ .fafeNY{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-top:32px;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.fafeNY{margin-top:32px;}}/*!sc*/ @media (max-width:360px){.fafeNY{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}}/*!sc*/ @media (min-width:360px)and (max-width:767px){.fafeNY{-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}}/*!sc*/ @media (min-width:768px){.fafeNY{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}}/*!sc*/ @media (min-width:990px){.fafeNY{-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}}/*!sc*/ data-styled.g391[id=\"sc-9sak3k\"]{content:\"fafeLu,fafeNY,\"}/*!sc*/ .KveVJ{padding-right:16px;}/*!sc*/ @media (min-width:768px){.KveVJ{margin-bottom:8px;}}/*!sc*/ @media (min-width:990px){.KveVJ{margin-bottom:0;}}/*!sc*/ data-styled.g392[id=\"sc-8jsc80\"]{content:\"KveVJ,\"}/*!sc*/ .fzCkOV{line-height:1.3;}/*!sc*/ .fzCkOV h3{margin:0 0 8px 0;}/*!sc*/ data-styled.g393[id=\"sc-1otsa3i\"]{content:\"fzCkOV,\"}/*!sc*/ .hKnDcQ{color:#2e2e2e;font-weight:500;-webkit-text-decoration:none;text-decoration:none;font-size:16px;font-size:1.6rem;vertical-align:top;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}/*!sc*/ .hKnDcQ:hover{color:#ee1818;}/*!sc*/ data-styled.g394[id=\"sc-8mv7jw\"]{content:\"hKnDcQ,\"}/*!sc*/ .eyzgjQ{width:96px;height:88px;}/*!sc*/ data-styled.g395[id=\"sc-1738thg\"]{content:\"eyzgjQ,\"}/*!sc*/ .eycPSB a{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ data-styled.g396[id=\"sc-ao8bxw\"]{content:\"eycPSB,\"}/*!sc*/ .csbmpq{color:inherit;}/*!sc*/ data-styled.g398[id=\"sc-tmki00\"]{content:\"csbmpq,\"}/*!sc*/ .fyIhSb{font-weight:500;}/*!sc*/ .fyIhSb > div{min-height:24px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/ .fyIhSb > div > a{font-size:14px;font-size:1.4rem;-webkit-text-decoration:none;text-decoration:none;font-weight:500;}/*!sc*/ .fyIhSb > div > a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/ .fyIhSb > div > div{margin-left:4px;}/*!sc*/ data-styled.g399[id=\"sc-klzryr\"]{content:\"fyIhSb,\"}/*!sc*/ .kJKkXk{position:absolute;bottom:32px;width:95%;max-width:95%;color:inherit;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.kJKkXk{padding-right:16px;bottom:48px;margin-bottom:16px;}}/*!sc*/ data-styled.g400[id=\"sc-x8sghn\"]{content:\"kJKkXk,\"}/*!sc*/ .bmkqSY{text-align:unset;width:100%;font-size:16px;font-size:1.6rem;margin-bottom:24px;line-height:1.5;}/*!sc*/ @media (min-width:768px){.bmkqSY{font-size:24px;font-size:2.4rem;}}/*!sc*/ @media (min-width:991px){.bmkqSY{width:60%;}}/*!sc*/ @media (min-width:320px)and (max-width:767px){.bmkqSY{display:block;}}/*!sc*/ data-styled.g403[id=\"sc-cv97ql\"]{content:\"bmkqSY,\"}/*!sc*/ .fXuquJ{font-size:24px;font-size:2.4rem;font-weight:700;margin:0 0 8px 0;text-align:unset;width:100%;line-height:1.3;}/*!sc*/ @media (min-width:768px){.fXuquJ{font-size:36px;font-size:3.6rem;}}/*!sc*/ @media (min-width:991px){.fXuquJ{width:60%;}}/*!sc*/ @media (min-width:320px)and (max-width:990px){.fXuquJ{margin:0;}}/*!sc*/ data-styled.g405[id=\"sc-1h512vi\"]{content:\"fXuquJ,\"}/*!sc*/ .eQXdO{background-image:url(\"/iwov-resources/media/images/products/credit-card/main-banner/Hero-Banner_blackcard_1404x630_v2.webp?a\");background-size:cover;background-position:center;width:100%;height:100%;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.eQXdO{background-position:center center;}}/*!sc*/ data-styled.g407[id=\"sc-1yhruta\"]{content:\"eQXdO,\"}/*!sc*/ .bIzUlM{display:block;position:relative;box-sizing:border-box;height:100%;max-width:992px;margin:0 auto;height:360px;padding:16px 16px 48px;color:#FFF;}/*!sc*/ @media (min-width:992px){.bIzUlM{padding:16px 24px 48px;}}/*!sc*/ .bIzUlM .sc-klzryr a{color:#FFF;}/*!sc*/ .bIzUlM .sc-klzryr svg path{fill:#FFF;}/*!sc*/ data-styled.g409[id=\"sc-a9y44e\"]{content:\"bIzUlM,\"}/*!sc*/ .hGqhFp{position:absolute;background:linear-gradient( to right, #2e2e2e, transparent );height:100%;width:60%;opacity:0.6;bottom:0;}/*!sc*/ @media (max-width:1024px){.hGqhFp{width:100%;}}/*!sc*/ data-styled.g410[id=\"sc-16cbt63\"]{content:\"hGqhFp,\"}/*!sc*/ .bHVbyA{padding:5px 0;color:#909090;font-size:14px;font-size:1.4rem;font-weight:400;overflow:hidden;}/*!sc*/ data-styled.g428[id=\"sc-1ew9vmn\"]{content:\"bHVbyA,\"}/*!sc*/ .jUkFNd{margin-bottom:8px;color:#2e2e2e;font-size:18px;font-size:1.8rem;font-weight:500;}/*!sc*/ data-styled.g429[id=\"sc-ugj2jd\"]{content:\"jUkFNd,\"}/*!sc*/ .krorQn{color:#909090;font-weight:500;margin:8px 8px 0 0;float:left;border:1px solid #909090;-webkit-text-decoration:none;text-decoration:none;-webkit-transition:all 0.1s;transition:all 0.1s;border-radius:50px;-webkit-border-radius:50px;-moz-border-radius:50px;padding:4px 16px;}/*!sc*/ .krorQn:hover{background:#909090;color:#fff;}/*!sc*/ data-styled.g430[id=\"sc-7lz7j3\"]{content:\"krorQn,\"}/*!sc*/ .gTorCu{color:#2e2e2e;}/*!sc*/ .gTorCu > .container.unused{width:unset !important;max-width:unset !important;margin:unset !important;padding:unset !important;}/*!sc*/ .gTorCu .prodDetail{margin-top:0;}/*!sc*/ data-styled.g432[id=\"sc-6cubiy-0\"]{content:\"gTorCu,\"}/*!sc*/ .fdMedY{font-size:18px;font-size:1.8rem;margin:16px 0;font-weight:500;}/*!sc*/ data-styled.g433[id=\"sc-1e83bga-0\"]{content:\"fdMedY,\"}/*!sc*/ .iXOPtn .sc-v79fs9:after{content:' ';border-bottom:solid 1px #c0c0c0;display:block;}/*!sc*/ .iXOPtn .sc-v79fs9:last-child:after{border-bottom:0;}/*!sc*/ .iXOPtn .sc-1qpavyf{min-height:unset;}/*!sc*/ .iXOPtn .sc-1csjihi{background-color:transparent;padding:0;margin-bottom:16px;}/*!sc*/ .iXOPtn .sc-1csjihi span{font-size:16px;color:#000;font-weight:500;line-height:1.3;float:left;padding-top:8px;max-width:88%;}/*!sc*/ .iXOPtn .sc-1csjihi:hover{background:transparent;}/*!sc*/ data-styled.g434[id=\"sc-koXPp\"]{content:\"iXOPtn,\"}/*!sc*/ .kZOzjJ{margin:0 0 20px 48px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}/*!sc*/ data-styled.g436[id=\"sc-1e83bga-2\"]{content:\"kZOzjJ,\"}/*!sc*/ .Rxfmj{display:table-cell;vertical-align:top;color:#2e2e2e;}/*!sc*/ .Rxfmj p{margin:0px 0px 16px;font-weight:400;line-height:1.5;}/*!sc*/ .Rxfmj ol,.Rxfmj ul{margin-bottom:10px;margin-top:0;display:block;}/*!sc*/ .Rxfmj ol li,.Rxfmj ul li{margin-bottom:8px;font-weight:400;}/*!sc*/ .Rxfmj ol li:last-child,.Rxfmj ul li:last-child{margin-bottom:0px;}/*!sc*/ .Rxfmj a{color:#f33;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ .Rxfmj a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/ data-styled.g439[id=\"sc-1e83bga-5\"]{content:\"Rxfmj,\"}/*!sc*/ .kBKequ{margin-top:27px;padding:0 16px;margin-bottom:26px;}/*!sc*/ @media (min-width:768px){.kBKequ{padding:0 24px;}}/*!sc*/ data-styled.g440[id=\"sc-rq35pb-0\"]{content:\"kBKequ,\"}/*!sc*/ .kwjQBM h3{margin:0px;margin-bottom:8px;}/*!sc*/ data-styled.g441[id=\"sc-rq35pb-1\"]{content:\"kwjQBM,\"}/*!sc*/ .jxtmcu .sc-klzryr a{color:#fff;}/*!sc*/ .jxtmcu .sc-klzryr svg g path{fill:#fff;}/*!sc*/ .jxtmcu p{margin:8px 0 0 0;}/*!sc*/ .jxtmcu img{right:0;}/*!sc*/ @media (min-width:320px) and (max-width:767px){.jxtmcu .sc-x8sghn{bottom:32px;margin-bottom:0;}}/*!sc*/ data-styled.g442[id=\"sc-rq35pb-2\"]{content:\"jxtmcu,\"}/*!sc*/ .cYQkPc{background:#ffffff;height:100%;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;position:relative;}/*!sc*/ .cYQkPc svg{position:relative;top:2px;}/*!sc*/ .cYQkPc.gsa-history-icon svg{position:absolute;top:6px;right:6px;}/*!sc*/ .cYQkPc.gsa-history-icon svg path{stroke:#a5a5a5;}/*!sc*/ .cYQkPc.gsa-close-icon svg{position:absolute;top:7.5px;right:6px;}/*!sc*/ .cYQkPc.gsa-close-icon svg path{fill:#c0c0c0;}/*!sc*/ data-styled.g808[id=\"sc-9cckbe\"]{content:\"cYQkPc,\"}/*!sc*/ .ddFcbg{padding:0px;background:transparent;}/*!sc*/ .ddFcbg svg path{fill:#fff;}/*!sc*/ data-styled.g810[id=\"sc-1amq1nw\"]{content:\"ddFcbg,\"}/*!sc*/ .ixMgVt{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}/*!sc*/ data-styled.g818[id=\"sc-1infr78\"]{content:\"ixMgVt,\"}/*!sc*/ .eEJYTC{cursor:pointer;border-style:solid;border-color:#c0c0c0;border-width:1px 0;}/*!sc*/ data-styled.g819[id=\"sc-bbtxas\"]{content:\"eEJYTC,\"}/*!sc*/ .fuXfFO{height:40px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}/*!sc*/ .fuXfFO a{color:inherit;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ data-styled.g820[id=\"sc-1urn6u0\"]{content:\"fuXfFO,\"}/*!sc*/ .fzKkWn{font-family:inherit;font-size:16px;font-size:1.6rem;font-weight:400;outline:none;-webkit-flex:1;-ms-flex:1;flex:1;width:100%;padding:10px 32px 10px 16px;border-width:1px 0 1px 1px !important;border-style:solid;border-color:#c0c0c0;}/*!sc*/ .fzKkWn[type=\"text\"][placeholder]{color:#2e2e2e;vertical-align:middle;}/*!sc*/ @media (max-width:941px){.fzKkWn{padding:12px 10px 12px 8px;}}/*!sc*/ .fzKkWn input::-webkit-input-placeholder{color:#909090;}/*!sc*/ .fzKkWn input::-moz-placeholder{color:#909090;}/*!sc*/ .fzKkWn input:-ms-input-placeholder{color:#909090;}/*!sc*/ .fzKkWn input::placeholder{color:#909090;}/*!sc*/ @media (min-width:320px)and (max-width:768px){.fzKkWn{height:40px;font-size:18px;}}/*!sc*/ data-styled.g821[id=\"sc-hvqi1\"]{content:\"fzKkWn,\"}/*!sc*/ .aHBrW{background:#484848;color:#C0C0C0;font-size:14px;font-size:1.4rem;padding-top:24px;margin-top:-1px;}/*!sc*/ @media (max-width:767px){.aHBrW{padding:8px 0;}}/*!sc*/ data-styled.g848[id=\"sc-yisa6c\"]{content:\"aHBrW,\"}/*!sc*/ .gnxpPv{color:#C0C0C0;font-weight:400;-webkit-text-decoration:none;text-decoration:none;font-size:14px;font-size:1.4rem;display:inline-block;}/*!sc*/ .gnxpPv:hover{color:#ee1818;}/*!sc*/ .gnxpPv:hover::after{color:#C0C0C0;}/*!sc*/ .gnxpPv:not(:last-child):after{content:\"|\";padding:0 8px;}/*!sc*/ @media print{.gnxpPv{color:#000000;}}/*!sc*/ data-styled.g849[id=\"sc-1ss3j7l\"]{content:\"gnxpPv,\"}/*!sc*/ .cSPddP{margin-bottom:4px;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.cSPddP{margin-bottom:8px;}}/*!sc*/ data-styled.g850[id=\"sc-7enk44\"]{content:\"cSPddP,\"}/*!sc*/ .dpGlGK{max-width:1024px;margin:0 auto;padding:0 24px 24px;}/*!sc*/ @media (min-width:960px){.dpGlGK{padding:0 40px 32px 40px;}}/*!sc*/ data-styled.g851[id=\"sc-1l8fm1b\"]{content:\"dpGlGK,\"}/*!sc*/ .curEaa{color:#C0C0C0;font-weight:500;}/*!sc*/ .curEaa span:not(:last-child):after{content:\"|\";padding:0 8px;}/*!sc*/ @media print{.curEaa{color:#000000;}}/*!sc*/ data-styled.g852[id=\"sc-154vopf\"]{content:\"curEaa,\"}/*!sc*/ .nSMml{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/ @media (max-width:991px){.nSMml{padding-top:40px;}}/*!sc*/ @media (min-width:320px)and (max-width:767px){.nSMml{margin-bottom:8px;}}/*!sc*/ data-styled.g853[id=\"sc-1e2ez40\"]{content:\"nSMml,\"}/*!sc*/ .FYMYt{border-radius:100px;width:30px;height:30px;background-color:transparent;margin-right:25px;}/*!sc*/ .FYMYt:hover svg path{fill:#ccc;}/*!sc*/ .FYMYt svg{margin:1px 0 0 0;}/*!sc*/ .FYMYt svg path{width:25px;height:25px;fill:#656565;}/*!sc*/ data-styled.g854[id=\"sc-1uhx5dq\"]{content:\"FYMYt,\"}/*!sc*/ @media (min-width:320px) and (max-width:767px){.cVtfgs .sc-1l8fm1b{padding:0 24px 24px;}}/*!sc*/ data-styled.g856[id=\"sc-od1maw-0\"]{content:\"cVtfgs,\"}/*!sc*/ .gUlvFS path{fill:#454F57;}/*!sc*/ data-styled.g857[id=\"sc-lcIPJg\"]{content:\"gUlvFS,\"}/*!sc*/ .fkLdjI{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:24px;width:24px;position:relative;}/*!sc*/ .fkLdjI .webstudio-badge{position:absolute;bottom:10px;left:10px;}/*!sc*/ data-styled.g858[id=\"sc-kdBSHD\"]{content:\"fkLdjI,\"}/*!sc*/ .kPafRp{position:relative;overflow:hidden;border-radius:4px;border:0;}/*!sc*/ @media (max-width:767px){.kPafRp{border-radius:0;border-left:0;border-right:0;}}/*!sc*/ data-styled.g859[id=\"sc-tagGq\"]{content:\"kPafRp,\"}/*!sc*/ .hqqjQb{position:relative;border-bottom:0;}/*!sc*/ .hqqjQb:last-child{border-bottom:none;}/*!sc*/ .hqqjQb:last-child a:first-child{border-bottom:1px solid rgba(255,255,255,0);}/*!sc*/ data-styled.g860[id=\"sc-esYiGF\"]{content:\"hqqjQb,\"}/*!sc*/ .fDeZNl{padding:0 24px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;min-height:48px;line-height:48px;vertical-align:middle;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}/*!sc*/ @media (max-width:767px){.fDeZNl{padding:0 16px;}}/*!sc*/ data-styled.g861[id=\"sc-fXSgeo\"]{content:\"fDeZNl,\"}/*!sc*/ .dNjvmc{color:rgb(69,79,87);font-size:0.875rem;-webkit-letter-spacing:0;-moz-letter-spacing:0;-ms-letter-spacing:0;letter-spacing:0;}/*!sc*/ data-styled.g862[id=\"sc-JrDLc\"]{content:\"dNjvmc,\"}/*!sc*/ .eqvGBG{-webkit-text-decoration:none;text-decoration:none;outline:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;cursor:pointer;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/ .eqvGBG > svg{-webkit-transition:0.2s ease-in-out;transition:0.2s ease-in-out;-webkit-transform:rotate( 180deg);-ms-transform:rotate( 180deg);transform:rotate( 180deg);}/*!sc*/ data-styled.g865[id=\"sc-fBWQRz\"]{content:\"eqvGBG,\"}/*!sc*/ .edXWFx{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;min-width:48px;margin-left:12px;background-color:#909090;border:1px solid #909090;height:22px;border-radius:20px;}/*!sc*/ @media (min-width:1024px){.edXWFx{min-width:40px;}}/*!sc*/ data-styled.g866[id=\"sc-16qvs7z\"]{content:\"edXWFx,\"}/*!sc*/ .efOLNj{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;min-width:20px;padding:3px 3px 0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;text-align:center;font-weight:400;font-size:10px;font-size:1rem;-webkit-text-decoration:none;text-decoration:none;pointer-events:none;border-radius:50%;-webkit-transition:left 0.3s ease-out;transition:left 0.3s ease-out;border-radius:10px;height:20px;background-color:#f33;}/*!sc*/ .cBmrng{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;min-width:20px;padding:3px 3px 0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;text-align:center;font-weight:400;font-size:10px;font-size:1rem;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ data-styled.g867[id=\"sc-lwrg1j\"]{content:\"efOLNj,cBmrng,\"}/*!sc*/ .gMxBPT{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}/*!sc*/ .gMxBPT span{font-weight:500;}/*!sc*/ .gMxBPT > div:first-child{width:48%;}/*!sc*/ .gMxBPT > div:first-child > div a{font-size:14px;font-size:1.4rem;line-height:1;min-height:0;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ .gMxBPT > div:first-child > div a span{font-size:14px;font-size:1.4rem;color:#f33;}/*!sc*/ @media print{.gMxBPT > div:first-child > div a span{color:#000000;}}/*!sc*/ .gMxBPT > div:first-child a{padding:0;-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ .gMxBPT > div:first-child a > span:nth-child(2){margin-left:0;}/*!sc*/ .gMxBPT > div:first-child div{padding:0;}/*!sc*/ .gMxBPT > div:first-child div ul{margin-top:8px;}/*!sc*/ .gMxBPT > div:first-child rect,.gMxBPT > div:first-child path{fill:#f33;}/*!sc*/ @media print{.gMxBPT > div:first-child rect,.gMxBPT > div:first-child path{fill:#000000;}}/*!sc*/ data-styled.g868[id=\"sc-qermv0\"]{content:\"gMxBPT,\"}/*!sc*/ .ckoqGi{margin-top:12px;background:#484848;color:#ffffff;}/*!sc*/ data-styled.g869[id=\"sc-1ye7nbn\"]{content:\"ckoqGi,\"}/*!sc*/ .kXmKNc{max-width:1024px;margin:0 auto;padding:24px;}/*!sc*/ @media (min-width:960px){.kXmKNc{padding:24px 40px;}}/*!sc*/ @media (min-width:768px){.kXmKNc{padding-bottom:0;}}/*!sc*/ @media (min-width:320px)and (max-width:767px){.kXmKNc{padding:24px 16px;}}/*!sc*/ data-styled.g870[id=\"sc-1xpaml1\"]{content:\"kXmKNc,\"}/*!sc*/ .hKzLqH{color:#C0C0C0;font-size:14px;font-size:1.4rem;line-height:1.3;font-weight:500;margin:8px 0;}/*!sc*/ @media print{.hKzLqH{color:#000000;}}/*!sc*/ data-styled.g871[id=\"sc-ugiivj\"]{content:\"hKzLqH,\"}/*!sc*/ .fkACSJ{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;font-weight:400;cursor:pointer;line-height:normal;margin-bottom:8px;padding-right:16px;}/*!sc*/ @media (min-width:768px){.fkACSJ{padding-right:0;}}/*!sc*/ data-styled.g872[id=\"sc-1htmuhf\"]{content:\"fkACSJ,\"}/*!sc*/ .hQTyIh{-webkit-text-decoration:none;text-decoration:none;color:#ffffff;-webkit-text-decoration:none;text-decoration:none;font-size:14px;font-size:1.4rem;font-weight:400;}/*!sc*/ .hQTyIh:hover{color:#f33;}/*!sc*/ @media print{.hQTyIh{color:#000000;}}/*!sc*/ .geiolm{-webkit-text-decoration:none;text-decoration:none;color:#f33;-webkit-text-decoration:none;text-decoration:none;font-size:14px;font-size:1.4rem;font-weight:500;}/*!sc*/ .geiolm:hover{color:#f33;}/*!sc*/ @media print{.geiolm{color:#000000;}}/*!sc*/ data-styled.g873[id=\"sc-1yasr0l\"]{content:\"hQTyIh,geiolm,\"}/*!sc*/ .iCuNBk{margin-top:16px;margin-bottom:0;list-style-type:none;padding-left:0;}/*!sc*/ .iCuNBk li:last-child{margin-bottom:0;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.iCuNBk li{width:50%;float:left;}.iCuNBk li:after{content:\" \";display:block;clear:both;}.iCuNBk li:nth-child(2n + 1){clear:both;}}/*!sc*/ data-styled.g874[id=\"sc-m5tuss\"]{content:\"iCuNBk,\"}/*!sc*/ .jgbLsG{margin-bottom:8px;margin-top:16px;padding-right:0;font-weight:500;color:#ffffff;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.jgbLsG{width:calc(50% - 16px);}}/*!sc*/ .jgbLsG a{color:#ffffff;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;font-weight:400;}/*!sc*/ .jgbLsG a:hover{color:#f33;}/*!sc*/ @media print{.jgbLsG a{color:#000000;}}/*!sc*/ .jgbLsG *{text-align:left;font-size:14px;font-size:1.4rem;}/*!sc*/ .jgbLsG p{margin-top:0;margin-bottom:8px;}/*!sc*/ @media print{.jgbLsG{color:#000000;}}/*!sc*/ data-styled.g875[id=\"sc-12u9za\"]{content:\"jgbLsG,\"}/*!sc*/ @media (max-width:767px){.kjWfYX{display:none;}}/*!sc*/ data-styled.g876[id=\"sc-1dr5u0i\"]{content:\"kjWfYX,\"}/*!sc*/ @media (min-width:768px){.fSQauE{display:none;}}/*!sc*/ data-styled.g877[id=\"sc-o9yodl\"]{content:\"fSQauE,\"}/*!sc*/ .dUxIeu .sc-16qvs7z{min-width:53px;margin-left:16px;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}/*!sc*/ .dUxIeu .sc-ugiivj{margin:7px 0 8px;line-height:1.4;}/*!sc*/ .dUxIeu .sc-1htmuhf{line-height:1.5;}/*!sc*/ .dUxIeu .sc-12u9za{line-height:21px;}/*!sc*/ .dUxIeu .sc-12u9za > p{margin-bottom:10px;}/*!sc*/ data-styled.g878[id=\"sc-oxivpk-0\"]{content:\"dUxIeu,\"}/*!sc*/ .injSoH{margin:5px auto;padding:0 16px 8px;}/*!sc*/ @media (min-width:1030px){.injSoH{display:block;}}/*!sc*/ data-styled.g879[id=\"sc-64tjsp\"]{content:\"injSoH,\"}/*!sc*/ .bJJpko{background:#ECECEC;display:none;height:0px;}/*!sc*/ @media (max-width:941px){.bJJpko{display:none;}}/*!sc*/ data-styled.g880[id=\"sc-1mjfo33\"]{content:\"bJJpko,\"}/*!sc*/ .hICipT{font-weight:500;color:#909090;padding-top:24px;margin:0 auto;max-width:944px;}/*!sc*/ .hICipT a{margin:0px 4px;color:#f33;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ data-styled.g881[id=\"sc-hf72q0\"]{content:\"hICipT,\"}/*!sc*/ .bfjgYw{padding:32px;}/*!sc*/ data-styled.g882[id=\"sc-tk9upz\"]{content:\"bfjgYw,\"}/*!sc*/ .jSRJzO{padding:0;margin:0 auto;max-width:944px;}/*!sc*/ data-styled.g884[id=\"sc-dw4sy0\"]{content:\"jSRJzO,\"}/*!sc*/ .jXPrxV{position:absolute;min-height:1024px;width:100%;background:#000;left:0px;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;opacity:0;display:none;}/*!sc*/ data-styled.g885[id=\"sc-iokwlr\"]{content:\"jXPrxV,\"}/*!sc*/ .hETvqN{position:relative;z-index:5;-webkit-flex:0 0 300px;-ms-flex:0 0 300px;flex:0 0 300px;-webkit-transition:all 0.5s linear;transition:all 0.5s linear;background:#ffffff;}/*!sc*/ .hETvqN.collapsed{-webkit-flex:0 0 0;-ms-flex:0 0 0;flex:0 0 0;}/*!sc*/ data-styled.g913[id=\"sc-y2ycnd\"]{content:\"hETvqN,\"}/*!sc*/ .iPbCQA{position:fixed;height:100%;width:300px;-webkit-transition:all 0.5s linear;transition:all 0.5s linear;top:0;left:-317px;background:#ffffff;overflow:auto;}/*!sc*/ data-styled.g914[id=\"sc-1iyx523\"]{content:\"iPbCQA,\"}/*!sc*/ .dtdnNY{margin:8px 16px;height:1px;border-top:1px solid #ECECEC;}/*!sc*/ data-styled.g915[id=\"sc-1fdux4n\"]{content:\"dtdnNY,\"}/*!sc*/ .eHAmyr{position:relative;margin:0;padding:0;list-style:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;font-weight:bold;color:#2e2e2e;font-size:18px;font-size:1.8rem;line-height:1.6;background:#ECECEC;-webkit-transition:max-height 0.4s linear;transition:max-height 0.4s linear;height:auto;overflow:hidden;max-height:0;}/*!sc*/ .eHAmyr li a{font-weight:400;}/*!sc*/ .eHAmyr li:hover{background:#DCDCDC;}/*!sc*/ data-styled.g916[id=\"sc-1ii8k91\"]{content:\"eHAmyr,\"}/*!sc*/ .ApanZ{display:inline-block;width:0;height:0;border:4px solid transparent;border-top-width:6px;border-top-color:#909090;border-bottom:none;-webkit-transition:all 0.2s;transition:all 0.2s;}/*!sc*/ data-styled.g918[id=\"sc-1qdf9ba\"]{content:\"ApanZ,\"}/*!sc*/ .kWMQZJ{list-style:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;font-weight:500;color:#2e2e2e;font-size:18px;font-size:1.8rem;line-height:1.7;cursor:pointer;}/*!sc*/ .kWMQZJ a{-webkit-transition:all 0.2s linear;transition:all 0.2s linear;color:#2e2e2e;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ .kWMQZJ > a{padding:8px 24px;}/*!sc*/ .MZYCE{list-style:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;font-weight:500;color:#2e2e2e;font-size:18px;font-size:1.8rem;line-height:1.7;cursor:pointer;background:#ececec;}/*!sc*/ .MZYCE a{-webkit-transition:all 0.2s linear;transition:all 0.2s linear;color:#2e2e2e;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ .MZYCE > a{padding:8px 24px;}/*!sc*/ data-styled.g919[id=\"sc-o33qxp\"]{content:\"kWMQZJ,MZYCE,\"}/*!sc*/ .aQztd{color:#656565;font-weight:bold;font-size:14px;font-size:1.4rem;padding:8px 0;margin:0 24px;}/*!sc*/ .aQztd a,.aQztd a:active,.aQztd a:focus,.aQztd a:hover{-webkit-text-decoration:none;text-decoration:none;color:inherit;font-weight:500;}/*!sc*/ data-styled.g920[id=\"sc-16y4n26\"]{content:\"aQztd,\"}/*!sc*/ .hskyLV{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:8px 24px;}/*!sc*/ data-styled.g922[id=\"sc-6gtk49\"]{content:\"hskyLV,\"}/*!sc*/ .jNiyZ{-webkit-flex:1;-ms-flex:1;flex:1;text-align:right;}/*!sc*/ data-styled.g923[id=\"sc-1uro2gz\"]{content:\"jNiyZ,\"}/*!sc*/ .eelcsA{list-style-type:none;padding:0;}/*!sc*/ data-styled.g924[id=\"sc-1o1ksty\"]{content:\"eelcsA,\"}/*!sc*/ .jvMOvG{position:fixed;background:#fff;width:299px;padding-top:5px;z-index:1;}/*!sc*/ .jvMOvG .sc-64tjsp{display:block;}/*!sc*/ .jvMOvG .sc-64tjsp input{font-family:inherit;padding-left:8px;}/*!sc*/ data-styled.g925[id=\"sc-jnaleo\"]{content:\"jvMOvG,\"}/*!sc*/ .cXnClL{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-left:16px;}/*!sc*/ @media (min-width:992px){.cXnClL{display:none;}}/*!sc*/ data-styled.g926[id=\"sc-jls274\"]{content:\"cXnClL,\"}/*!sc*/ .ghCyEC{width:20px;height:20px;position:relative;top:-3px;margin-right:8px;}/*!sc*/ data-styled.g927[id=\"sc-1hdasfh\"]{content:\"ghCyEC,\"}/*!sc*/ .eSoDid{width:100%;height:2px;background:#909090;position:absolute;-webkit-transition:all 0.5s ease-in-out;transition:all 0.5s ease-in-out;}/*!sc*/ .eSoDid:first-child{top:8px;}/*!sc*/ .eSoDid:last-child{top:15px;}/*!sc*/ data-styled.g928[id=\"sc-okesdt\"]{content:\"eSoDid,\"}/*!sc*/ .foWXAr{padding:0 16px;}/*!sc*/ data-styled.g930[id=\"sc-h8ldyy\"]{content:\"foWXAr,\"}/*!sc*/ .dYQdYR{padding:0;height:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-weight:500;}/*!sc*/ .dYQdYR button{min-width:116px;border-radius:0;height:100%;padding:0 22px;cursor:pointer;background:#f33;}/*!sc*/ .dYQdYR button i{padding:0 2px 0 2px;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ @media (min-width:768px){.dYQdYR button i{padding:0 8px 0 2px;}}/*!sc*/ @media (max-width:946px){.dYQdYR button{min-width:78px;padding:0;}}/*!sc*/ .dYQdYR button:hover{box-shadow:none;background:#ee1818;}/*!sc*/ .dYQdYR button div{cursor:pointer;}/*!sc*/ data-styled.g931[id=\"sc-ur10ys\"]{content:\"dYQdYR,\"}/*!sc*/ .citiPs{position:relative;top:-2px;}/*!sc*/ .citiPs svg{width:18px;height:18px;}/*!sc*/ @media (max-width:946px){.citiPs svg{width:13px;height:13px;}}/*!sc*/ data-styled.g933[id=\"sc-9w5x3h\"]{content:\"citiPs,\"}/*!sc*/ .cOZbib{font-weight:500;font-size:16px;font-size:1.6rem;}/*!sc*/ @media (max-width:946px){.cOZbib{font-size:12px;font-size:1.2rem;}}/*!sc*/ data-styled.g934[id=\"sc-q9carf\"]{content:\"cOZbib,\"}/*!sc*/ .ifdMkE{display:none;width:100%;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}/*!sc*/ @media (min-width:992px){.ifdMkE{display:inline-block;}}/*!sc*/ data-styled.g936[id=\"sc-1y550m4\"]{content:\"ifdMkE,\"}/*!sc*/ @media (min-width:992px){.cuZROV{display:inline-block;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}}/*!sc*/ data-styled.g937[id=\"sc-h8sanj\"]{content:\"cuZROV,\"}/*!sc*/ @media (min-width:992px){.chYFIn{display:none;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}}/*!sc*/ data-styled.g938[id=\"sc-8ynjn0\"]{content:\"chYFIn,\"}/*!sc*/ .hzCORX{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:40px;padding:0 16px;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;}/*!sc*/ data-styled.g940[id=\"sc-198dl1n\"]{content:\"hzCORX,\"}/*!sc*/ .fmbRTe{display:inline-block;position:relative;}/*!sc*/ data-styled.g941[id=\"sc-ptdyw2\"]{content:\"fmbRTe,\"}/*!sc*/ .cDvJTi{position:absolute;top:calc(100% + 0px);width:284px;height:auto;z-index:100;overflow:auto;max-height:0px;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;}/*!sc*/ .bfgsAO{position:absolute;top:calc(100% + 0px);width:200px;height:auto;z-index:100;overflow:auto;max-height:0px;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;}/*!sc*/ data-styled.g942[id=\"sc-1xg6l8b\"]{content:\"cDvJTi,bfgsAO,\"}/*!sc*/ .lpqLcX{font-weight:500;background:rgba(255,255,255,0.95);height:80px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;z-index:5;}/*!sc*/ .lpqLcX a,.lpqLcX a:active,.lpqLcX a:focus,.lpqLcX a:hover{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ @media (max-width:992px){.lpqLcX{height:48px;}}/*!sc*/ .lpqLcX .containerWrapper{max-width:1024px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:stretch;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;margin:auto;width:100%;height:100%;}/*!sc*/ data-styled.g943[id=\"sc-10b50mm\"]{content:\"lpqLcX,\"}/*!sc*/ .kNEgUR{-webkit-transition:background-color 0.2s linear;transition:background-color 0.2s linear;}/*!sc*/ .kNEgUR:hover{background:#ECECEC;}/*!sc*/ data-styled.g944[id=\"sc-97xqz4\"]{content:\"kNEgUR,\"}/*!sc*/ .jSexvG{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:40px;font-weight:500;}/*!sc*/ .jSexvG:hover{background:#ECECEC;}/*!sc*/ .jSexvG a{padding:28px 15px;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;color:#2e2e2e;cursor:default;}/*!sc*/ .gPBtNU{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:40px;font-weight:500;background:#ECECEC;}/*!sc*/ .gPBtNU:hover{background:#ECECEC;}/*!sc*/ .gPBtNU a{padding:28px 15px;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;color:#2e2e2e;cursor:pointer;}/*!sc*/ .dDLDPG{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:40px;font-weight:500;}/*!sc*/ .dDLDPG:hover{background:#ECECEC;}/*!sc*/ .dDLDPG a{padding:28px 15px;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;color:#2e2e2e;cursor:pointer;}/*!sc*/ data-styled.g945[id=\"sc-11rippv\"]{content:\"jSexvG,gPBtNU,dDLDPG,\"}/*!sc*/ .ikxfqj.ikxfqj{display:inline;padding-left:8px;position:relative;top:-2px;}/*!sc*/ .ikxfqj.ikxfqj svg path{fill:#909090;fill-opacity:1;}/*!sc*/ .sc-11rippv:hover .ikxfqj.ikxfqj svg path{fill:#2e2e2e;}/*!sc*/ .lsevw.lsevw{display:none;padding-left:8px;position:relative;top:-2px;}/*!sc*/ .lsevw.lsevw svg path{fill:#909090;fill-opacity:1;}/*!sc*/ .sc-11rippv:hover .lsevw.lsevw svg path{fill:#2e2e2e;}/*!sc*/ data-styled.g947[id=\"sc-sdgjuj\"]{content:\"ikxfqj,lsevw,\"}/*!sc*/ .kgfZni{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-left:auto;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;height:80px;}/*!sc*/ @media (max-width:991px){.kgfZni{height:48px;}}/*!sc*/ data-styled.g950[id=\"sc-1eniwgp\"]{content:\"kgfZni,\"}/*!sc*/ .dCeQWI{position:fixed;height:100%;width:100%;background:#000;top:0;left:0;-webkit-transition:all 0.5s ease-in-out 0.5s;transition:all 0.5s ease-in-out 0.5s;opacity:0;display:none;}/*!sc*/ .dCeQWI.show{display:block;opacity:0.8;-webkit-transition:all 0.5s ease-in-out;transition:all 0.5s ease-in-out;}/*!sc*/ data-styled.g951[id=\"sc-13m9v2u\"]{content:\"dCeQWI,\"}/*!sc*/ .hjoEOt{position:relative;left:-16px;padding:10px 0 0;-webkit-text-decoration:none;text-decoration:none;display:inline-block;}/*!sc*/ @media (min-width:992px){.hjoEOt{display:none;}}/*!sc*/ data-styled.g953[id=\"sc-19mhqee\"]{content:\"hjoEOt,\"}/*!sc*/ .jPPLgA{height:100%;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-text-decoration:none;text-decoration:none;background:transparent;display:none;cursor:pointer;}/*!sc*/ @media (min-width:992px){.jPPLgA{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/ data-styled.g954[id=\"sc-14cltyl\"]{content:\"jPPLgA,\"}/*!sc*/ .JLyha{list-style-type:none;margin:0;padding:0;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:none;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;}/*!sc*/ @media (min-width:992px){.JLyha{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/ data-styled.g955[id=\"sc-jgwm9z\"]{content:\"JLyha,\"}/*!sc*/ .kHwkrd{font-size:1.4rem;color:#ffffff;}/*!sc*/ .kHwkrd:hover{background:#484848;}/*!sc*/ .kHwkrd a:active,.kHwkrd a:focus,.kHwkrd a:hover{-webkit-text-decoration:none;text-decoration:none;color:inherit;}/*!sc*/ data-styled.g957[id=\"sc-n1p7po\"]{content:\"kHwkrd,\"}/*!sc*/ .iApHFm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:0 16px;min-height:40px;cursor:default;font-size:14px;font-size:1.4rem;font-weight:500;}/*!sc*/ data-styled.g959[id=\"sc-1yodkbp\"]{content:\"iApHFm,\"}/*!sc*/ .dURMPo.dURMPo{padding-left:8px;position:relative;top:-1px;}/*!sc*/ .dURMPo.dURMPo svg path{fill:#ffffff;}/*!sc*/ .sc-1yodkbp:hover .dURMPo.dURMPo svg path{fill:#ffffff;fill-opacity:1;}/*!sc*/ data-styled.g960[id=\"sc-1auoolq\"]{content:\"dURMPo,\"}/*!sc*/ .jWNvuS.jWNvuS{background:#2e2e2e;color:#ffffff;-webkit-transition:all 0.3s linear;transition:all 0.3s linear;height:40px;}/*!sc*/ @media (max-width:991px){.jWNvuS.jWNvuS{display:none;}}/*!sc*/ .jWNvuS.jWNvuS a,.jWNvuS.jWNvuS a:active,.jWNvuS.jWNvuS a:focus,.jWNvuS.jWNvuS a:hover{-webkit-text-decoration:none;text-decoration:none;color:inherit;}/*!sc*/ data-styled.g964[id=\"sc-1gynbet\"]{content:\"jWNvuS,\"}/*!sc*/ .brkUwZ{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-right:24px;}/*!sc*/ .brkUwZ > a:hover{background:#484848;}/*!sc*/ .brkUwZ > a{height:40px;max-height:40px;min-height:40px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/ data-styled.g965[id=\"sc-1le3tym\"]{content:\"brkUwZ,\"}/*!sc*/ .iiUWYP{padding:0 16px;font-size:14px;font-size:1.4rem;font-weight:500;}/*!sc*/ data-styled.g966[id=\"sc-m8kzd6\"]{content:\"iiUWYP,\"}/*!sc*/ .kuPXRV{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}/*!sc*/ .kuPXRV *{box-sizing:border-box;}/*!sc*/ data-styled.g968[id=\"sc-1mwx759\"]{content:\"kuPXRV,\"}/*!sc*/ .cDCgAF{-webkit-transition:all 0.3s linear;transition:all 0.3s linear;-webkit-transition-property:height,width,padding,margin,top;transition-property:height,width,padding,margin,top;box-shadow:0 2px 1px rgba(0,0,0,0.1);width:100%;}/*!sc*/ .cDCgAF:before{display:block;position:relative;z-index:5;content:\"\";height:4px;background:#2e2e2e;}/*!sc*/ @media (min-width:992px){.cDCgAF:before{display:none;}}/*!sc*/ data-styled.g969[id=\"sc-1npeyfp\"]{content:\"cDCgAF,\"}/*!sc*/ .GvEsl{position:fixed;top:0;left:0;width:100%;z-index:1001;z-index:990;}/*!sc*/ .GvEsl .sc-10b50mm{background-color:rgba(255,255,255,0.95);}/*!sc*/ .GvEsl .sc-8ynjn0{position:relative;left:-13px;-webkit-transform:scale(0.87);-ms-transform:scale(0.87);transform:scale(0.87);}/*!sc*/ .GvEsl header[data-view-mode='mega'] .sc-198dl1n{-webkit-flex-direction:row-reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse;}/*!sc*/ @media (min-width:992px){.GvEsl header[data-view-mode='mega'] .sc-8ynjn0{display:inline-block;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);left:0px;}}/*!sc*/ data-styled.g982[id=\"sc-exlyxv-0\"]{content:\"GvEsl,\"}/*!sc*/ You are in Personal Banking ATM &amp; Branch Help &amp; Support Popular searches DBS digibank HK, Debit Card, Time Deposit, Foreign Exchange, Digital Token, Credit Card Promotions Banking Accounts",
-        "unit": "%",
-        "source": "https://www.dbs.com.hk/personal/credit-cards/credit-cards/black-mc?pid=hk-personal-en-card-comparator-blackMC"
+        "rate": 0,
+        "description": "Asia Miles: HKD4 = 1 Asia Miles for any spend when eligible balance ≥ HKD250,000 (from 4 Nov 2024) (Conditions: 由2024年11月4日起；合資格結餘達HKD250,000或以上)",
+        "rewardType": "miles",
+        "unit": "hkd_per_mile",
+        "rateValue": 4,
+        "stacking": "choose_one",
+        "merchants": [
+          "任何消費"
+        ],
+        "source": "https://mox.com/zh/features/mox-credit/",
+        "sources": [
+          "https://mox.com/zh/features/mox-credit/"
+        ]
       },
       {
-        "category": "travel",
-        "rate": 50,
-        "description": "Enjoy 3 times 50% one-off handling fee rebate on travel merchant spending instalments",
+        "category": "general",
+        "rate": 0,
+        "description": "Asia Miles: HKD8 = 1 Asia Miles for any spend when eligible balance < HKD250,000 (from 4 Nov 2024 until 31 Dec 2025 inclusive) (Conditions: 由2024年11月4日至2025年12月31日（包括首尾兩日）；合資格結餘低於HKD250,000)",
+        "rewardType": "miles",
+        "unit": "hkd_per_mile",
+        "rateValue": 8,
+        "stacking": "choose_one",
+        "merchants": [
+          "任何消費"
+        ],
+        "source": "https://mox.com/zh/features/mox-credit/",
+        "sources": [
+          "https://mox.com/zh/features/mox-credit/"
+        ]
+      },
+      {
+        "category": "general",
+        "rate": 0,
+        "description": "Asia Miles: HKD10 = 1 Asia Miles for any spend when eligible balance < HKD250,000 (from 1 Jan 2026) (Conditions: 由2026年1月1日起；合資格結餘低於HKD250,000)",
+        "rewardType": "miles",
+        "unit": "hkd_per_mile",
+        "rateValue": 10,
+        "stacking": "choose_one",
+        "merchants": [
+          "任何消費"
+        ],
+        "source": "https://mox.com/zh/features/mox-credit/",
+        "sources": [
+          "https://mox.com/zh/features/mox-credit/"
+        ]
+      },
+      {
+        "category": "general",
+        "rate": 2,
+        "description": "2% unlimited CashBack on any eligible spend when eligible balance ≥ HKD250,000 (effective from 4 Nov 2024) (Conditions: 由2024年11月4日起；合資格結餘達HKD250,000或以上)",
+        "rewardType": "cashback",
         "unit": "%",
-        "source": "https://www.dbs.com.hk/personal/credit-cards/credit-cards/black-mc?pid=hk-personal-en-card-comparator-blackMC"
+        "rateValue": 2,
+        "stacking": "choose_one",
+        "merchants": [
+          "任何消費"
+        ],
+        "source": "https://mox.com/zh/features/mox-credit/",
+        "sources": [
+          "https://mox.com/zh/features/mox-credit/"
+        ]
+      },
+      {
+        "category": "general",
+        "rate": 1,
+        "description": "1% unlimited CashBack on any eligible spend when eligible balance < HKD250,000 (effective from 4 Nov 2024) (Conditions: 由2024年11月4日起；合資格結餘低於HKD250,000)",
+        "rewardType": "cashback",
+        "unit": "%",
+        "rateValue": 1,
+        "stacking": "choose_one",
+        "merchants": [
+          "任何消費"
+        ],
+        "source": "https://mox.com/zh/features/mox-credit/",
+        "sources": [
+          "https://mox.com/zh/features/mox-credit/"
+        ]
+      },
+      {
+        "category": "supermarket",
+        "rate": 3,
+        "description": "3% unlimited CashBack on supermarket & grocery store transactions (as defined by MasterCard) (Conditions: 自2023年9月26日起，按MasterCard Asia/Pacific (Hong Kong) Limited所釐定為「超市及雜貨店」之商戶的合資格交易可獲3% CashBack。)",
+        "rewardType": "cashback",
+        "unit": "%",
+        "rateValue": 3,
+        "stacking": "choose_one",
+        "merchants": [
+          "以Mox Credit於MasterCard Asia/Pacific (Hong Kong) Limited所釐定為「超市及雜貨店」之商戶進行的合資格交易"
+        ],
+        "source": "https://mox.com/zh/features/mox-credit/",
+        "sources": [
+          "https://mox.com/zh/features/mox-credit/"
+        ]
       }
     ],
-    "annualFee": null,
+    "annualFee": 0,
     "fxFee": null,
+    "fx": {
+      "issuerFeePct": 0,
+      "networkMarkupPct": null,
+      "effectivePct": null,
+      "notes": null
+    },
     "promotions": [
-      "window[&#x27;adrum-start-time&#x27;] = new Date().getTime(); window[&#x27;adrum-app-key&#x27;] = &#x27;SI-AAB-CDP&#x27;; (function(config){ config.appKey = &#x27;SI-AAB-CDP&#x27;; config.adrumExtUrlHttp = &#x27;http://cdn.appdynamics.com&#x27;; config.adrumExtUrlHttps = &#x27;https://cdn.appdynamics.com&#x27;; config.beaconUrlHttp = &#x27;http://sin-col.eum-appdynamics.com&#x27;; config.beaconUrlHttps = &#x27;https://sin-col.eum-appdynamics.com&#x27;; config.resTiming = {&quot;bufSize&quot;:200,&quot;clearResTimingOnBeaconSend&quot;:true}; config.maxUrlLength = 512; config.xd = {enable : false}; config.spa = { &quot;spa2&quot;: true }; const myScript = window.document.createElement(&quot;script&quot;); myScript.src = &quot;https://cdn.appdynamics.com/adrum/adrum-latest.js&quot;; myScript.type = &quot;text/javascript&quot;; myScript.charSet = &quot;UTF-8&quot;; window.document.head.appendChild(myScript); })(window[&#x27;adrum-config&#x27;] || (window[&#x27;adrum-config&#x27;] = {})); DBS Black World Mastercard® - Mileage Credit Card | DBS Hong Kong .iiNIOc{margin-bottom:32px;}/*!sc*/ data-styled.g1[id=\"sc-1wgeuk6\"]{content:\"iiNIOc,\"}/*!sc*/ .bqJdKK{margin:40px 0;border-top:1px solid #c0c0c0;height:1px;}/*!sc*/ data-styled.g2[id=\"sc-1hdx9or\"]{content:\"bqJdKK,\"}/*!sc*/ .iWmgqv{box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin:0 -8px;}/*!sc*/ @media{.iWmgqv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/ @media (min-width:768px){.iWmgqv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/ @media (min-width:992px){.iWmgqv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/ @media (min-width:1200px){.iWmgqv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/ data-styled.g3[id=\"sc-1ks0jbu\"]{content:\"iWmgqv,\"}/*!sc*/ .gLfcvN{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.gLfcvN{display:block;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.gLfcvN{display:none;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:992px){.gLfcvN{display:none;}}/*!sc*/ @media (min-width:1200px){.gLfcvN{display:none;}}/*!sc*/ .fbnTeR{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.fbnTeR{display:none;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.fbnTeR{display:block;-webkit-flex-basis:33.3333%;-ms-flex-preferred-size:33.3333%;flex-basis:33.3333%;max-width:33.3333%;}}/*!sc*/ @media (min-width:992px){.fbnTeR{display:block;}}/*!sc*/ @media (min-width:1200px){.fbnTeR{display:block;}}/*!sc*/ .hzpGfK{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.hzpGfK{display:block;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.hzpGfK{display:block;-webkit-flex-basis:66.6667%;-ms-flex-preferred-size:66.6667%;flex-basis:66.6667%;max-width:66.6667%;}}/*!sc*/ @media (min-width:992px){.hzpGfK{display:block;}}/*!sc*/ @media (min-width:1200px){.hzpGfK{display:block;}}/*!sc*/ .bUqHoL{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.bUqHoL{display:block;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.bUqHoL{display:block;-webkit-flex-basis:50.0000%;-ms-flex-preferred-size:50.0000%;flex-basis:50.0000%;max-width:50.0000%;}}/*!sc*/ @media (min-width:992px){.bUqHoL{display:block;-webkit-flex-basis:50.0000%;-ms-flex-preferred-size:50.0000%;flex-basis:50.0000%;max-width:50.0000%;}}/*!sc*/ @media (min-width:1200px){.bUqHoL{display:block;}}/*!sc*/ .hkXcVH{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.hkXcVH{display:block;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.hkXcVH{display:block;-webkit-flex-basis:25.0000%;-ms-flex-preferred-size:25.0000%;flex-basis:25.0000%;max-width:25.0000%;}}/*!sc*/ @media (min-width:992px){.hkXcVH{display:block;-webkit-flex-basis:25.0000%;-ms-flex-preferred-size:25.0000%;flex-basis:25.0000%;max-width:25.0000%;}}/*!sc*/ @media (min-width:1200px){.hkXcVH{display:block;}}/*!sc*/ .YAmMq{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.YAmMq{display:block;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.YAmMq{display:block;}}/*!sc*/ @media (min-width:992px){.YAmMq{display:block;-webkit-flex-basis:75.0000%;-ms-flex-preferred-size:75.0000%;flex-basis:75.0000%;max-width:75.0000%;}}/*!sc*/ @media (min-width:1200px){.YAmMq{display:block;}}/*!sc*/ .hUTslm{display:block;box-sizing:border-box;padding:0 8px;}/*!sc*/ @media{.hUTslm{display:block;-webkit-flex-basis:100.0000%;-ms-flex-preferred-size:100.0000%;flex-basis:100.0000%;max-width:100.0000%;}}/*!sc*/ @media (min-width:768px){.hUTslm{display:block;}}/*!sc*/ @media (min-width:992px){.hUTslm{display:block;-webkit-flex-basis:25.0000%;-ms-flex-preferred-size:25.0000%;flex-basis:25.0000%;max-width:25.0000%;}}/*!sc*/ @media (min-width:1200px){.hUTslm{display:block;}}/*!sc*/ data-styled.g4[id=\"sc-1t15o9h\"]{content:\"gLfcvN,fbnTeR,hzpGfK,bUqHoL,hkXcVH,YAmMq,hUTslm,\"}/*!sc*/ .bhDKtA{width:100%;max-width:1024px;margin:0 auto;box-sizing:border-box;}/*!sc*/ .tFzcl{width:100%;max-width:992px;margin:0 auto;box-sizing:border-box;}/*!sc*/ data-styled.g5[id=\"sc-1lyge5e\"]{content:\"bhDKtA,tFzcl,\"}/*!sc*/ .bMfwPv{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:24px;width:24px;position:relative;}/*!sc*/ .bMfwPv .webstudio-badge{position:absolute;bottom:10px;left:10px;}/*!sc*/ data-styled.g11[id=\"sc-15a9qdt\"]{content:\"bMfwPv,\"}/*!sc*/ .hvBOBA{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;}/*!sc*/ data-styled.g16[id=\"sc-kqv7e4\"]{content:\"hvBOBA,\"}/*!sc*/ .jcDZLW{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:24px;}/*!sc*/ data-styled.g17[id=\"sc-1ojmomv\"]{content:\"jcDZLW,\"}/*!sc*/ .eHDfQv{font-size:14px;font-size:1.4rem;line-height:20px;color:#172633;text-transform:capitalize;-webkit-text-decoration:none;text-decoration:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;}/*!sc*/ .eHDfQv:hover{-webkit-text-decoration:underline;text-decoration:underline;color:#172633;}/*!sc*/ data-styled.g18[id=\"sc-kdd2d5\"]{content:\"eHDfQv,\"}/*!sc*/ .dBsRLE{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/ data-styled.g19[id=\"sc-ewj0ws\"]{content:\"dBsRLE,\"}/*!sc*/ .gwoIUZ{margin-bottom:37px;}/*!sc*/ .gwoIUZ > .breadcrumb{margin-bottom:16px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;}/*!sc*/ .gwoIUZ > .breadcrumb > div a{color:#909090;font-size:14px;font-size:1.4rem;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ .gwoIUZ > .breadcrumb > div a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/ .gwoIUZ > .breadcrumb > div svg path{fill:#909090;}/*!sc*/ data-styled.g20[id=\"sc-1akz50f\"]{content:\"gwoIUZ,\"}/*!sc*/ .fQNetR{font-size:24px;font-size:2.4rem;margin-bottom:24px;color:#2e2e2e;word-break:break-word;-webkit-hyphens:auto;-moz-hyphens:auto;-ms-hyphens:auto;hyphens:auto;font-weight:bold;}/*!sc*/ @media (min-width:767px){.fQNetR{font-size:36px;font-size:3.6rem;}}/*!sc*/ data-styled.g21[id=\"sc-1exq9yr\"]{content:\"fQNetR,\"}/*!sc*/ .lkNSCY{padding:0;list-style-type:none;margin:0;overflow-y:auto;-webkit-scrollbar-width:none;-moz-scrollbar-width:none;-ms-scrollbar-width:none;scrollbar-width:none;-webkit-scrollbar-color:transparent transparent;-moz-scrollbar-color:transparent transparent;-ms-scrollbar-color:transparent transparent;scrollbar-color:transparent transparent;}/*!sc*/ data-styled.g33[id=\"sc-8w97kh\"]{content:\"lkNSCY,\"}/*!sc*/ .hRzlUN a{font-size:16px;font-size:1.6rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;max-width:247px;width:85%;cursor:pointer;font-weight:500;-webkit-text-decoration:none;text-decoration:none;padding-bottom:16px;padding-right:15px;}/*!sc*/ .hRzlUN a.default{color:#2e2e2e;}/*!sc*/ .hRzlUN a.activeLink{color:#f33;}/*!sc*/ .hRzlUN .sc-145vw7g{margin-right:10px;}/*!sc*/ .hRzlUN .sc-145vw7g g{fill:#f33;stroke:#f33;}/*!sc*/ data-styled.g35[id=\"sc-wu74y4\"]{content:\"hRzlUN,\"}/*!sc*/ .dkeiSP{padding:5px 0;font-size:16px;font-size:1.6rem;background:#ffffff;color:#2e2e2e;font-weight:normal;position:relative;overflow-anchor:none;}/*!sc*/ data-styled.g36[id=\"sc-1jmhkv1\"]{content:\"dkeiSP,\"}/*!sc*/ .leCraq{display:none;}/*!sc*/ @media (min-width:768px){.leCraq{display:none;}}/*!sc*/ data-styled.g37[id=\"sc-di6dis\"]{content:\"leCraq,\"}/*!sc*/ .lhYwnN{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;max-height:90vh;}/*!sc*/ data-styled.g38[id=\"sc-cu9qze\"]{content:\"lhYwnN,\"}/*!sc*/ .eqTto{top:0;position:relative;}/*!sc*/ data-styled.g39[id=\"sc-1bhzxmf\"]{content:\"eqTto,\"}/*!sc*/ .koTWCI{max-width:287px;width:100%;position:absolute;top:0;}/*!sc*/ data-styled.g40[id=\"sc-11h8ysa\"]{content:\"koTWCI,\"}/*!sc*/ .gKNveX{color:#f33;padding:8px 12px;height:40px;font-size:16px;font-size:1.6rem;font-family:inherit;font-weight:500;line-height:1.42857143;min-width:144px;text-shadow:none;border-radius:4px;padding:8px 12px;touch-action:manipulation;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;color:#f33;border:1px solid #ee1818;background:#f33;color:#fff;}/*!sc*/ .gKNveX:hover{border:1px solid #ee1818;}/*!sc*/ .gKNveX[disabled]{opacity:0.3;cursor:not-allowed;}/*!sc*/ .gKNveX:active{background:#ee1818;border-color:#ee1818;}/*!sc*/ .gKNveX:hover{background:#ee1818;border-color:#ee1818;}/*!sc*/ .gKNveX:disabled{background-color:#f33;}/*!sc*/ data-styled.g195[id=\"sc-1ejct6\"]{content:\"gKNveX,\"}/*!sc*/ @media (max-width:767px){.iNvkba{overflow:hidden;}}/*!sc*/ data-styled.g200[id=\"sc-1rczepw-0\"]{content:\"iNvkba,\"}/*!sc*/ .dPvPIU{position:relative;ms-touch-action:\"none\";}/*!sc*/ data-styled.g303[id=\"sc-wnqpjh\"]{content:\"dPvPIU,\"}/*!sc*/ .wVuNa{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;overflow:hidden;}/*!sc*/ data-styled.g304[id=\"sc-dhlmav\"]{content:\"wVuNa,\"}/*!sc*/ .dqDoRO{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;left:0%;position:relative;-webkit-transition:-webkit-transform 1s ease-in-out;-webkit-transition:transform 1s ease-in-out;transition:transform 1s ease-in-out;-webkit-transform:translateX(0%);-ms-transform:translateX(0%);transform:translateX(0%);}/*!sc*/ data-styled.g305[id=\"sc-2vst7s\"]{content:\"dqDoRO,\"}/*!sc*/ .lgdULp{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:absolute;bottom:32px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);}/*!sc*/ data-styled.g306[id=\"sc-xckzzm\"]{content:\"lgdULp,\"}/*!sc*/ .ceyqQC{-webkit-flex:1 0 100%;-ms-flex:1 0 100%;flex:1 0 100%;-webkit-order:0;-ms-flex-order:0;order:0;}/*!sc*/ data-styled.g312[id=\"sc-1touizw\"]{content:\"ceyqQC,\"}/*!sc*/ .cMsYjU{width:100%;min-height:71px;}/*!sc*/ data-styled.g370[id=\"sc-1qpavyf\"]{content:\"cMsYjU,\"}/*!sc*/ .gZUABD{margin-top:20px;}/*!sc*/ data-styled.g371[id=\"sc-v79fs9\"]{content:\"gZUABD,\"}/*!sc*/ .jJCAFt{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;cursor:pointer;padding:20px 16px 20px;width:100%;background-color:#F3F3F3;-webkit-transition:background-color 0.2s linear;transition:background-color 0.2s linear;font-size:24px;font-size:2.4rem;font-weight:500;color:#2e2e2e;margin-bottom:12px;}/*!sc*/ .jJCAFt icon{fill:#f33;}/*!sc*/ .jJCAFt span{line-height:1;padding-top:4px;}/*!sc*/ .jJCAFt:hover{background:#ECECEC;}/*!sc*/ data-styled.g372[id=\"sc-1csjihi\"]{content:\"jJCAFt,\"}/*!sc*/ .juQDcz{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-right:16px;}/*!sc*/ @media (max-width:768px){.juQDcz{margin-right:16px;}}/*!sc*/ .juQDcz path,.juQDcz rect,.juQDcz polygon{fill:#f33;}/*!sc*/ data-styled.g373[id=\"sc-wl3epi\"]{content:\"juQDcz,\"}/*!sc*/ .llZIKY{overflow:hidden;word-break:break-word;max-height:0;-webkit-transition:max-height 400ms ease-out;transition:max-height 400ms ease-out;}/*!sc*/ data-styled.g374[id=\"sc-14hgmz4\"]{content:\"llZIKY,\"}/*!sc*/ .DUhpx{overflow:hidden;}/*!sc*/ data-styled.g390[id=\"sc-1rkchvo\"]{content:\"DUhpx,\"}/*!sc*/ .fafeLu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-top:16px;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.fafeLu{margin-top:32px;}}/*!sc*/ @media (max-width:360px){.fafeLu{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}}/*!sc*/ @media (min-width:360px)and (max-width:767px){.fafeLu{-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}}/*!sc*/ @media (min-width:768px){.fafeLu{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}}/*!sc*/ @media (min-width:990px){.fafeLu{-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}}/*!sc*/ .fafeNY{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-top:32px;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.fafeNY{margin-top:32px;}}/*!sc*/ @media (max-width:360px){.fafeNY{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}}/*!sc*/ @media (min-width:360px)and (max-width:767px){.fafeNY{-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}}/*!sc*/ @media (min-width:768px){.fafeNY{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}}/*!sc*/ @media (min-width:990px){.fafeNY{-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}}/*!sc*/ data-styled.g391[id=\"sc-9sak3k\"]{content:\"fafeLu,fafeNY,\"}/*!sc*/ .KveVJ{padding-right:16px;}/*!sc*/ @media (min-width:768px){.KveVJ{margin-bottom:8px;}}/*!sc*/ @media (min-width:990px){.KveVJ{margin-bottom:0;}}/*!sc*/ data-styled.g392[id=\"sc-8jsc80\"]{content:\"KveVJ,\"}/*!sc*/ .fzCkOV{line-height:1.3;}/*!sc*/ .fzCkOV h3{margin:0 0 8px 0;}/*!sc*/ data-styled.g393[id=\"sc-1otsa3i\"]{content:\"fzCkOV,\"}/*!sc*/ .hKnDcQ{color:#2e2e2e;font-weight:500;-webkit-text-decoration:none;text-decoration:none;font-size:16px;font-size:1.6rem;vertical-align:top;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}/*!sc*/ .hKnDcQ:hover{color:#ee1818;}/*!sc*/ data-styled.g394[id=\"sc-8mv7jw\"]{content:\"hKnDcQ,\"}/*!sc*/ .eyzgjQ{width:96px;height:88px;}/*!sc*/ data-styled.g395[id=\"sc-1738thg\"]{content:\"eyzgjQ,\"}/*!sc*/ .eycPSB a{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ data-styled.g396[id=\"sc-ao8bxw\"]{content:\"eycPSB,\"}/*!sc*/ .csbmpq{color:inherit;}/*!sc*/ data-styled.g398[id=\"sc-tmki00\"]{content:\"csbmpq,\"}/*!sc*/ .fyIhSb{font-weight:500;}/*!sc*/ .fyIhSb > div{min-height:24px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/ .fyIhSb > div > a{font-size:14px;font-size:1.4rem;-webkit-text-decoration:none;text-decoration:none;font-weight:500;}/*!sc*/ .fyIhSb > div > a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/ .fyIhSb > div > div{margin-left:4px;}/*!sc*/ data-styled.g399[id=\"sc-klzryr\"]{content:\"fyIhSb,\"}/*!sc*/ .kJKkXk{position:absolute;bottom:32px;width:95%;max-width:95%;color:inherit;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.kJKkXk{padding-right:16px;bottom:48px;margin-bottom:16px;}}/*!sc*/ data-styled.g400[id=\"sc-x8sghn\"]{content:\"kJKkXk,\"}/*!sc*/ .bmkqSY{text-align:unset;width:100%;font-size:16px;font-size:1.6rem;margin-bottom:24px;line-height:1.5;}/*!sc*/ @media (min-width:768px){.bmkqSY{font-size:24px;font-size:2.4rem;}}/*!sc*/ @media (min-width:991px){.bmkqSY{width:60%;}}/*!sc*/ @media (min-width:320px)and (max-width:767px){.bmkqSY{display:block;}}/*!sc*/ data-styled.g403[id=\"sc-cv97ql\"]{content:\"bmkqSY,\"}/*!sc*/ .fXuquJ{font-size:24px;font-size:2.4rem;font-weight:700;margin:0 0 8px 0;text-align:unset;width:100%;line-height:1.3;}/*!sc*/ @media (min-width:768px){.fXuquJ{font-size:36px;font-size:3.6rem;}}/*!sc*/ @media (min-width:991px){.fXuquJ{width:60%;}}/*!sc*/ @media (min-width:320px)and (max-width:990px){.fXuquJ{margin:0;}}/*!sc*/ data-styled.g405[id=\"sc-1h512vi\"]{content:\"fXuquJ,\"}/*!sc*/ .eQXdO{background-image:url(\"/iwov-resources/media/images/products/credit-card/main-banner/Hero-Banner_blackcard_1404x630_v2.webp?a\");background-size:cover;background-position:center;width:100%;height:100%;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.eQXdO{background-position:center center;}}/*!sc*/ data-styled.g407[id=\"sc-1yhruta\"]{content:\"eQXdO,\"}/*!sc*/ .bIzUlM{display:block;position:relative;box-sizing:border-box;height:100%;max-width:992px;margin:0 auto;height:360px;padding:16px 16px 48px;color:#FFF;}/*!sc*/ @media (min-width:992px){.bIzUlM{padding:16px 24px 48px;}}/*!sc*/ .bIzUlM .sc-klzryr a{color:#FFF;}/*!sc*/ .bIzUlM .sc-klzryr svg path{fill:#FFF;}/*!sc*/ data-styled.g409[id=\"sc-a9y44e\"]{content:\"bIzUlM,\"}/*!sc*/ .hGqhFp{position:absolute;background:linear-gradient( to right, #2e2e2e, transparent );height:100%;width:60%;opacity:0.6;bottom:0;}/*!sc*/ @media (max-width:1024px){.hGqhFp{width:100%;}}/*!sc*/ data-styled.g410[id=\"sc-16cbt63\"]{content:\"hGqhFp,\"}/*!sc*/ .bHVbyA{padding:5px 0;color:#909090;font-size:14px;font-size:1.4rem;font-weight:400;overflow:hidden;}/*!sc*/ data-styled.g428[id=\"sc-1ew9vmn\"]{content:\"bHVbyA,\"}/*!sc*/ .jUkFNd{margin-bottom:8px;color:#2e2e2e;font-size:18px;font-size:1.8rem;font-weight:500;}/*!sc*/ data-styled.g429[id=\"sc-ugj2jd\"]{content:\"jUkFNd,\"}/*!sc*/ .krorQn{color:#909090;font-weight:500;margin:8px 8px 0 0;float:left;border:1px solid #909090;-webkit-text-decoration:none;text-decoration:none;-webkit-transition:all 0.1s;transition:all 0.1s;border-radius:50px;-webkit-border-radius:50px;-moz-border-radius:50px;padding:4px 16px;}/*!sc*/ .krorQn:hover{background:#909090;color:#fff;}/*!sc*/ data-styled.g430[id=\"sc-7lz7j3\"]{content:\"krorQn,\"}/*!sc*/ .gTorCu{color:#2e2e2e;}/*!sc*/ .gTorCu > .container.unused{width:unset !important;max-width:unset !important;margin:unset !important;padding:unset !important;}/*!sc*/ .gTorCu .prodDetail{margin-top:0;}/*!sc*/ data-styled.g432[id=\"sc-6cubiy-0\"]{content:\"gTorCu,\"}/*!sc*/ .fdMedY{font-size:18px;font-size:1.8rem;margin:16px 0;font-weight:500;}/*!sc*/ data-styled.g433[id=\"sc-1e83bga-0\"]{content:\"fdMedY,\"}/*!sc*/ .iXOPtn .sc-v79fs9:after{content:' ';border-bottom:solid 1px #c0c0c0;display:block;}/*!sc*/ .iXOPtn .sc-v79fs9:last-child:after{border-bottom:0;}/*!sc*/ .iXOPtn .sc-1qpavyf{min-height:unset;}/*!sc*/ .iXOPtn .sc-1csjihi{background-color:transparent;padding:0;margin-bottom:16px;}/*!sc*/ .iXOPtn .sc-1csjihi span{font-size:16px;color:#000;font-weight:500;line-height:1.3;float:left;padding-top:8px;max-width:88%;}/*!sc*/ .iXOPtn .sc-1csjihi:hover{background:transparent;}/*!sc*/ data-styled.g434[id=\"sc-koXPp\"]{content:\"iXOPtn,\"}/*!sc*/ .kZOzjJ{margin:0 0 20px 48px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}/*!sc*/ data-styled.g436[id=\"sc-1e83bga-2\"]{content:\"kZOzjJ,\"}/*!sc*/ .Rxfmj{display:table-cell;vertical-align:top;color:#2e2e2e;}/*!sc*/ .Rxfmj p{margin:0px 0px 16px;font-weight:400;line-height:1.5;}/*!sc*/ .Rxfmj ol,.Rxfmj ul{margin-bottom:10px;margin-top:0;display:block;}/*!sc*/ .Rxfmj ol li,.Rxfmj ul li{margin-bottom:8px;font-weight:400;}/*!sc*/ .Rxfmj ol li:last-child,.Rxfmj ul li:last-child{margin-bottom:0px;}/*!sc*/ .Rxfmj a{color:#f33;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ .Rxfmj a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/ data-styled.g439[id=\"sc-1e83bga-5\"]{content:\"Rxfmj,\"}/*!sc*/ .kBKequ{margin-top:27px;padding:0 16px;margin-bottom:26px;}/*!sc*/ @media (min-width:768px){.kBKequ{padding:0 24px;}}/*!sc*/ data-styled.g440[id=\"sc-rq35pb-0\"]{content:\"kBKequ,\"}/*!sc*/ .kwjQBM h3{margin:0px;margin-bottom:8px;}/*!sc*/ data-styled.g441[id=\"sc-rq35pb-1\"]{content:\"kwjQBM,\"}/*!sc*/ .jxtmcu .sc-klzryr a{color:#fff;}/*!sc*/ .jxtmcu .sc-klzryr svg g path{fill:#fff;}/*!sc*/ .jxtmcu p{margin:8px 0 0 0;}/*!sc*/ .jxtmcu img{right:0;}/*!sc*/ @media (min-width:320px) and (max-width:767px){.jxtmcu .sc-x8sghn{bottom:32px;margin-bottom:0;}}/*!sc*/ data-styled.g442[id=\"sc-rq35pb-2\"]{content:\"jxtmcu,\"}/*!sc*/ .cYQkPc{background:#ffffff;height:100%;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;position:relative;}/*!sc*/ .cYQkPc svg{position:relative;top:2px;}/*!sc*/ .cYQkPc.gsa-history-icon svg{position:absolute;top:6px;right:6px;}/*!sc*/ .cYQkPc.gsa-history-icon svg path{stroke:#a5a5a5;}/*!sc*/ .cYQkPc.gsa-close-icon svg{position:absolute;top:7.5px;right:6px;}/*!sc*/ .cYQkPc.gsa-close-icon svg path{fill:#c0c0c0;}/*!sc*/ data-styled.g808[id=\"sc-9cckbe\"]{content:\"cYQkPc,\"}/*!sc*/ .ddFcbg{padding:0px;background:transparent;}/*!sc*/ .ddFcbg svg path{fill:#fff;}/*!sc*/ data-styled.g810[id=\"sc-1amq1nw\"]{content:\"ddFcbg,\"}/*!sc*/ .ixMgVt{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}/*!sc*/ data-styled.g818[id=\"sc-1infr78\"]{content:\"ixMgVt,\"}/*!sc*/ .eEJYTC{cursor:pointer;border-style:solid;border-color:#c0c0c0;border-width:1px 0;}/*!sc*/ data-styled.g819[id=\"sc-bbtxas\"]{content:\"eEJYTC,\"}/*!sc*/ .fuXfFO{height:40px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}/*!sc*/ .fuXfFO a{color:inherit;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ data-styled.g820[id=\"sc-1urn6u0\"]{content:\"fuXfFO,\"}/*!sc*/ .fzKkWn{font-family:inherit;font-size:16px;font-size:1.6rem;font-weight:400;outline:none;-webkit-flex:1;-ms-flex:1;flex:1;width:100%;padding:10px 32px 10px 16px;border-width:1px 0 1px 1px !important;border-style:solid;border-color:#c0c0c0;}/*!sc*/ .fzKkWn[type=\"text\"][placeholder]{color:#2e2e2e;vertical-align:middle;}/*!sc*/ @media (max-width:941px){.fzKkWn{padding:12px 10px 12px 8px;}}/*!sc*/ .fzKkWn input::-webkit-input-placeholder{color:#909090;}/*!sc*/ .fzKkWn input::-moz-placeholder{color:#909090;}/*!sc*/ .fzKkWn input:-ms-input-placeholder{color:#909090;}/*!sc*/ .fzKkWn input::placeholder{color:#909090;}/*!sc*/ @media (min-width:320px)and (max-width:768px){.fzKkWn{height:40px;font-size:18px;}}/*!sc*/ data-styled.g821[id=\"sc-hvqi1\"]{content:\"fzKkWn,\"}/*!sc*/ .aHBrW{background:#484848;color:#C0C0C0;font-size:14px;font-size:1.4rem;padding-top:24px;margin-top:-1px;}/*!sc*/ @media (max-width:767px){.aHBrW{padding:8px 0;}}/*!sc*/ data-styled.g848[id=\"sc-yisa6c\"]{content:\"aHBrW,\"}/*!sc*/ .gnxpPv{color:#C0C0C0;font-weight:400;-webkit-text-decoration:none;text-decoration:none;font-size:14px;font-size:1.4rem;display:inline-block;}/*!sc*/ .gnxpPv:hover{color:#ee1818;}/*!sc*/ .gnxpPv:hover::after{color:#C0C0C0;}/*!sc*/ .gnxpPv:not(:last-child):after{content:\"|\";padding:0 8px;}/*!sc*/ @media print{.gnxpPv{color:#000000;}}/*!sc*/ data-styled.g849[id=\"sc-1ss3j7l\"]{content:\"gnxpPv,\"}/*!sc*/ .cSPddP{margin-bottom:4px;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.cSPddP{margin-bottom:8px;}}/*!sc*/ data-styled.g850[id=\"sc-7enk44\"]{content:\"cSPddP,\"}/*!sc*/ .dpGlGK{max-width:1024px;margin:0 auto;padding:0 24px 24px;}/*!sc*/ @media (min-width:960px){.dpGlGK{padding:0 40px 32px 40px;}}/*!sc*/ data-styled.g851[id=\"sc-1l8fm1b\"]{content:\"dpGlGK,\"}/*!sc*/ .curEaa{color:#C0C0C0;font-weight:500;}/*!sc*/ .curEaa span:not(:last-child):after{content:\"|\";padding:0 8px;}/*!sc*/ @media print{.curEaa{color:#000000;}}/*!sc*/ data-styled.g852[id=\"sc-154vopf\"]{content:\"curEaa,\"}/*!sc*/ .nSMml{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/ @media (max-width:991px){.nSMml{padding-top:40px;}}/*!sc*/ @media (min-width:320px)and (max-width:767px){.nSMml{margin-bottom:8px;}}/*!sc*/ data-styled.g853[id=\"sc-1e2ez40\"]{content:\"nSMml,\"}/*!sc*/ .FYMYt{border-radius:100px;width:30px;height:30px;background-color:transparent;margin-right:25px;}/*!sc*/ .FYMYt:hover svg path{fill:#ccc;}/*!sc*/ .FYMYt svg{margin:1px 0 0 0;}/*!sc*/ .FYMYt svg path{width:25px;height:25px;fill:#656565;}/*!sc*/ data-styled.g854[id=\"sc-1uhx5dq\"]{content:\"FYMYt,\"}/*!sc*/ @media (min-width:320px) and (max-width:767px){.cVtfgs .sc-1l8fm1b{padding:0 24px 24px;}}/*!sc*/ data-styled.g856[id=\"sc-od1maw-0\"]{content:\"cVtfgs,\"}/*!sc*/ .gUlvFS path{fill:#454F57;}/*!sc*/ data-styled.g857[id=\"sc-lcIPJg\"]{content:\"gUlvFS,\"}/*!sc*/ .fkLdjI{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:24px;width:24px;position:relative;}/*!sc*/ .fkLdjI .webstudio-badge{position:absolute;bottom:10px;left:10px;}/*!sc*/ data-styled.g858[id=\"sc-kdBSHD\"]{content:\"fkLdjI,\"}/*!sc*/ .kPafRp{position:relative;overflow:hidden;border-radius:4px;border:0;}/*!sc*/ @media (max-width:767px){.kPafRp{border-radius:0;border-left:0;border-right:0;}}/*!sc*/ data-styled.g859[id=\"sc-tagGq\"]{content:\"kPafRp,\"}/*!sc*/ .hqqjQb{position:relative;border-bottom:0;}/*!sc*/ .hqqjQb:last-child{border-bottom:none;}/*!sc*/ .hqqjQb:last-child a:first-child{border-bottom:1px solid rgba(255,255,255,0);}/*!sc*/ data-styled.g860[id=\"sc-esYiGF\"]{content:\"hqqjQb,\"}/*!sc*/ .fDeZNl{padding:0 24px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;min-height:48px;line-height:48px;vertical-align:middle;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}/*!sc*/ @media (max-width:767px){.fDeZNl{padding:0 16px;}}/*!sc*/ data-styled.g861[id=\"sc-fXSgeo\"]{content:\"fDeZNl,\"}/*!sc*/ .dNjvmc{color:rgb(69,79,87);font-size:0.875rem;-webkit-letter-spacing:0;-moz-letter-spacing:0;-ms-letter-spacing:0;letter-spacing:0;}/*!sc*/ data-styled.g862[id=\"sc-JrDLc\"]{content:\"dNjvmc,\"}/*!sc*/ .eqvGBG{-webkit-text-decoration:none;text-decoration:none;outline:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;cursor:pointer;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/ .eqvGBG > svg{-webkit-transition:0.2s ease-in-out;transition:0.2s ease-in-out;-webkit-transform:rotate( 180deg);-ms-transform:rotate( 180deg);transform:rotate( 180deg);}/*!sc*/ data-styled.g865[id=\"sc-fBWQRz\"]{content:\"eqvGBG,\"}/*!sc*/ .edXWFx{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;min-width:48px;margin-left:12px;background-color:#909090;border:1px solid #909090;height:22px;border-radius:20px;}/*!sc*/ @media (min-width:1024px){.edXWFx{min-width:40px;}}/*!sc*/ data-styled.g866[id=\"sc-16qvs7z\"]{content:\"edXWFx,\"}/*!sc*/ .efOLNj{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;min-width:20px;padding:3px 3px 0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;text-align:center;font-weight:400;font-size:10px;font-size:1rem;-webkit-text-decoration:none;text-decoration:none;pointer-events:none;border-radius:50%;-webkit-transition:left 0.3s ease-out;transition:left 0.3s ease-out;border-radius:10px;height:20px;background-color:#f33;}/*!sc*/ .cBmrng{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;min-width:20px;padding:3px 3px 0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;text-align:center;font-weight:400;font-size:10px;font-size:1rem;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ data-styled.g867[id=\"sc-lwrg1j\"]{content:\"efOLNj,cBmrng,\"}/*!sc*/ .gMxBPT{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}/*!sc*/ .gMxBPT span{font-weight:500;}/*!sc*/ .gMxBPT > div:first-child{width:48%;}/*!sc*/ .gMxBPT > div:first-child > div a{font-size:14px;font-size:1.4rem;line-height:1;min-height:0;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ .gMxBPT > div:first-child > div a span{font-size:14px;font-size:1.4rem;color:#f33;}/*!sc*/ @media print{.gMxBPT > div:first-child > div a span{color:#000000;}}/*!sc*/ .gMxBPT > div:first-child a{padding:0;-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ .gMxBPT > div:first-child a > span:nth-child(2){margin-left:0;}/*!sc*/ .gMxBPT > div:first-child div{padding:0;}/*!sc*/ .gMxBPT > div:first-child div ul{margin-top:8px;}/*!sc*/ .gMxBPT > div:first-child rect,.gMxBPT > div:first-child path{fill:#f33;}/*!sc*/ @media print{.gMxBPT > div:first-child rect,.gMxBPT > div:first-child path{fill:#000000;}}/*!sc*/ data-styled.g868[id=\"sc-qermv0\"]{content:\"gMxBPT,\"}/*!sc*/ .ckoqGi{margin-top:12px;background:#484848;color:#ffffff;}/*!sc*/ data-styled.g869[id=\"sc-1ye7nbn\"]{content:\"ckoqGi,\"}/*!sc*/ .kXmKNc{max-width:1024px;margin:0 auto;padding:24px;}/*!sc*/ @media (min-width:960px){.kXmKNc{padding:24px 40px;}}/*!sc*/ @media (min-width:768px){.kXmKNc{padding-bottom:0;}}/*!sc*/ @media (min-width:320px)and (max-width:767px){.kXmKNc{padding:24px 16px;}}/*!sc*/ data-styled.g870[id=\"sc-1xpaml1\"]{content:\"kXmKNc,\"}/*!sc*/ .hKzLqH{color:#C0C0C0;font-size:14px;font-size:1.4rem;line-height:1.3;font-weight:500;margin:8px 0;}/*!sc*/ @media print{.hKzLqH{color:#000000;}}/*!sc*/ data-styled.g871[id=\"sc-ugiivj\"]{content:\"hKzLqH,\"}/*!sc*/ .fkACSJ{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;font-weight:400;cursor:pointer;line-height:normal;margin-bottom:8px;padding-right:16px;}/*!sc*/ @media (min-width:768px){.fkACSJ{padding-right:0;}}/*!sc*/ data-styled.g872[id=\"sc-1htmuhf\"]{content:\"fkACSJ,\"}/*!sc*/ .hQTyIh{-webkit-text-decoration:none;text-decoration:none;color:#ffffff;-webkit-text-decoration:none;text-decoration:none;font-size:14px;font-size:1.4rem;font-weight:400;}/*!sc*/ .hQTyIh:hover{color:#f33;}/*!sc*/ @media print{.hQTyIh{color:#000000;}}/*!sc*/ .geiolm{-webkit-text-decoration:none;text-decoration:none;color:#f33;-webkit-text-decoration:none;text-decoration:none;font-size:14px;font-size:1.4rem;font-weight:500;}/*!sc*/ .geiolm:hover{color:#f33;}/*!sc*/ @media print{.geiolm{color:#000000;}}/*!sc*/ data-styled.g873[id=\"sc-1yasr0l\"]{content:\"hQTyIh,geiolm,\"}/*!sc*/ .iCuNBk{margin-top:16px;margin-bottom:0;list-style-type:none;padding-left:0;}/*!sc*/ .iCuNBk li:last-child{margin-bottom:0;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.iCuNBk li{width:50%;float:left;}.iCuNBk li:after{content:\" \";display:block;clear:both;}.iCuNBk li:nth-child(2n + 1){clear:both;}}/*!sc*/ data-styled.g874[id=\"sc-m5tuss\"]{content:\"iCuNBk,\"}/*!sc*/ .jgbLsG{margin-bottom:8px;margin-top:16px;padding-right:0;font-weight:500;color:#ffffff;}/*!sc*/ @media (min-width:320px)and (max-width:767px){.jgbLsG{width:calc(50% - 16px);}}/*!sc*/ .jgbLsG a{color:#ffffff;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;font-weight:400;}/*!sc*/ .jgbLsG a:hover{color:#f33;}/*!sc*/ @media print{.jgbLsG a{color:#000000;}}/*!sc*/ .jgbLsG *{text-align:left;font-size:14px;font-size:1.4rem;}/*!sc*/ .jgbLsG p{margin-top:0;margin-bottom:8px;}/*!sc*/ @media print{.jgbLsG{color:#000000;}}/*!sc*/ data-styled.g875[id=\"sc-12u9za\"]{content:\"jgbLsG,\"}/*!sc*/ @media (max-width:767px){.kjWfYX{display:none;}}/*!sc*/ data-styled.g876[id=\"sc-1dr5u0i\"]{content:\"kjWfYX,\"}/*!sc*/ @media (min-width:768px){.fSQauE{display:none;}}/*!sc*/ data-styled.g877[id=\"sc-o9yodl\"]{content:\"fSQauE,\"}/*!sc*/ .dUxIeu .sc-16qvs7z{min-width:53px;margin-left:16px;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}/*!sc*/ .dUxIeu .sc-ugiivj{margin:7px 0 8px;line-height:1.4;}/*!sc*/ .dUxIeu .sc-1htmuhf{line-height:1.5;}/*!sc*/ .dUxIeu .sc-12u9za{line-height:21px;}/*!sc*/ .dUxIeu .sc-12u9za > p{margin-bottom:10px;}/*!sc*/ data-styled.g878[id=\"sc-oxivpk-0\"]{content:\"dUxIeu,\"}/*!sc*/ .injSoH{margin:5px auto;padding:0 16px 8px;}/*!sc*/ @media (min-width:1030px){.injSoH{display:block;}}/*!sc*/ data-styled.g879[id=\"sc-64tjsp\"]{content:\"injSoH,\"}/*!sc*/ .bJJpko{background:#ECECEC;display:none;height:0px;}/*!sc*/ @media (max-width:941px){.bJJpko{display:none;}}/*!sc*/ data-styled.g880[id=\"sc-1mjfo33\"]{content:\"bJJpko,\"}/*!sc*/ .hICipT{font-weight:500;color:#909090;padding-top:24px;margin:0 auto;max-width:944px;}/*!sc*/ .hICipT a{margin:0px 4px;color:#f33;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ data-styled.g881[id=\"sc-hf72q0\"]{content:\"hICipT,\"}/*!sc*/ .bfjgYw{padding:32px;}/*!sc*/ data-styled.g882[id=\"sc-tk9upz\"]{content:\"bfjgYw,\"}/*!sc*/ .jSRJzO{padding:0;margin:0 auto;max-width:944px;}/*!sc*/ data-styled.g884[id=\"sc-dw4sy0\"]{content:\"jSRJzO,\"}/*!sc*/ .jXPrxV{position:absolute;min-height:1024px;width:100%;background:#000;left:0px;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;opacity:0;display:none;}/*!sc*/ data-styled.g885[id=\"sc-iokwlr\"]{content:\"jXPrxV,\"}/*!sc*/ .hETvqN{position:relative;z-index:5;-webkit-flex:0 0 300px;-ms-flex:0 0 300px;flex:0 0 300px;-webkit-transition:all 0.5s linear;transition:all 0.5s linear;background:#ffffff;}/*!sc*/ .hETvqN.collapsed{-webkit-flex:0 0 0;-ms-flex:0 0 0;flex:0 0 0;}/*!sc*/ data-styled.g913[id=\"sc-y2ycnd\"]{content:\"hETvqN,\"}/*!sc*/ .iPbCQA{position:fixed;height:100%;width:300px;-webkit-transition:all 0.5s linear;transition:all 0.5s linear;top:0;left:-317px;background:#ffffff;overflow:auto;}/*!sc*/ data-styled.g914[id=\"sc-1iyx523\"]{content:\"iPbCQA,\"}/*!sc*/ .dtdnNY{margin:8px 16px;height:1px;border-top:1px solid #ECECEC;}/*!sc*/ data-styled.g915[id=\"sc-1fdux4n\"]{content:\"dtdnNY,\"}/*!sc*/ .eHAmyr{position:relative;margin:0;padding:0;list-style:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;font-weight:bold;color:#2e2e2e;font-size:18px;font-size:1.8rem;line-height:1.6;background:#ECECEC;-webkit-transition:max-height 0.4s linear;transition:max-height 0.4s linear;height:auto;overflow:hidden;max-height:0;}/*!sc*/ .eHAmyr li a{font-weight:400;}/*!sc*/ .eHAmyr li:hover{background:#DCDCDC;}/*!sc*/ data-styled.g916[id=\"sc-1ii8k91\"]{content:\"eHAmyr,\"}/*!sc*/ .ApanZ{display:inline-block;width:0;height:0;border:4px solid transparent;border-top-width:6px;border-top-color:#909090;border-bottom:none;-webkit-transition:all 0.2s;transition:all 0.2s;}/*!sc*/ data-styled.g918[id=\"sc-1qdf9ba\"]{content:\"ApanZ,\"}/*!sc*/ .kWMQZJ{list-style:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;font-weight:500;color:#2e2e2e;font-size:18px;font-size:1.8rem;line-height:1.7;cursor:pointer;}/*!sc*/ .kWMQZJ a{-webkit-transition:all 0.2s linear;transition:all 0.2s linear;color:#2e2e2e;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ .kWMQZJ > a{padding:8px 24px;}/*!sc*/ .MZYCE{list-style:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;font-weight:500;color:#2e2e2e;font-size:18px;font-size:1.8rem;line-height:1.7;cursor:pointer;background:#ececec;}/*!sc*/ .MZYCE a{-webkit-transition:all 0.2s linear;transition:all 0.2s linear;color:#2e2e2e;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ .MZYCE > a{padding:8px 24px;}/*!sc*/ data-styled.g919[id=\"sc-o33qxp\"]{content:\"kWMQZJ,MZYCE,\"}/*!sc*/ .aQztd{color:#656565;font-weight:bold;font-size:14px;font-size:1.4rem;padding:8px 0;margin:0 24px;}/*!sc*/ .aQztd a,.aQztd a:active,.aQztd a:focus,.aQztd a:hover{-webkit-text-decoration:none;text-decoration:none;color:inherit;font-weight:500;}/*!sc*/ data-styled.g920[id=\"sc-16y4n26\"]{content:\"aQztd,\"}/*!sc*/ .hskyLV{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:8px 24px;}/*!sc*/ data-styled.g922[id=\"sc-6gtk49\"]{content:\"hskyLV,\"}/*!sc*/ .jNiyZ{-webkit-flex:1;-ms-flex:1;flex:1;text-align:right;}/*!sc*/ data-styled.g923[id=\"sc-1uro2gz\"]{content:\"jNiyZ,\"}/*!sc*/ .eelcsA{list-style-type:none;padding:0;}/*!sc*/ data-styled.g924[id=\"sc-1o1ksty\"]{content:\"eelcsA,\"}/*!sc*/ .jvMOvG{position:fixed;background:#fff;width:299px;padding-top:5px;z-index:1;}/*!sc*/ .jvMOvG .sc-64tjsp{display:block;}/*!sc*/ .jvMOvG .sc-64tjsp input{font-family:inherit;padding-left:8px;}/*!sc*/ data-styled.g925[id=\"sc-jnaleo\"]{content:\"jvMOvG,\"}/*!sc*/ .cXnClL{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-left:16px;}/*!sc*/ @media (min-width:992px){.cXnClL{display:none;}}/*!sc*/ data-styled.g926[id=\"sc-jls274\"]{content:\"cXnClL,\"}/*!sc*/ .ghCyEC{width:20px;height:20px;position:relative;top:-3px;margin-right:8px;}/*!sc*/ data-styled.g927[id=\"sc-1hdasfh\"]{content:\"ghCyEC,\"}/*!sc*/ .eSoDid{width:100%;height:2px;background:#909090;position:absolute;-webkit-transition:all 0.5s ease-in-out;transition:all 0.5s ease-in-out;}/*!sc*/ .eSoDid:first-child{top:8px;}/*!sc*/ .eSoDid:last-child{top:15px;}/*!sc*/ data-styled.g928[id=\"sc-okesdt\"]{content:\"eSoDid,\"}/*!sc*/ .foWXAr{padding:0 16px;}/*!sc*/ data-styled.g930[id=\"sc-h8ldyy\"]{content:\"foWXAr,\"}/*!sc*/ .dYQdYR{padding:0;height:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-weight:500;}/*!sc*/ .dYQdYR button{min-width:116px;border-radius:0;height:100%;padding:0 22px;cursor:pointer;background:#f33;}/*!sc*/ .dYQdYR button i{padding:0 2px 0 2px;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ @media (min-width:768px){.dYQdYR button i{padding:0 8px 0 2px;}}/*!sc*/ @media (max-width:946px){.dYQdYR button{min-width:78px;padding:0;}}/*!sc*/ .dYQdYR button:hover{box-shadow:none;background:#ee1818;}/*!sc*/ .dYQdYR button div{cursor:pointer;}/*!sc*/ data-styled.g931[id=\"sc-ur10ys\"]{content:\"dYQdYR,\"}/*!sc*/ .citiPs{position:relative;top:-2px;}/*!sc*/ .citiPs svg{width:18px;height:18px;}/*!sc*/ @media (max-width:946px){.citiPs svg{width:13px;height:13px;}}/*!sc*/ data-styled.g933[id=\"sc-9w5x3h\"]{content:\"citiPs,\"}/*!sc*/ .cOZbib{font-weight:500;font-size:16px;font-size:1.6rem;}/*!sc*/ @media (max-width:946px){.cOZbib{font-size:12px;font-size:1.2rem;}}/*!sc*/ data-styled.g934[id=\"sc-q9carf\"]{content:\"cOZbib,\"}/*!sc*/ .ifdMkE{display:none;width:100%;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}/*!sc*/ @media (min-width:992px){.ifdMkE{display:inline-block;}}/*!sc*/ data-styled.g936[id=\"sc-1y550m4\"]{content:\"ifdMkE,\"}/*!sc*/ @media (min-width:992px){.cuZROV{display:inline-block;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}}/*!sc*/ data-styled.g937[id=\"sc-h8sanj\"]{content:\"cuZROV,\"}/*!sc*/ @media (min-width:992px){.chYFIn{display:none;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}}/*!sc*/ data-styled.g938[id=\"sc-8ynjn0\"]{content:\"chYFIn,\"}/*!sc*/ .hzCORX{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:40px;padding:0 16px;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;}/*!sc*/ data-styled.g940[id=\"sc-198dl1n\"]{content:\"hzCORX,\"}/*!sc*/ .fmbRTe{display:inline-block;position:relative;}/*!sc*/ data-styled.g941[id=\"sc-ptdyw2\"]{content:\"fmbRTe,\"}/*!sc*/ .cDvJTi{position:absolute;top:calc(100% + 0px);width:284px;height:auto;z-index:100;overflow:auto;max-height:0px;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;}/*!sc*/ .bfgsAO{position:absolute;top:calc(100% + 0px);width:200px;height:auto;z-index:100;overflow:auto;max-height:0px;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;}/*!sc*/ data-styled.g942[id=\"sc-1xg6l8b\"]{content:\"cDvJTi,bfgsAO,\"}/*!sc*/ .lpqLcX{font-weight:500;background:rgba(255,255,255,0.95);height:80px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;z-index:5;}/*!sc*/ .lpqLcX a,.lpqLcX a:active,.lpqLcX a:focus,.lpqLcX a:hover{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/ @media (max-width:992px){.lpqLcX{height:48px;}}/*!sc*/ .lpqLcX .containerWrapper{max-width:1024px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:stretch;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;margin:auto;width:100%;height:100%;}/*!sc*/ data-styled.g943[id=\"sc-10b50mm\"]{content:\"lpqLcX,\"}/*!sc*/ .kNEgUR{-webkit-transition:background-color 0.2s linear;transition:background-color 0.2s linear;}/*!sc*/ .kNEgUR:hover{background:#ECECEC;}/*!sc*/ data-styled.g944[id=\"sc-97xqz4\"]{content:\"kNEgUR,\"}/*!sc*/ .jSexvG{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:40px;font-weight:500;}/*!sc*/ .jSexvG:hover{background:#ECECEC;}/*!sc*/ .jSexvG a{padding:28px 15px;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;color:#2e2e2e;cursor:default;}/*!sc*/ .gPBtNU{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:40px;font-weight:500;background:#ECECEC;}/*!sc*/ .gPBtNU:hover{background:#ECECEC;}/*!sc*/ .gPBtNU a{padding:28px 15px;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;color:#2e2e2e;cursor:pointer;}/*!sc*/ .dDLDPG{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:40px;font-weight:500;}/*!sc*/ .dDLDPG:hover{background:#ECECEC;}/*!sc*/ .dDLDPG a{padding:28px 15px;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;color:#2e2e2e;cursor:pointer;}/*!sc*/ data-styled.g945[id=\"sc-11rippv\"]{content:\"jSexvG,gPBtNU,dDLDPG,\"}/*!sc*/ .ikxfqj.ikxfqj{display:inline;padding-left:8px;position:relative;top:-2px;}/*!sc*/ .ikxfqj.ikxfqj svg path{fill:#909090;fill-opacity:1;}/*!sc*/ .sc-11rippv:hover .ikxfqj.ikxfqj svg path{fill:#2e2e2e;}/*!sc*/ .lsevw.lsevw{display:none;padding-left:8px;position:relative;top:-2px;}/*!sc*/ .lsevw.lsevw svg path{fill:#909090;fill-opacity:1;}/*!sc*/ .sc-11rippv:hover .lsevw.lsevw svg path{fill:#2e2e2e;}/*!sc*/ data-styled.g947[id=\"sc-sdgjuj\"]{content:\"ikxfqj,lsevw,\"}/*!sc*/ .kgfZni{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-left:auto;-webkit-transition:all 0.2s linear;transition:all 0.2s linear;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;height:80px;}/*!sc*/ @media (max-width:991px){.kgfZni{height:48px;}}/*!sc*/ data-styled.g950[id=\"sc-1eniwgp\"]{content:\"kgfZni,\"}/*!sc*/ .dCeQWI{position:fixed;height:100%;width:100%;background:#000;top:0;left:0;-webkit-transition:all 0.5s ease-in-out 0.5s;transition:all 0.5s ease-in-out 0.5s;opacity:0;display:none;}/*!sc*/ .dCeQWI.show{display:block;opacity:0.8;-webkit-transition:all 0.5s ease-in-out;transition:all 0.5s ease-in-out;}/*!sc*/ data-styled.g951[id=\"sc-13m9v2u\"]{content:\"dCeQWI,\"}/*!sc*/ .hjoEOt{position:relative;left:-16px;padding:10px 0 0;-webkit-text-decoration:none;text-decoration:none;display:inline-block;}/*!sc*/ @media (min-width:992px){.hjoEOt{display:none;}}/*!sc*/ data-styled.g953[id=\"sc-19mhqee\"]{content:\"hjoEOt,\"}/*!sc*/ .jPPLgA{height:100%;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-text-decoration:none;text-decoration:none;background:transparent;display:none;cursor:pointer;}/*!sc*/ @media (min-width:992px){.jPPLgA{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/ data-styled.g954[id=\"sc-14cltyl\"]{content:\"jPPLgA,\"}/*!sc*/ .JLyha{list-style-type:none;margin:0;padding:0;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:none;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;}/*!sc*/ @media (min-width:992px){.JLyha{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/ data-styled.g955[id=\"sc-jgwm9z\"]{content:\"JLyha,\"}/*!sc*/ .kHwkrd{font-size:1.4rem;color:#ffffff;}/*!sc*/ .kHwkrd:hover{background:#484848;}/*!sc*/ .kHwkrd a:active,.kHwkrd a:focus,.kHwkrd a:hover{-webkit-text-decoration:none;text-decoration:none;color:inherit;}/*!sc*/ data-styled.g957[id=\"sc-n1p7po\"]{content:\"kHwkrd,\"}/*!sc*/ .iApHFm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:0 16px;min-height:40px;cursor:default;font-size:14px;font-size:1.4rem;font-weight:500;}/*!sc*/ data-styled.g959[id=\"sc-1yodkbp\"]{content:\"iApHFm,\"}/*!sc*/ .dURMPo.dURMPo{padding-left:8px;position:relative;top:-1px;}/*!sc*/ .dURMPo.dURMPo svg path{fill:#ffffff;}/*!sc*/ .sc-1yodkbp:hover .dURMPo.dURMPo svg path{fill:#ffffff;fill-opacity:1;}/*!sc*/ data-styled.g960[id=\"sc-1auoolq\"]{content:\"dURMPo,\"}/*!sc*/ .jWNvuS.jWNvuS{background:#2e2e2e;color:#ffffff;-webkit-transition:all 0.3s linear;transition:all 0.3s linear;height:40px;}/*!sc*/ @media (max-width:991px){.jWNvuS.jWNvuS{display:none;}}/*!sc*/ .jWNvuS.jWNvuS a,.jWNvuS.jWNvuS a:active,.jWNvuS.jWNvuS a:focus,.jWNvuS.jWNvuS a:hover{-webkit-text-decoration:none;text-decoration:none;color:inherit;}/*!sc*/ data-styled.g964[id=\"sc-1gynbet\"]{content:\"jWNvuS,\"}/*!sc*/ .brkUwZ{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-right:24px;}/*!sc*/ .brkUwZ > a:hover{background:#484848;}/*!sc*/ .brkUwZ > a{height:40px;max-height:40px;min-height:40px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/ data-styled.g965[id=\"sc-1le3tym\"]{content:\"brkUwZ,\"}/*!sc*/ .iiUWYP{padding:0 16px;font-size:14px;font-size:1.4rem;font-weight:500;}/*!sc*/ data-styled.g966[id=\"sc-m8kzd6\"]{content:\"iiUWYP,\"}/*!sc*/ .kuPXRV{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}/*!sc*/ .kuPXRV *{box-sizing:border-box;}/*!sc*/ data-styled.g968[id=\"sc-1mwx759\"]{content:\"kuPXRV,\"}/*!sc*/ .cDCgAF{-webkit-transition:all 0.3s linear;transition:all 0.3s linear;-webkit-transition-property:height,width,padding,margin,top;transition-property:height,width,padding,margin,top;box-shadow:0 2px 1px rgba(0,0,0,0.1);width:100%;}/*!sc*/ .cDCgAF:before{display:block;position:relative;z-index:5;content:\"\";height:4px;background:#2e2e2e;}/*!sc*/ @media (min-width:992px){.cDCgAF:before{display:none;}}/*!sc*/ data-styled.g969[id=\"sc-1npeyfp\"]{content:\"cDCgAF,\"}/*!sc*/ .GvEsl{position:fixed;top:0;left:0;width:100%;z-index:1001;z-index:990;}/*!sc*/ .GvEsl .sc-10b50mm{background-color:rgba(255,255,255,0.95);}/*!sc*/ .GvEsl .sc-8ynjn0{position:relative;left:-13px;-webkit-transform:scale(0.87);-ms-transform:scale(0.87);transform:scale(0.87);}/*!sc*/ .GvEsl header[data-view-mode='mega'] .sc-198dl1n{-webkit-flex-direction:row-reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse;}/*!sc*/ @media (min-width:992px){.GvEsl header[data-view-mode='mega'] .sc-8ynjn0{display:inline-block;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);left:0px;}}/*!sc*/ data-styled.g982[id=\"sc-exlyxv-0\"]{content:\"GvEsl,\"}/*!sc*/ You are in Personal Banking ATM &amp; Branch Help &amp; Support Popular searches DBS digibank HK, Debit Card, Time Deposit, Foreign Exchange, Digital Token, Credit Card Promotions Banking Accounts",
-      "Promotions",
-      "Login Popular searches DBS digibank HK, Debit Card, Time Deposit, Foreign Exchange, Digital Token, Credit Card Promotions Credit Cards Credit Cards DBS Black World Mastercard ®",
-      "Spending Privilege",
-      "Welcome Offers",
-      "Selected Travel Offers",
-      "Other Promotions",
-      "Spending Protection &amp; Useful Information",
-      "Up to 32,000 miles Welcome Offer",
-      "As low as HK$2 = 1 Mile on Overseas Spending",
-      "HK$6 = 1 mile on Local Spending",
-      "Black is the New Distinction Earn More Miles on Every Spend",
-      "Enjoy as low as HK$2 = 1 mile on overseas spending!",
-      "Spending Privilege",
-      "Double Spending Rewards – Earn up to 30,000 miles on local spending",
-      "Overseas spendings enjoy up to extra 3,000 miles",
-      "Single net spending of the designated amount using the designated promotion code to enjoy the offer",
-      "Online or Travel Merchant Spending InstaRedeem Upgrade Offer",
-      "Use DBS$8 equivalent to HK$10 to offset relevant spending",
-      "Enjoy 3 times 50% one-off handling fee rebate on travel merchant spending instalments",
-      "Welcome offers",
-      "Selected Travel Offers",
-      "Other Promotions",
-      "Spending Protection &amp; Useful Information Shopping Protection When you encounter situation(s) such as having received damaged or defective goods, or the goods or services being not matched with what was described, or not having received the goods or services ordered, you should contact the merchant which sold you the goods or services immediately and resolve any complaints about such goods or services directly with the merchant. If you cannot resolve the matter with the merchant or are unable to contact the merchant because it has ceased business, you can contact us for assisting you to dispute the transaction through the chargeback mechanism provided by the relevant card association. The chargeback mechanism is a form of customer protection provided by the relevant card association which allows cardholder to file a complaint regarding disputed transactions. Once the cardholder files a dispute, the card issuing bank will conduct an investigation into the complaint by requesting the concerned merchant to submit proof through its bank (“card acquiring bank”). Once the chargeback request is proven to be valid, the card acquiring bank will refund the disputed transaction amount to the cardholder via the card issuing bank. Cardholder may be charged with a processing fee by the relevant card association in certain circumstances.",
-      "Important Note: The chargeback mechanism is not applicable to purchases with credit cards through the use of Card Interest-Free Instalment Loan offered by us.",
-      "Use of your credit card shall always be subject to DBS Personal Credit Card Terms and Conditions, DBS$ / COMPASS CARD Reward Scheme Terms and Conditions and DBS$ / COMPASS Dollar Redemption Offer Terms and Conditions.",
-      "^ “New Customers” refer to applicants who, during the approval process of the New Card, have not applied for, do not hold, or have not held and/or cancelled any DBS credit card principal card (including DBS co-branded cards, but excluding DBS corporate cards) issued by the Bank within the 12 months prior to the New Card application date. &quot;Existing Customers&quot; refer to applicants who, during the approval process of the New Card, have applied for, hold, or have held and/or cancelled any DBS credit card (including DBS co-branded cards, but excluding DBS corporate cards) issued by the Bank within the 12 months prior to the New Card application date. ** Credit card application may not be approved instantly through DBS Card+ app for some individual reasons. The Bank may request other documents from you, like address proof and income proof, for application approval. The credit card application is subject to the Bank’s final approval. * Welcome Offer is subject to Welcome Offer Terms and Conditions .",
-      "@ Credit Card New Customer Flexi Shopping offer is bounded by the Terms and Conditions .",
-      "The terms and conditions relating to this promotion campaign is available for download at our website from now until 7 days after the end of the promotional period. Customers may not be able to access or download such version of the information subsequent to the expiry of the specified timeframe. You are advised to download and store a copy for future reference. If you do not agree or have no online access to the terms and conditions, you may contact our Customer Services and request for a physical copy.",
-      "Promotion Terms and Conditions"
+      "新客戶專享4.5%活期存款年利率（HKD3,000,000或以下的存款）",
+      "免年費（立即申請，24/7，免年費）"
     ],
-    "sourceUrl": "https://www.dbs.com.hk/personal/credit-cards/credit-cards/black-mc?pid=hk-personal-en-card-comparator-blackMC",
-    "contentHash": "1cf8a3554c5618679aa8a13b1406cc33910529f4e515d2f55c45c5030d795204",
-    "fetchedAt": "2025-10-12T11:46:39.603Z"
+    "sourceUrl": "https://mox.com/zh/features/mox-credit/",
+    "contentHash": "4e8795205438610d1081feade7d7d5117573d0e939f0a185b9e5dd751697f85c",
+    "fetchedAt": "2025-10-17T13:20:04.387Z",
+    "provenance": {
+      "snapshot_id": "4e8795205438610d1081feade7d7d5117573d0e939f0a185b9e5dd751697f85c",
+      "model": "openai/gpt-5-mini",
+      "fields": {
+        "cardName": {
+          "value": "Mox Credit",
+          "confidence": 0.95,
+          "sourceSpan": {
+            "text": "Mox Credit¹ Mox信用卡消費獎賞，賺里數定CashBack，隨時隨地想點揀就點揃！"
+          }
+        },
+        "baseRate": {
+          "value": null,
+          "confidence": 0,
+          "sourceSpan": {
+            "text": "Not mentioned in content"
+          }
+        },
+        "annualFee": {
+          "value": 0,
+          "confidence": 0.98,
+          "sourceSpan": {
+            "text": "立即申請，24/7，免年費"
+          }
+        },
+        "fx": {
+          "issuerFeePct": {
+            "value": 0,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "0%外幣交易手續費！用Mox信用卡於全世界任何地方消費均免外幣交易手續費。海外旅行定網購，手續費同樣都係零，真正0%！"
+            }
+          },
+          "networkMarkupPct": {
+            "value": null,
+            "confidence": 0,
+            "sourceSpan": {
+              "text": "Not mentioned in content"
+            }
+          }
+        },
+        "rules": [
+          {
+            "category": "general",
+            "rate": 4,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "由2024年11月4日起，當你進行有關Mox信用卡合資格交易時的合資格結餘達HKD250,000或以上，你可獲得無上限HKD4=1「亞洲萬里通」里數。"
+            }
+          },
+          {
+            "category": "general",
+            "rate": 8,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "由2024年11月4日至2025年12月31日（包括首尾兩日），當你進行Mox信用卡合資格交易時的合資格結餘低於HKD250,000，你的消費可享無上限HKD8=1「亞洲萬里通」里數。"
+            }
+          },
+          {
+            "category": "general",
+            "rate": 10,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "由2026年1月1日起，當你進行Mox信用卡合資格交易時的合資格結餘低於HKD250,000，你可享無上限HKD10=1「亞洲萬里通」里數。"
+            }
+          },
+          {
+            "category": "general",
+            "rate": 2,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "由2024年11月4日起，當你進行合資格Mox信用卡交易時的合資格結餘達港幣250,000元或以上，你可獲得2%無上限CashBack。"
+            }
+          },
+          {
+            "category": "general",
+            "rate": 1,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "由2024年11月4日起，當你進行合資格Mox信用卡交易時的合資格結餘低於港幣250,000元，你的消費可享1%無上限CashBack。"
+            }
+          },
+          {
+            "category": "supermarket",
+            "rate": 3,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "超市消費都可以賺3%無上限CashBack⁶"
+            }
+          }
+        ],
+        "promotions": [
+          {
+            "text": "新客戶專享4.5%活期存款年利率（HKD3,000,000或以下的存款）",
+            "confidence": 0.9,
+            "sourceSpan": {
+              "text": "新客戶專享4.5%活期存款年利率（HKD3,000,000或以下的存款）⁷，合資格戶口結餘滿HKD250,000，即時解鎖2%無上限CashBack"
+            }
+          },
+          {
+            "text": "免年費（立即申請，24/7，免年費）",
+            "confidence": 0.85,
+            "sourceSpan": {
+              "text": "立即申請，24/7，免年費"
+            }
+          }
+        ]
+      }
+    }
   },
   "validation": {
     "valid": true,
     "issues": [],
     "mappedCategories": [
       "general",
-      "travel"
+      "general",
+      "general",
+      "general",
+      "general",
+      "supermarket"
     ]
   },
   "publishResult": {
-    "cardKey": "dbs-black-world-mastercard-hk",
-    "version": "1",
-    "r2Key": "rulesets/dbs-black-world-mastercard-hk/v1.json",
-    "contentHash": "1cf8a3554c5618679aa8a13b1406cc33910529f4e515d2f55c45c5030d795204"
+    "cardKey": "mox-credit-hk",
+    "version": "7",
+    "r2Key": "rulesets/mox-credit-hk/v7.json",
+    "contentHash": "4e8795205438610d1081feade7d7d5117573d0e939f0a185b9e5dd751697f85c"
   }
+}
+
+{
+  "status": "published",
+  "ruleset": {
+    "cardName": "Mox Credit",
+    "region": "hk",
+    "currency": "HKD",
+    "baseRate": 1,
+    "rules": [
+      {
+        "category": "general",
+        "rate": 0,
+        "description": "任何消費 HKD4=1 里數（亞洲萬里通），無上限 (Conditions: 合資格結餘達HKD250,000或以上；由2024年11月4日起)",
+        "rewardType": "miles",
+        "unit": "hkd_per_mile",
+        "rateValue": 4,
+        "stacking": "choose_one",
+        "merchants": [],
+        "source": "https://mox.com/zh/features/mox-credit/",
+        "sources": [
+          "https://mox.com/zh/features/mox-credit/"
+        ]
+      },
+      {
+        "category": "general",
+        "rate": 0,
+        "description": "任何消費 HKD8=1 里數（亞洲萬里通），無上限（指定期間） (Conditions: 合資格結餘低於HKD250,000；2024年11月4日至2025年12月31日)",
+        "rewardType": "miles",
+        "unit": "hkd_per_mile",
+        "rateValue": 8,
+        "stacking": "choose_one",
+        "merchants": [],
+        "source": "https://mox.com/zh/features/mox-credit/",
+        "sources": [
+          "https://mox.com/zh/features/mox-credit/"
+        ]
+      },
+      {
+        "category": "general",
+        "rate": 0,
+        "description": "任何消費 HKD10=1 里數（亞洲萬里通），無上限（2026年起低結餘） (Conditions: 合資格結餘低於HKD250,000；由2026年1月1日起)",
+        "rewardType": "miles",
+        "unit": "hkd_per_mile",
+        "rateValue": 10,
+        "stacking": "choose_one",
+        "merchants": [],
+        "source": "https://mox.com/zh/features/mox-credit/",
+        "sources": [
+          "https://mox.com/zh/features/mox-credit/"
+        ]
+      },
+      {
+        "category": "general",
+        "rate": 2,
+        "description": "任何消費 2% 無上限 CashBack (Conditions: 合資格結餘達HKD250,000或以上；由2024年11月4日起)",
+        "rewardType": "cashback",
+        "unit": "%",
+        "rateValue": 2,
+        "stacking": "choose_one",
+        "merchants": [],
+        "source": "https://mox.com/zh/features/mox-credit/",
+        "sources": [
+          "https://mox.com/zh/features/mox-credit/"
+        ]
+      },
+      {
+        "category": "general",
+        "rate": 1,
+        "description": "任何消費 1% 無上限 CashBack (Conditions: 合資格結餘低於HKD250,000；由2024年11月4日起)",
+        "rewardType": "cashback",
+        "unit": "%",
+        "rateValue": 1,
+        "stacking": "choose_one",
+        "merchants": [],
+        "source": "https://mox.com/zh/features/mox-credit/",
+        "sources": [
+          "https://mox.com/zh/features/mox-credit/"
+        ]
+      },
+      {
+        "category": "supermarket",
+        "rate": 3,
+        "description": "超市及雜貨店 3% 無上限 CashBack (Conditions: MasterCard Asia/Pacific (Hong Kong) Limited所釐定為「超市及雜貨店」之商戶；由2023年9月26起)",
+        "rewardType": "cashback",
+        "unit": "%",
+        "rateValue": 3,
+        "stacking": "choose_one",
+        "merchants": [],
+        "source": "https://mox.com/zh/features/mox-credit/",
+        "sources": [
+          "https://mox.com/zh/features/mox-credit/"
+        ]
+      }
+    ],
+    "annualFee": 0,
+    "fxFee": null,
+    "fx": {
+      "issuerFeePct": 0,
+      "networkMarkupPct": null,
+      "effectivePct": null,
+      "notes": null
+    },
+    "promotions": [
+      "0%外幣交易手續費（受推廣優惠條款及細則約束）",
+      "新客戶專享4.5%活期存款年利率（HKD3,000,000或以下的存款），合資格戶口結餘滿HKD250,000，即時解鎖2%無上限CashBack"
+    ],
+    "sourceUrl": "https://mox.com/zh/features/mox-credit/",
+    "contentHash": "559b49cf9326607372c32f905601852a360b924d666353753b83986936a1637b",
+    "fetchedAt": "2025-10-17T13:23:33.667Z",
+    "provenance": {
+      "snapshot_id": "559b49cf9326607372c32f905601852a360b924d666353753b83986936a1637b",
+      "model": "openai/gpt-5",
+      "fields": {
+        "cardName": {
+          "value": "Mox Credit",
+          "confidence": 0.95,
+          "sourceSpan": {
+            "text": "Mox Credit¹"
+          }
+        },
+        "baseRate": {
+          "value": 1,
+          "confidence": 0.78,
+          "sourceSpan": {
+            "text": "即使戶口合資格戶口結餘未達要求，你亦享有1%無上限CashBack。"
+          }
+        },
+        "annualFee": {
+          "value": 0,
+          "confidence": 0.95,
+          "sourceSpan": {
+            "text": "立即申請，24/7，免年費"
+          }
+        },
+        "fx": {
+          "issuerFeePct": {
+            "value": 0,
+            "confidence": 0.9,
+            "sourceSpan": {
+              "text": "0%外幣交易手續費！用Mox信用卡於全世界任何地方消費均免外幣交易手續費。海外旅行定網購，手續費同樣都係零，真正0%！"
+            }
+          },
+          "networkMarkupPct": {
+            "value": null,
+            "confidence": 0,
+            "sourceSpan": {
+              "text": "Not mentioned in content"
+            }
+          }
+        },
+        "rules": [
+          {
+            "category": "general",
+            "rate": 4,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "由2024年11月4日起，當你進行有關Mox信用卡合資格交易時的合資格結餘達HKD250,000或以上，你可獲得無上限HKD4=1「亞洲萬里通」里數。"
+            }
+          },
+          {
+            "category": "general",
+            "rate": 8,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "由2024年11月4日至2025年12月31日（包括首尾兩日），當你進行Mox信用卡合資格交易時的合資格結餘低於HKD250,000，你的消費可享無上限HKD8=1「亞洲萬里通」里數。"
+            }
+          },
+          {
+            "category": "general",
+            "rate": 10,
+            "confidence": 0.95,
+            "sourceSpan": {
+              "text": "由2026年1月1日起，當你進行Mox信用卡合資格交易時的合資格結餘低於HKD250,000，你可享無上限HKD10=1「亞洲萬里通」里數。"
+            }
+          },
+          {
+            "category": "general",
+            "rate": 2,
+            "confidence": 0.93,
+            "sourceSpan": {
+              "text": "由2024年11月4日起，當你進行合資格Mox信用卡交易時的合資格結餘達港幣250,000元或以上，你可獲得2%無上限CashBack。"
+            }
+          },
+          {
+            "category": "general",
+            "rate": 1,
+            "confidence": 0.93,
+            "sourceSpan": {
+              "text": "由2024年11月4日起，當你進行合資格Mox信用卡交易時的合資格結餘低於港幣250,000元，你的消費可享1%無上限CashBack。"
+            }
+          },
+          {
+            "category": "supermarket",
+            "rate": 3,
+            "confidence": 0.92,
+            "sourceSpan": {
+              "text": "由2023年9月26起，以Mox Credit於MasterCard Asia/Pacific (Hong Kong) Limited所釐定為「超市及雜貨店」之商戶進行的合資格交易金額可獲得無上限3% CashBack。"
+            }
+          }
+        ],
+        "promotions": [
+          {
+            "text": "0%外幣交易手續費（受推廣優惠條款及細則約束）",
+            "confidence": 0.82,
+            "sourceSpan": {
+              "text": "受 0%外幣及海外商戶簽賬手續費推廣優惠條款及細則 約束。"
+            }
+          },
+          {
+            "text": "新客戶專享4.5%活期存款年利率（HKD3,000,000或以下的存款），合資格戶口結餘滿HKD250,000，即時解鎖2%無上限CashBack",
+            "confidence": 0.8,
+            "sourceSpan": {
+              "text": "新客戶專享4.5%活期存款年利率（HKD3,000,000或以下的存款）⁷，合資格戶口結餘滿HKD250,000，即時解鎖2%無上限CashBack"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "validation": {
+    "valid": true,
+    "issues": [],
+    "mappedCategories": [
+      "general",
+      "general",
+      "general",
+      "general",
+      "general",
+      "supermarket"
+    ]
+  },
+  "publishResult": {
+    "cardKey": "mox-credit-hk",
+    "version": "8",
+    "r2Key": "rulesets/mox-credit-hk/v8.json",
+    "contentHash": "559b49cf9326607372c32f905601852a360b924d666353753b83986936a1637b"
+  }
+}
+
+{
+  "status": "needs_review",
+  "ruleset": {
+    "cardName": "Unknown Card",
+    "region": "hk",
+    "currency": "HKD",
+    "baseRate": 0,
+    "rules": [],
+    "annualFee": null,
+    "fxFee": null,
+    "fx": {
+      "issuerFeePct": null,
+      "networkMarkupPct": null,
+      "effectivePct": null,
+      "notes": null
+    },
+    "promotions": [],
+    "sourceUrl": "https://www.hsbc.com.hk/credit-cards/products/red/",
+    "contentHash": "08b1bd495d811b8ca737dd79c5536015dfada41772913bbf12699eab0b0ce048",
+    "fetchedAt": "2025-10-17T13:28:08.801Z",
+    "provenance": {
+      "snapshot_id": "08b1bd495d811b8ca737dd79c5536015dfada41772913bbf12699eab0b0ce048",
+      "model": "openai/gpt-5",
+      "fields": {
+        "cardName": {
+          "value": null,
+          "confidence": 0,
+          "sourceSpan": {
+            "text": "Not mentioned in content"
+          }
+        },
+        "baseRate": {
+          "value": null,
+          "confidence": 0,
+          "sourceSpan": {
+            "text": "Not mentioned in content"
+          }
+        },
+        "annualFee": {
+          "value": null,
+          "confidence": 0,
+          "sourceSpan": {
+            "text": "Not mentioned in content"
+          }
+        },
+        "fx": {
+          "issuerFeePct": {
+            "value": null,
+            "confidence": 0,
+            "sourceSpan": {
+              "text": "Not mentioned in content"
+            }
+          },
+          "networkMarkupPct": {
+            "value": null,
+            "confidence": 0,
+            "sourceSpan": {
+              "text": "Not mentioned in content"
+            }
+          }
+        },
+        "rules": [],
+        "promotions": []
+      }
+    }
+  },
+  "validation": {
+    "valid": false,
+    "issues": [
+      {
+        "field": "cardName",
+        "message": "Card name missing or invalid (found: Unknown Card)"
+      },
+      {
+        "field": "rules",
+        "message": "No reward information found. Must have baseRate > 0 or at least one category rule."
+      }
+    ],
+    "mappedCategories": []
+  }
+}

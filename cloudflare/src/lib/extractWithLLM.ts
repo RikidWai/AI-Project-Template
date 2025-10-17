@@ -165,12 +165,7 @@ export async function extractWithLLM(
     }
   ];
   // Available models (change this line to switch):
-  const model = "google/gemini-2.5-flash-lite-preview-06-17"; // ⭐ Recommended: Fast, cheap, good quality
-  // Alternatives:
-  // "google/gemini-flash-1.5" - Also works, slightly older
-  // "qwen/qwen-2.5-72b-instruct" - Best for Chinese
-  // "meta-llama/llama-3.1-70b-instruct" - Often FREE!
-  // "openai/gpt-4o-mini" - Familiar model
+  const model = "google/gemini-2.5-pro";
 
   const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
